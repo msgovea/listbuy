@@ -26,5 +26,6 @@
     <string name="fb_register">             Sign up with Facebook               </string>
     <string name="gplus_login">             Sign in with Google+                </string>
     <string name="gplus_register">          Sign up with Google+                </string>
-    <string name="or">OR</string>
+    <string name="or">                      OR                                  </string>
+    <string name="facebook_app_id">         344862699183231                     </string>
 </resources>

@@ -2,6 +2,84 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layouttopo_luc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#69F0AE"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/layout_titulo_programa_luc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Meus dados "
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/txtnome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="[NOME]"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#69F0AE" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:text="Email :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/txtemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="[EMAIL]"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#69F0AE" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:text="Senha :"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/txtsenha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="[SENHA]"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#69F0AE" />
+    </LinearLayout>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

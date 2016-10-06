@@ -54,6 +54,11 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MainActivity.class));
+    }
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -103,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
 
+                        editor.putString("nome", mEmailView.getText().toString());
                         editor.putString("login", mEmailView.getText().toString());
                         editor.putString("senha", mPasswordView.getText().toString());
                         editor.commit();

@@ -62,6 +62,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -192,6 +198,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         editor.putString("login", mEmailView.getText().toString());
                         editor.putString("senha", mPasswordView.getText().toString());
+                        editor.putString("nome", mNameView.getText().toString());
                         editor.commit();
                         startActivity(new Intent(getApplicationContext(), Welcome.class));
                     } else {

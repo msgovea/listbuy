@@ -15,17 +15,27 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOME_PREFERENCE = "INFORMACOES_LOGIN_AUTOMATICO";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishActivity(1);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         SharedPreferences prefs = getSharedPreferences(NOME_PREFERENCE, MODE_PRIVATE);
         String login= prefs.getString("login", null);
-        String senha= prefs.getString("senha", null);
 
         if (login!= null) {
             startActivity(new Intent(this, Welcome.class));
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         findViewById(R.id.buttonLogin).setOnClickListener(new View.OnClickListener() {
             @Override
