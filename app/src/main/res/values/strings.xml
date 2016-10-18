@@ -1,5 +1,13 @@
 <resources>
-    <string name="app_name">ListBuy</string>
+    <string name="app_name">List Buy</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="title_activity_picture">Picture</string>
+
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_welcome_screen">Welcome</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">            Email                               </string>
@@ -27,5 +35,32 @@
     <string name="gplus_login">             Sign in with Google+                </string>
     <string name="gplus_register">          Sign up with Google+                </string>
     <string name="or">                      OR                                  </string>
-    <string name="facebook_app_id">         344862699183231                     </string>
+
+    <!-- talita -->
+
+    <string name="title_activity_adicionar_produtos">Add Products</string>
+    <string name="btnSalvar">Save</string>
+    <string name="txtQtd">Quantity</string>
+    <string name="btnok">Ok</string>
+    <string name="txtQuantidade">Quantity</string>
+    <string name="txtQtdade">Quantity</string>
+    <string name="txtnomeDesc">Description of Product</string>
+    <string name="btnOK">Ok</string>
+    <string name="txtUnida">Unit of Measurement</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="txtUnidades">Unit of Measurement</string>
+    <string name="btnExcluir">Delete</string>
+    <string name="txtcategoria">Selected Category</string>
+
+    <!-- cagada da talita -->
+    <string name="edtQtd" />
+    <string name="edtqtd" />
+    <string name="btnOk" />
+    <string name="txtUnidade" />
+    <string name="edtQuantidade" />
+    <string name="extProduto" />
+    <string name="edtUmed" />
+    <string name="editTextCategoria" />
+    <string name="txtCategoriaSet" />
+    <string name="txtSlectUn" />
 </resources>
