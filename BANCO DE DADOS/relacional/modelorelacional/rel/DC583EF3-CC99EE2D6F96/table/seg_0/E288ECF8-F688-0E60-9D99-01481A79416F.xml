@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E288ECF8-F688-0E60-9D99-01481A79416F" name="LISTAS_EVENTOS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:00:32 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_24</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_LISTA" id="7BFC736D-CA2D-AA10-043A-63D1A55E966D">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:03:33 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1BE59C69-6FD7-E016-E7F3-50FEF875BC3B" referredColumn="B5828875-9664-2AF8-54AE-01DAFBB46BCC"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="097249B1-4088-9EFB-D3D3-C26368259F50" name="LISTAS_EVENTOS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:23:34 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BFC736D-CA2D-AA10-043A-63D1A55E966D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D459B264-5D9C-85F3-1769-6AF69E53EA97" name="LISTAS_EVENTOS_LISTAS_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:03:33 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BFC736D-CA2D-AA10-043A-63D1A55E966D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

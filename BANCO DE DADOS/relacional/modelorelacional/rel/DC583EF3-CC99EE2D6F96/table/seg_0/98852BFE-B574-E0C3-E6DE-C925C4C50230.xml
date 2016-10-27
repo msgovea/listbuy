@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="98852BFE-B574-E0C3-E6DE-C925C4C50230" name="EVENTOS_X_PRODUTOS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:24:01 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_36</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_LISTA" id="6EDA1677-E113-9F1D-C45A-4137C5B6072B">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:25:15 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EC8C5A25-71EB-4A63-EE33-9C77C9EAE645" referredColumn="7BFC736D-CA2D-AA10-043A-63D1A55E966D"/>
+</associations>
+</Column>
+<Column name="ID_PRODUTO" id="237E6AB3-6E22-04A4-E176-66751AC4189C">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:25:15 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="17926C02-8F30-0BEB-14C8-73F477B38086" referredColumn="7952C948-71DB-9F24-73BE-A75FADCC3ECC"/>
+</associations>
+</Column>
+<Column name="ID_CONSUMIDOR_ASSIGN" id="8EF4D98B-4074-CC58-F71C-E037C5C80061">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:25:15 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E8C5C552-FF4A-FC13-2A40-DB4FA14B6E25" referredColumn="CC09A628-D999-3D84-384D-09451D46984C"/>
+</associations>
+</Column>
+<Column name="QUANTIDADE" id="AA9E476C-371D-CC62-443E-1F73705300B3">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:36:08 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_UNIDADE_MEDIDA" id="9C6B8BEB-61C0-3E20-8E0C-E80544E8E6D2">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:41:01 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="27AFECD0-42B3-EBD1-DC55-1F71C8AD86C5" referredColumn="244F9B00-AC31-B4E1-65C3-05BA339B706F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8441647A-E2F1-8B4B-3F03-69C6E2A7B200" name="EVENTOS_X_PRODUTOS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:25:31 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6EDA1677-E113-9F1D-C45A-4137C5B6072B"/>
+<colUsage columnID="237E6AB3-6E22-04A4-E176-66751AC4189C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4795CA75-8E91-EEEB-4C1F-86850D86EDD6" name="EVENT_X_PROD_PROD_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:25:56 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="237E6AB3-6E22-04A4-E176-66751AC4189C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D9F141C0-1073-6857-21A5-60AD431D8559" name="EVENT_X_PROD_LIST_EVENT_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:26:37 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6EDA1677-E113-9F1D-C45A-4137C5B6072B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5244118F-3385-09E6-1D6C-DEF784B5B278" name="EVENT_X_PROD_UNID_MED_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:43:25 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9C6B8BEB-61C0-3E20-8E0C-E80544E8E6D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8541AE9F-2373-9DA6-EFE1-B669DE7FDDE6" name="EVENTOS_X_PROD_CONS_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 20:00:36 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8EF4D98B-4074-CC58-F71C-E037C5C80061"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

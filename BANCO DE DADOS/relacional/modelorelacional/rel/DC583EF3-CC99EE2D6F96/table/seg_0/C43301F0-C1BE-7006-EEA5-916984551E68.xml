@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C43301F0-C1BE-7006-EEA5-916984551E68" name="LISTAS_PESSOAS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:00:18 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_23</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_LISTA" id="03C2FCC2-F7BC-D845-6B9C-DB08D4FCD8A6">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:02:16 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="37C977BD-02F2-9EA3-AF5D-09D740B63C89" referredColumn="B5828875-9664-2AF8-54AE-01DAFBB46BCC"/>
+</associations>
+</Column>
+<Column name="COMPARTILHADA" id="FA08A3F8-4602-8AAF-6AF3-3C2F81D8D5C2">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:02:16 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5F8C333F-E1CB-1CB3-508B-BC3906FF3577" name="LISTAS_PESSOAS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:02:16 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03C2FCC2-F7BC-D845-6B9C-DB08D4FCD8A6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0D2D11C6-17A5-F5CD-B763-078ED37EB720" name="LIST_PESSOAS_LIST_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:02:16 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03C2FCC2-F7BC-D845-6B9C-DB08D4FCD8A6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

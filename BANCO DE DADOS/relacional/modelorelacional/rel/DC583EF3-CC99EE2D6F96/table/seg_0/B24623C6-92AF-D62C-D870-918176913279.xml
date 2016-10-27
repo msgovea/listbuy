@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B24623C6-92AF-D62C-D870-918176913279" name="CONSUMIDOR">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 10:42:19 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CONSUMIDOR" id="CC09A628-D999-3D84-384D-09451D46984C">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:08 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="F61AA7C3-9F39-A88D-3F15-BBD23806E96E">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:08 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="8444D5D2-2D9B-2342-DD45-FCD180878F5F">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:08 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SENHA" id="2A9893E2-B049-6235-83FF-090389F643B2">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:08 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_TIPO_ACESSO" id="3BBAF1A9-4AC2-777D-B67D-49004F7C8A42">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:08 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A67CD4FD-9840-4830-4977-67DFEFF33643" referredColumn="686178D0-351E-A298-CA70-3B8579E31D38"/>
+</associations>
+</Column>
+<Column name="KEY_ACESSO" id="1EC9A57C-0368-E553-E569-2A1B59C13225">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:08 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FDA1A135-1143-3567-1015-02D96FA9607B" name="CONSUMIDOR_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:40:41 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CC09A628-D999-3D84-384D-09451D46984C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3048CF9C-CBF1-8C4F-1A44-7DC89EA4037F" name="CONSUM_TIP_ACESSO_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:38:41 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3BBAF1A9-4AC2-777D-B67D-49004F7C8A42"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="59D135B3-7E3C-3C3A-1145-B56DCE523861" name="OFERTAS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:54:23 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_44</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_OFERTA" id="91B66CE8-617E-C051-F1D9-E2655B993C31">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:56:17 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO" id="4C45E53B-30B1-0803-170B-3B74900E0D41">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:56:17 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="EDD676DC-8663-C934-34D6-C65A925EA683">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:56:17 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IMAGEM" id="17498D2B-1F45-9FCB-218A-41A52758C289">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:56:17 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CONSUMIDOR" id="AE8D2652-F41C-FB0C-AF1E-045399378147">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:58:55 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>100</dataTypePrecision>
+<ownDataTypeParameters>,100,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="54E02046-DEB8-F599-8AD1-724DA2787495" referredColumn="CC09A628-D999-3D84-384D-09451D46984C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="175AE018-677F-A7D3-11F9-7E169FB7702C" name="OFERTAS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:56:17 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="91B66CE8-617E-C051-F1D9-E2655B993C31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3E80864-A1DB-1FAA-14DB-3FACB4762C52" name="OFERTAS_CONSUMIDOR_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:56:59 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE8D2652-F41C-FB0C-AF1E-045399378147"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

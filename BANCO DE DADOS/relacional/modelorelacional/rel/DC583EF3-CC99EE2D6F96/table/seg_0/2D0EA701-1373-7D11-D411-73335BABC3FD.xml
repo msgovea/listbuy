@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2D0EA701-1373-7D11-D411-73335BABC3FD" name="UNIDADE_MEDIDA">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:41:02 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_41</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_UNIDADE_MEDIDA" id="244F9B00-AC31-B4E1-65C3-05BA339B706F">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:41:32 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO_UNIDADE" id="495FF2D3-5663-8D40-C50A-C11C5E566DF3">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:41:32 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F3C4078C-F7A2-BA56-1B82-0DA4A8B86313" name="UNIDADE_MEDIDA_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:41:32 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="244F9B00-AC31-B4E1-65C3-05BA339B706F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

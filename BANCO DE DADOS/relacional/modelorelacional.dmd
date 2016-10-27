@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="modelorelacional" id="39BF1D07-C198-A620-EC5E-A34DCBC7D688" version="3.5">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 10:38:06 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>39BF1D07-C198-A620-EC5E-A34DCBC7D688</designId>
+</OSDM_Design>

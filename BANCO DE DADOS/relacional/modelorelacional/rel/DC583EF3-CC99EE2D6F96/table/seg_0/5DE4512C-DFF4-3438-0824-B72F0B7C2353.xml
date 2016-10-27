@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5DE4512C-DFF4-3438-0824-B72F0B7C2353" name="PRODUTOS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 10:55:06 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_PRODUTO" id="7952C948-71DB-9F24-73BE-A75FADCC3ECC">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 11:11:13 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NOME" id="E81E7388-CCF2-46AB-2247-9524EDBCDC6A">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:16:44 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO" id="BBF86765-DF46-D337-CAC2-A1096C8E78C5">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 11:11:13 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CATEGORIA" id="B3015D2A-510B-4370-9681-06EBE89B3BB9">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 11:11:13 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="30268489-12FE-8F18-0859-B38BC83F83A7" referredColumn="02D0ABBE-3D99-E57E-8481-C7726825A6EB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="86EB10F5-12E3-8F56-37DB-A7DAE5655A59" name="PRODUTOS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 11:11:13 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7952C948-71DB-9F24-73BE-A75FADCC3ECC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC9634A9-5998-5825-02EB-15ABEA9134A6" name="PRODUTOS_CATEGORIA_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:34:10 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B3015D2A-510B-4370-9681-06EBE89B3BB9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1B2DFF27-72AA-60EA-0AFD-0B4B068ABA54" name="PRODUTO_CADASTRADO">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 15:44:00 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_72</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CONSUMIDOR" id="3E11AD9F-CF56-6230-468D-4863157D96D2">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 15:44:53 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="92EB60E8-10CA-47D4-63B8-68A261761D92" referredColumn="CC09A628-D999-3D84-384D-09451D46984C"/>
+</associations>
+</Column>
+<Column name="ID_PRODUTO" id="80D186AC-4828-E1AF-BC42-0906AD0822DD">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 15:44:53 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DB142284-8392-C012-C67E-AC49498B7018" referredColumn="7952C948-71DB-9F24-73BE-A75FADCC3ECC"/>
+</associations>
+</Column>
+<Column name="DATA_CADASTRO" id="95ECA5E3-F705-C280-635D-F11611F23A4B">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 15:44:53 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="062C89A4-22E4-EC84-59FB-E121619AE416" name="PRODUTO_CADASTRADO_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 15:44:53 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E11AD9F-CF56-6230-468D-4863157D96D2"/>
+<colUsage columnID="80D186AC-4828-E1AF-BC42-0906AD0822DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DE73881D-8A19-A5EB-6B17-6B5740702617" name="PROD_CAD_PRODUTOS_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 15:45:25 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="80D186AC-4828-E1AF-BC42-0906AD0822DD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ECE57C5A-D688-84C0-609D-0F72DA127ADF" name="PROD_CAD_CONSUMIDOR_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:58:44 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E11AD9F-CF56-6230-468D-4863157D96D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

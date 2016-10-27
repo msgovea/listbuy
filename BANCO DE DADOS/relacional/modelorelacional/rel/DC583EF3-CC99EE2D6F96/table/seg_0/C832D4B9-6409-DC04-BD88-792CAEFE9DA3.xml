@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C832D4B9-6409-DC04-BD88-792CAEFE9DA3" name="LISTAS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:58:26 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_22</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_LISTA" id="B5828875-9664-2AF8-54AE-01DAFBB46BCC">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:59:43 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TIPO_LISTA" id="349F8C49-9C84-D0DA-AE8D-2D2CA2EECB3D">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:05:57 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TITULO" id="8AC7E0D5-3FBE-9C76-918D-38BF114E6319">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:59:43 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ID_CONSUMIDOR" id="F8DCB10D-574A-707C-7A1D-103584FBFAFB">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:21:16 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2D7C2E9C-73F9-B34E-7898-222E3C15FA7F" referredColumn="CC09A628-D999-3D84-384D-09451D46984C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B5664412-BD0C-1BBB-C857-19A6014015AB" name="LISTAS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:59:43 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B5828875-9664-2AF8-54AE-01DAFBB46BCC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F2E02A3-C5AC-7F75-8EB4-B0D901C35F36" name="LISTAS_CONSUMIDOR_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:57:52 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8DCB10D-574A-707C-7A1D-103584FBFAFB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="25673D84-F5AC-3ABD-2389-3BD6F3A5E727" name="CATEGORIA">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:33:13 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_39</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_CATEGORIA" id="02D0ABBE-3D99-E57E-8481-C7726825A6EB">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:33:46 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A529DEB6-082F-95D0-748A-8D4A5C5B348E" name="CATEGORIA_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 13:33:46 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02D0ABBE-3D99-E57E-8481-C7726825A6EB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

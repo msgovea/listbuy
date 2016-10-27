@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9E9C39FB-1A4C-3C07-6A02-62B87D1702D3" name="TIPO_ACESSO">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:50:33 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_21</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_TIPO_ACESSO" id="686178D0-351E-A298-CA70-3B8579E31D38">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:56:19 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DESCRICAO_ACESSO" id="105986E3-18CE-5431-5202-D175E6035499">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:56:19 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="46E3D723-966F-0A6D-7B87-1CC3C2015ECB" name="TIPO_ACESSO_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 12:56:19 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="686178D0-351E-A298-CA70-3B8579E31D38"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

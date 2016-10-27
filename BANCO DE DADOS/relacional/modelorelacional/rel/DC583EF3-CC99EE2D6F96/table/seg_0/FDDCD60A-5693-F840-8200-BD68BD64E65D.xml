@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FDDCD60A-5693-F840-8200-BD68BD64E65D" name="LISTA_PESSOAS">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 14:12:06 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<ordsAlias>table_45</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_LISTA" id="5F898EA5-8BFC-A58E-63E1-6441FAE9BD7A">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 14:12:43 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="663F5A9F-F9C0-4698-8E57-B6AB58B733C0" referredColumn="B5828875-9664-2AF8-54AE-01DAFBB46BCC"/>
+</associations>
+</Column>
+<Column name="ID_CONSUMIDOR" id="CA3FBA2C-0483-D35B-3B47-E366C665BC01">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 14:12:43 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F5011846-4677-AFC8-035C-7AD3042CC847" referredColumn="CC09A628-D999-3D84-384D-09451D46984C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="26BF5838-399C-213A-001C-CD88E70CCA92" name="LISTA_PESSOAS_PK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-22 14:12:43 UTC</createdTime>
+<ownerDesignName>123</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA3FBA2C-0483-D35B-3B47-E366C665BC01"/>
+<colUsage columnID="5F898EA5-8BFC-A58E-63E1-6441FAE9BD7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BC5E810A-7ADC-23F7-58A3-97D894218931" name="LIST_PESSOAS_CONS_FK">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:51:13 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA3FBA2C-0483-D35B-3B47-E366C665BC01"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0D0EA342-5E7D-951E-1D36-E0AF28D89717" name="LIST_PESSOAS_LIST_FKv1">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-27 19:51:13 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F898EA5-8BFC-A58E-63E1-6441FAE9BD7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
