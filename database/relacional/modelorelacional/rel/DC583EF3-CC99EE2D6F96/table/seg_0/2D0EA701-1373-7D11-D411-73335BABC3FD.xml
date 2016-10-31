@@ -42,6 +42,17 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="SIGLA" id="B2915E0E-B797-BE3E-95C3-CBB1D70F9FC9">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-31 21:01:18 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="F3C4078C-F7A2-BA56-1B82-0DA4A8B86313" name="UNIDADE_MEDIDA_PK">
