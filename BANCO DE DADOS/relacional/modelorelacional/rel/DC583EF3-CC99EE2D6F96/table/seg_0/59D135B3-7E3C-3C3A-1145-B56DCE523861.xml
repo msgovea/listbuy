@@ -68,6 +68,18 @@
 <colAssociation fkAssociation="54E02046-DEB8-F599-8AD1-724DA2787495" referredColumn="CC09A628-D999-3D84-384D-09451D46984C"/>
 </associations>
 </Column>
+<Column name="ATIVA" id="1B3EBE83-ACCF-242A-AD3E-F6A9DC872561">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-10-31 19:34:45 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="175AE018-677F-A7D3-11F9-7E169FB7702C" name="OFERTAS_PK">
