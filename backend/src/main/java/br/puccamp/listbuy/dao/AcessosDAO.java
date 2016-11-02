@@ -1,7 +1,7 @@
 package br.puccamp.listbuy.dao;
 
 
-import br.puccamp.listbuy.entities.Acessos;
+import br.puccamp.listbuy.entities.Consumidor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class AcessosDAO extends GenericDAO {
 
-    public void inserirAcesso(Acessos acesso) {
+    public void inserirAcesso(Consumidor acesso) {
         StringBuilder sql = new StringBuilder();
         sql.append("insert into consumidor ");
         sql.append("(NOME, EMAIL, SENHA, ID_TIPO_ACESSO, KEY_ACESSO) ");
@@ -28,7 +28,7 @@ public class AcessosDAO extends GenericDAO {
         }
     }
 
-    public Acessos efetuarLogin(Acessos login) {
+    public Consumidor efetuarLogin(Consumidor login) {
         StringBuilder sql = new StringBuilder();
         sql.append("select * from consumidor ");
         sql.append("where email = ? AND senha = ?");

@@ -1,6 +1,6 @@
 package br.puccamp.listbuy.entities;
 
-public class Acessos {
+public class Consumidor {
 
     private Integer id_consumidor;
     private String email;

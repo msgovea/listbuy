@@ -1,4 +1,4 @@
-package br.puccamp.listbuy.controller;
+package br.puccamp.listbuy.utils;
 
 
 public class Response<T> {
