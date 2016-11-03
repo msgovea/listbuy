@@ -10,24 +10,25 @@ import android.util.Log;
 import com.google.android.gms.appinvite.AppInvite;
 import com.google.android.gms.appinvite.AppInviteInvitationResult;
 import com.google.android.gms.appinvite.AppInviteReferral;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 
-public class SharingList extends AppCompatActivity {
+public class SharingList extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
+    private static final String TAG = SharingList.class.getSimpleName();
     private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sharing_list);
 
         // Build GoogleApiClient with AppInvite API for receiving deep links
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+        GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
                 .addApi(AppInvite.API)
                 .build();
@@ -44,14 +45,14 @@ public class SharingList extends AppCompatActivity {
                                     // Extract deep link from Intent
                                     Intent intent = result.getInvitationIntent();
                                     String deepLink = AppInviteReferral.getDeepLink(intent);
-
+                                    setContentView(R.layout.sharing_list);
                                     // Handle the deep link. For example, open the linked
                                     // content, or apply promotional credit to the user's
                                     // account.
 
                                     // ...
-                                } else {
-                                    Log.d(TAG, "getInvitation: no deep link found.");
+                               } else {
+                                    Log.d(TAG, "Link não encontrado!");
                                 }
                             }
                         });
@@ -66,9 +67,9 @@ public class SharingList extends AppCompatActivity {
      */
     public com.google.android.gms.appindexing.Action getIndexApiAction() {
         com.google.android.gms.appindexing.Thing object = new com.google.android.gms.appindexing.Thing.Builder()
-                .setName("SharingList Page") // TODO: Define a title for the content shown.
+                .setName("Lista Compartilhada") // TODO: Define a title for the content shown.
                 // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("http://example.com"))
+                .setUrl(Uri.parse("https://g65q8.app.goo.gl/eNh4"))
                 .build();
         return new com.google.android.gms.appindexing.Action.Builder(com.google.android.gms.appindexing.Action.TYPE_VIEW)
                 .setObject(object)
@@ -94,5 +95,10 @@ public class SharingList extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         com.google.android.gms.appindexing.AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }
