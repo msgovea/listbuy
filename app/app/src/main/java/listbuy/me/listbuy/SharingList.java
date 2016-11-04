@@ -52,7 +52,7 @@ public class SharingList extends AppCompatActivity implements GoogleApiClient.On
 
                                     // ...
                                } else {
-                                    Log.d(TAG, "Link não encontrado!");
+                                    Log.d(TAG, "Conteúdo não encontrado!");
                                 }
                             }
                         });
