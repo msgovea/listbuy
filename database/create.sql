@@ -1,9 +1,3 @@
--- Gerado por Mateus Sauer Govêa utilizando Data Modeler 4.1.5.907
---   em:        2016-10-27 18:00:45 BRST
---   site:      Oracle Database 11g
---   tipo:      Oracle Database 11g
-
-
 CREATE TABLE CATEGORIA
   ( ID_CATEGORIA NUMBER (10) NOT NULL,
   	TITULO_CATEGORIA VARCHAR2(100) NOT NULL,
@@ -41,7 +35,9 @@ CREATE TABLE LISTAS
     TIPO_LISTA    CHAR (1) NOT NULL ,
     TITULO        VARCHAR2 (100) ,
     ID_CONSUMIDOR NUMBER (10) NOT NULL,
-    ATIVA         CHAR(1) NOT NULL
+    ATIVA         CHAR(1) NOT NULL,
+    DATA_ICS      DATE NOT NULL,
+    DATA_ALT      DATE NOT NULL
   ) ;
 ALTER TABLE LISTAS ADD CONSTRAINT LISTAS_PK PRIMARY KEY ( ID_LISTA ) ;
 

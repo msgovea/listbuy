@@ -22,12 +22,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="backend" />
         <module name="gs-rest-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="backend" target="1.8" />
       <module name="gs-rest-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Oracle - grupo1@servidor.listbuy.me" uuid="82e99126-195a-4fb9-89b8-5ba188b18c08">
+      <database-info product="Oracle" version="Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production" jdbc-version="4.0" driver-name="Oracle JDBC driver" driver-version="12.1.0.2.0">
+        <extra-name-characters>$#</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>grupo1</user-name>
+      <resolve-scope>*:GRUPO1,PUBLIC</resolve-scope>
+    </data-source>
+    <data-source name="Oracle - sys@servidor.listbuy.me" uuid="74f3ed38-b70d-4c30-8a1e-10b8c37b93b3">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>sys</user-name>
+    </data-source>
+  </component>
+</project>

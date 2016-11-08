@@ -68,6 +68,26 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="DATA_ICS" id="7310AC3F-E27A-1FE3-CDA9-ADDD01B23A9D">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-11-08 20:48:36 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DATA_ALT" id="39FBCE03-4B2B-473F-292F-827D48D66979">
+<createdBy>Mateus</createdBy>
+<createdTime>2016-11-08 20:48:36 UTC</createdTime>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="B5664412-BD0C-1BBB-C857-19A6014015AB" name="LISTAS_PK">

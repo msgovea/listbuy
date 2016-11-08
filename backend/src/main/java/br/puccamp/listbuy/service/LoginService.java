@@ -4,6 +4,8 @@ package br.puccamp.listbuy.service;
 import br.puccamp.listbuy.dao.AcessosDAO;
 import br.puccamp.listbuy.entities.Consumidor;
 
+import java.util.ArrayList;
+
 public class LoginService {
 
     AcessosDAO acessosDAO = new AcessosDAO();
