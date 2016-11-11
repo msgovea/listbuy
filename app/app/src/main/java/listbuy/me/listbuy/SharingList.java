@@ -1,12 +1,15 @@
 package listbuy.me.listbuy;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.google.android.gms.appindexing.AndroidAppUri;
 import com.google.android.gms.appinvite.AppInvite;
 import com.google.android.gms.appinvite.AppInviteInvitationResult;
 import com.google.android.gms.appinvite.AppInviteReferral;
@@ -14,91 +17,51 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 
-public class SharingList extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+import java.util.List;
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private static final String TAG = SharingList.class.getSimpleName();
-    private GoogleApiClient client;
+/**
+ * Created by Aline on 11/11/2016.
+ */
+
+public class SharingList extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        boolean instalado = appInstalledOrNot("listbuy.me.listbuy");
+        if (instalado) {
+            Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("listbuy.me.listbuy");
+            startActivity(LaunchIntent);
 
-        // Build GoogleApiClient with AppInvite API for receiving deep links
-        GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(AppInvite.API)
-                .build();
-
-        // Check if this app was launched from a deep link. Setting autoLaunchDeepLink to true
-        // would automatically launch the deep link if one is found.
-        boolean autoLaunchDeepLink = false;
-        AppInvite.AppInviteApi.getInvitation(mGoogleApiClient, this, autoLaunchDeepLink)
-                .setResultCallback(
-                        new ResultCallback<AppInviteInvitationResult>() {
-                            @Override
-                            public void onResult(@NonNull AppInviteInvitationResult result) {
-                                if (result.getStatus().isSuccess()) {
-                                    // Extract deep link from Intent
-                                    Intent intent = result.getInvitationIntent();
-                                    String deepLink = AppInviteReferral.getDeepLink(intent);
-                                    setContentView(R.layout.sharing_list);
-                                    // Handle the deep link. For example, open the linked
-                                    // content, or apply promotional credit to the user's
-                                    // account.
-
-                                    // ...
-                               } else {
-                                    Log.d(TAG, "Conteúdo não encontrado!");
-                                }
-                            }
-                        });
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(com.google.android.gms.appindexing.AppIndex.API).build();
+            System.out.println("Aplicativo ListBuy está instalado!");
+        } else {
+            System.out.println("ListBuy não está instalado!");
+        }
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    public com.google.android.gms.appindexing.Action getIndexApiAction() {
-        com.google.android.gms.appindexing.Thing object = new com.google.android.gms.appindexing.Thing.Builder()
-                .setName("Lista Compartilhada") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
-                .setUrl(Uri.parse("https://g65q8.app.goo.gl/eNh4"))
-                .build();
-        return new com.google.android.gms.appindexing.Action.Builder(com.google.android.gms.appindexing.Action.TYPE_VIEW)
-                .setObject(object)
-                .setActionStatus(com.google.android.gms.appindexing.Action.STATUS_TYPE_COMPLETED)
-                .build();
+    private boolean appInstalledOrNot(String uri){
+        PackageManager pacote = getPackageManager();
+        boolean appInstalado;
+        try{
+            pacote.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            appInstalado = true;
+        }
+        catch (PackageManager.NameNotFoundException e){
+            appInstalado = false;
+        }
+        return appInstalado;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        com.google.android.gms.appindexing.AppIndex.AppIndexApi.start(client, getIndexApiAction());
+
+    protected void onNewIntent(Intent intent){
+        String action = intent.getAction();
+        Uri link = intent.getData();
+        if(Intent.ACTION_VIEW.equals(action) && link != null){
+            String IdLista = link.getLastPathSegment();
+            intent.putExtra("IdLista", IdLista);
+            setContentView(R.layout.act_lista_inicial);
+        }
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        com.google.android.gms.appindexing.AppIndex.AppIndexApi.end(client, getIndexApiAction());
-        client.disconnect();
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
 }

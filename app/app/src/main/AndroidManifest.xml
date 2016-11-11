@@ -41,8 +41,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:host="example.com" android:scheme="http"/>
-                <data android:host="example.com" android:scheme="https"/>
+                <data android:host="g65q8.app.goo.gl/eNh4" android:pathPrefix="/*" android:scheme="https"/>
             </intent-filter>
         </activity>
         <activity

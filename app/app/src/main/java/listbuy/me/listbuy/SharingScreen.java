@@ -46,7 +46,8 @@ public class SharingScreen extends AppCompatActivity {
     private void shareList() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "https://g65q8.app.goo.gl/eNh4");
+        Integer id = 12;
+        intent.putExtra(Intent.EXTRA_TEXT, "https://g65q8.app.goo.gl/eNh4/" + id);
         startActivity(intent);
     }
 
