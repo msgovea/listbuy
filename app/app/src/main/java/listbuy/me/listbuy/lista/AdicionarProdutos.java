@@ -1,16 +1,27 @@
 package listbuy.me.listbuy.lista;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 import listbuy.me.listbuy.R;
@@ -32,6 +43,9 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.act_adicionar_produtos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Sincroniza sync = new Sincroniza();
+        sync.execute();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -90,4 +104,28 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
 
         }
     }
+    protected class Sincroniza extends AsyncTask<String,String,String> {
+        @Override
+        protected String doInBackground(String... n) {
+            String api_url = R.string.url_listar_listas + "1/";
+            try{
+                URL url = new URL(api_url);
+                URLConnection urlc = url.openConnection();
+                BufferedReader bfr = new BufferedReader(new InputStreamReader(urlc.getInputStream()));
+                String line = bfr.readLine();
+                Log.i("teste_api",line);
+                JSONArray api_response = new JSONArray(line);
+
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+        }
+    }
+
 }
