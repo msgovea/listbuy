@@ -44,8 +44,11 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Sincroniza sync = new Sincroniza();
-        sync.execute();
+        //Sincroniza sync = new Sincroniza();
+        //sync.execute();
+
+        Sincroniza sinc = new Sincroniza();
+        sinc.execute("mateus.sauer@gmail.com","mateus");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -104,7 +107,7 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
 
         }
     }
-    protected class Sincroniza extends AsyncTask<String,String,String> {
+    /*protected class Sincroniza extends AsyncTask<String,String,String> {
         @Override
         protected String doInBackground(String... n) {
             String api_url = R.string.url_listar_listas + "1/";
@@ -126,6 +129,6 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
             super.onPostExecute(result);
 
         }
-    }
+    }*/
 
 }
