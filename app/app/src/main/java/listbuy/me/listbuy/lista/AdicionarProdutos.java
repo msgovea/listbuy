@@ -25,6 +25,8 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaListarListas;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaListarProdutos;
 
 public class AdicionarProdutos extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,11 +46,9 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //Sincroniza sync = new Sincroniza();
-        //sync.execute();
 
-        Sincroniza sinc = new Sincroniza();
-        sinc.execute("mateus.sauer@gmail.com","mateus");
+        SincronizaListarProdutos sync = new SincronizaListarProdutos();
+        sync.execute();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);

@@ -6,6 +6,7 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -18,6 +19,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -39,28 +41,22 @@ public class Sincroniza extends AsyncTask<String,String,String> {
 
         HttpURLConnection urlConnection;
         String requestBody;
-        Uri.Builder builder = new Uri.Builder();
-        Map<String, String> params = new HashMap<>();
 
-        params.put("email", login);
-        params.put("senha", senha);
 
-        Iterator entries = params.entrySet().iterator();
-        while (entries.hasNext()) {
-            Map.Entry entry = (Map.Entry) entries.next();
-            builder.appendQueryParameter(entry.getKey().toString(), entry.getValue().toString());
-            entries.remove();
-        }
-        requestBody = builder.build().getEncodedQuery();
 
        try{
            URL url = new URL(api_url);
            urlConnection = (HttpURLConnection) url.openConnection();
            urlConnection.setDoOutput(true);
            urlConnection.setRequestProperty("Content-Type", "application/json");
+           urlConnection.setRequestProperty("Accept-Encoding", "application/json");
+           JSONObject jsonObject = new JSONObject();
+           jsonObject.accumulate("email", login);
+           jsonObject.accumulate("senha", senha);
+           String json = jsonObject.toString();
            OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
-           writer.write(requestBody);
+           writer.write(json);
            writer.flush();
            writer.close();
            outputStream.close();
@@ -78,9 +74,14 @@ public class Sincroniza extends AsyncTask<String,String,String> {
              while ((temp = bufferedReader.readLine()) != null) {
                response += temp;
                  Log.i("teste_api", response);
-           }
+                 JSONObject resp = new JSONObject(response);
+                 JSONObject object = new JSONObject(resp.getString("object"));
+                 Log.i("nome", object.getString("nome"));
+                 Log.i("email", object.getString("email"));
+                 Log.i("tipo", object.getString("id_tipo_acesso"));
+             }
 
-       } catch (IOException e) {
+       } catch (IOException | JSONException e) {
             e.printStackTrace();
        }
         return null;
