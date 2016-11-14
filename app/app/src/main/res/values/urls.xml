@@ -1,0 +1,5 @@
+<resources>
+    <string name="url_login">http://servidor.listbuy.me:81/login</string>
+    <string name="url_listar_listas">http://servidor.listbuy.me:81/list/user/</string>
+    <string name="url_listar_produtos">http://servidor.listbuy.me:81/list/productsByList/</string>
+</resources>

@@ -32,6 +32,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import listbuy.me.listbuy.lista.Sincroniza;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEmailView, mPasswordView;
@@ -78,7 +80,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.emailLogin|| id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    //attemptLogin();
+                    Sincroniza sinc = new Sincroniza();
+                    sinc.execute(mEmailView.getText().toString(),mPasswordView.getText().toString());
                     return true;
                 }
                 return false;
@@ -241,7 +245,7 @@ public class LoginActivity extends AppCompatActivity {
 
         UserLoginTask(String email, String password) {
             mEmail = email;
-            mPassword = password;
+             mPassword = password;
         }
 
         @Override
