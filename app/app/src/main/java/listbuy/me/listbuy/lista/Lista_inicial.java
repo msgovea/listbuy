@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaListarProdutos;
 
 public class Lista_inicial extends AppCompatActivity implements View.OnClickListener {
     private FloatingActionButton fab;
@@ -47,6 +48,9 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
         fabEvento.setOnClickListener(this);
 
         dbconn = new DbConn(Lista_inicial.this);
+
+        Sincroniza sync = new Sincroniza();
+        sync.execute("mateus.sauer@gmail.com","mateus");
 
         Intent it = getIntent();
         String nome_del = "";
