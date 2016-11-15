@@ -1,8 +1,12 @@
 package listbuy.me.listbuy.lista.Sincronizacoes;
 
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +22,10 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import listbuy.me.listbuy.LoginActivity;
+import listbuy.me.listbuy.Welcome;
+import listbuy.me.listbuy.lista.Lista_inicial;
+
 /**
  * Created by Talitadossantoscastr on 13/11/2016.
  */
@@ -25,6 +33,7 @@ import java.net.URL;
 public class SincronizaLogin extends AsyncTask<String,String,String> {
     private String login;
     private String senha;
+
     @Override
     protected String doInBackground(String... n) {
         String api_url = "http://servidor.listbuy.me:81/login";
@@ -65,13 +74,16 @@ public class SincronizaLogin extends AsyncTask<String,String,String> {
             String temp, response = "";
             while ((temp = bufferedReader.readLine()) != null) {
                 response += temp;
-                Log.i("teste_api", response);
-                JSONObject resp = new JSONObject(response);
-                JSONObject object = new JSONObject(resp.getString("object"));
-                Log.i("nome", object.getString("nome"));
-                Log.i("email", object.getString("email"));
-                Log.i("tipo", object.getString("id_tipo_acesso"));
+                //Log.i("teste_api", response);
+                //JSONObject resp = new JSONObject(response);
+                //JSONObject object = new JSONObject(resp.getString("object"));
+                //Log.i("nome", object.getString("nome"));
+                //Log.i("email", object.getString("email"));
+                //Log.i("tipo", object.getString("id_tipo_acesso"));
             }
+            return response;
+
+
 
         } catch (IOException | JSONException e) {
             e.printStackTrace();
@@ -81,6 +93,50 @@ public class SincronizaLogin extends AsyncTask<String,String,String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
+
+        try {
+            JSONObject api_result = new JSONObject(result);
+
+            String message = api_result.getString("message");
+            if(message.equalsIgnoreCase("success")) {
+                String dados = api_result.getString("object");
+                JSONObject dados_result = new JSONObject(dados);
+                int id_consumidor = dados_result.getInt("id_consumidor");
+                String nome = dados_result.getString("nome");
+                String email = dados_result.getString("email");
+                String senha = dados_result.getString("senha");
+                String tipo_acesso = dados_result.getString("id_tipo_acesso");
+                String key_acesso = dados_result.getString("key_acesso");
+                //Salvar no Sqlite para nao perder os dados da pessoa logada no  app
+
+
+                Intent i = new Intent();
+                i.setClass(LoginActivity.context, Lista_inicial.class);
+                LoginActivity.context.startActivity(i);
+
+            }else{
+                LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
+                builder.setTitle("Titulo do dialog");
+                builder.setMessage("Login/Senha incorreto");
+                builder.setPositiveButton("Fechar",null);
+                builder.setCancelable(false);
+                builder.show();
+
+            }
+
+        }catch (JSONException e) {
+            LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
+            LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
+            builder.setTitle("Titulo do dialog");
+            builder.setMessage("Erro ao Carregar Dados");
+            builder.setPositiveButton("Fechar",null);
+            builder.setCancelable(false);
+            builder.show();
+
+        }
+
 
     }
 

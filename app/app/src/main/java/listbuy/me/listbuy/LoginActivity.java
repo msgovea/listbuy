@@ -3,6 +3,7 @@ package listbuy.me.listbuy;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -33,6 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import listbuy.me.listbuy.lista.Sincroniza;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,8 +43,9 @@ public class LoginActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private static final String URL = "http://www.listbuy.me/api/user_control.php";
     private StringRequest request;
-    private View mProgressView;
+    public static View mProgressView;
     private View mLoginFormView;
+    public static Context context;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { //Botão adicional na ToolBar
@@ -67,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        context = this;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Login ListBuy");
@@ -80,8 +83,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.emailLogin|| id == EditorInfo.IME_NULL) {
-                    //attemptLogin();
-                    Sincroniza sinc = new Sincroniza();
+                    attemptLogin();
+                    SincronizaLogin sinc = new SincronizaLogin();
                     sinc.execute(mEmailView.getText().toString(),mPasswordView.getText().toString());
                     return true;
                 }
@@ -102,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
         mProgressView = findViewById(R.id.login_progress);
     }
 
-    private void request() {
+  /*  private void request() {
         request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -147,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         requestQueue.add(request);
-    }
+    }*/
 
     private void attemptLogin() {
 
@@ -161,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+            mEmailView.setError("É Necessário preencher este campo");
             requestFocus(mEmailView);
             return;
         } else if (!isEmailValid(email)) {
@@ -181,8 +184,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        showProgress(true);
-        request();
+        //showProgress(true);
+        //request();
     }
 
 /////////////////////////////////////
