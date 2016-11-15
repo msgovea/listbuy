@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, WelcomeScreen.class));
     }
 
     @Override
