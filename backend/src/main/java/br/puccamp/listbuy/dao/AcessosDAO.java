@@ -11,21 +11,25 @@ import java.util.ArrayList;
 
 public class AcessosDAO extends GenericDAO {
 
-    public Consumidor inserirAcesso(Consumidor acesso) {
+    public Consumidor registrarConsumidor(Consumidor acesso) {
         StringBuilder sql = new StringBuilder();
         sql.append("INSERT INTO CONSUMIDOR ");
         sql.append("(NOME, EMAIL, SENHA, ID_TIPO_ACESSO, KEY_ACESSO) ");
         sql.append("values (?,?,?,?,?) ");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString(), new String[]{"ID_CONSUMIDOR"});
-            stmt.setString(1, acesso.getEmail());
-            stmt.setString(2, acesso.getSenha());
+            stmt.setString(1, acesso.getNome());
+            stmt.setString(2, acesso.getEmail());
+            stmt.setString(3, acesso.getSenha());
+            stmt.setString(4, acesso.getId_tipo_acesso());
+            stmt.setString(5, acesso.getKey_acesso());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             acesso.setId_consumidor(rs.getInt(1));
             return acesso;
         } catch (SQLException e) {
+            System.err.println(e);
             throw new RuntimeException("Erro ao cadastrar consumidor!", e);
         }
     }

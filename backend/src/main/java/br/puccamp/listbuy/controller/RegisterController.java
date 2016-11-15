@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 @RestController
 public class RegisterController {
-    RegisterService loginService = new RegisterService();
+    RegisterService registerService = new RegisterService();
 
     @ResponseBody
     @RequestMapping(value = "/register",
@@ -23,9 +23,9 @@ public class RegisterController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity<Response<Consumidor>> efetuarLogin(@RequestBody Consumidor dados) {
+    public ResponseEntity<Response<Consumidor>> efetuarRegistro(@RequestBody Consumidor dados) {
         try {
-            return new ResponseEntity<>(new Response<>("success", loginService.efetuarLogin(dados)), HttpStatus.OK);
+            return new ResponseEntity<>(new Response<>("success", registerService.efetuarCadastro(dados)), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(new Response<>("Dados incorretos!"), HttpStatus.UNAUTHORIZED);
         }

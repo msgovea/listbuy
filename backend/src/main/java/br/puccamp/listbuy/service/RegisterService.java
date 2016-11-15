@@ -10,8 +10,8 @@ public class RegisterService {
 
     AcessosDAO acessosDAO = new AcessosDAO();
 
-    public Consumidor efetuarLogin(Consumidor login) {
-        Consumidor acessos = acessosDAO.inserirAcesso(login);
+    public Consumidor efetuarCadastro(Consumidor login) {
+        Consumidor acessos = acessosDAO.registrarConsumidor(login);
         if (acessos == null) {
             throw new RuntimeException("Email ou senha inválido!");
         }
