@@ -1,6 +1,7 @@
 package listbuy.me.listbuy;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class WelcomeScreen extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class WelcomeScreen extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+    public static final String NOME_PREFERENCE = "INFORMACOES_LOGIN_AUTOMATICO";
+
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -45,41 +49,62 @@ public class WelcomeScreen extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Chama a tela de Compartilhamento
-                Intent intent = new Intent(WelcomeScreen.this,SharingScreen.class);
-                startActivity(intent);
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Chama a tela de Compartilhamento
+//                Intent intent = new Intent(WelcomeScreen.this,SharingScreen.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_welcome_screen, menu);
-        return true;
-    }
+
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected void onResume() {
+        super.onResume();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            startActivity(new Intent(this, MenuLateral.class));
-            return true;
+        SharedPreferences prefs = getSharedPreferences(NOME_PREFERENCE, MODE_PRIVATE);
+        String login= prefs.getString("login", null);
+
+        if (login!= null) {
+            startActivity(new Intent(this, Welcome.class));
         }
-
-        return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishActivity(1);
+    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_welcome_screen, menu);
+//        return true;
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            startActivity(new Intent(this, MenuLateral.class));
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+
+
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -97,15 +122,17 @@ public class WelcomeScreen extends AppCompatActivity {
                     return new WelcomeTab2();
                 case 2:
                     return new WelcomeTab3();
-                default:
+                case 3:
                     return new WelcomeTab4();
+                default:
+                    return new WelcomeTab5();
             }
         }
 
         @Override
         public int getCount() {
-            // Show 4 total pages.
-            return 4;
+            // Show 5 total pages.
+            return 5;
         }
     }
 }

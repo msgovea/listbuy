@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="my.mysql_php_register_login.MainActivity">
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -38,8 +38,8 @@
             android:text="LOGIN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonLogin"
-            android:layout_above="@+id/buttonRegister"
+            android:id="@+id/buttonLogin2"
+            android:layout_above="@+id/buttonRegister2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="19dp"
@@ -49,7 +49,7 @@
             android:text="CADASTRO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonRegister"
+            android:id="@+id/buttonRegister2"
             android:layout_marginBottom="18dp"
             android:layout_alignParentBottom="true"
             android:elevation="0dp"
