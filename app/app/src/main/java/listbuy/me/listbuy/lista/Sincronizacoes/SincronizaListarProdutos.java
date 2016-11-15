@@ -19,6 +19,7 @@ import java.net.URLConnection;
 public class SincronizaListarProdutos extends AsyncTask<String,String,String> {
     @Override
     protected String doInBackground(String... n) {
+        //teste
         String api_url = "http://servidor.listbuy.me:81/list/productsByList/1/";
         try{
             URL url = new URL(api_url);
