@@ -35,6 +35,11 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_lista_inicial);
 
+        //TODO: ESTE COMANDO ADICIONA O MENU SUPERIOR COM O BOTAO VOLTAR E O TITULO 'X' EH NECESSARIO AppCompatActivity COMO EXTEND
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Minhas Listas");
+
         fab = (FloatingActionButton)findViewById(R.id.fb_plus2);
         fabSimples = (FloatingActionButton)findViewById(R.id.fb_simples);
         fabEvento = (FloatingActionButton)findViewById(R.id.fb_evento);
@@ -67,6 +72,7 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
         listas.deferNotifyDataSetChanged();
 
     }
+
     public void onClick(View v){
 
         // valida se o botão + foi clicado
