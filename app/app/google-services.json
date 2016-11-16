@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1038025772717",
+    "firebase_url": "https://listbuy-3a184.firebaseio.com",
+    "project_id": "listbuy-3a184",
+    "storage_bucket": "listbuy-3a184.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038025772717:android:c274a1d62ab67aeb",
+        "android_client_info": {
+          "package_name": "listbuy.me.listbuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038025772717-7apnmjul4jcpjuc5ff093pn7jfs75jjd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "listbuy.me.listbuy",
+            "certificate_hash": "79648195F8430EBA4658DD0799AAE05FC78DD94B"
+          }
+        },
+        {
+          "client_id": "1038025772717-bdqi2qfiok8vldtqu6g16qk268dv91da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8ts_q8714p4KnwKubQbXNeXW_R61-oOs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038025772717-bdqi2qfiok8vldtqu6g16qk268dv91da.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
