@@ -36,21 +36,30 @@
         <activity
             android:name=".SharingOffer"
             android:screenOrientation="portrait" />
+        <activity android:name=".SharingList">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="g65q8.app.goo.gl/eNh4" android:scheme="http" />
+                <data android:host="g65q8.app.goo.gl/eNh4" android:scheme="https"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".WelcomeScreen"
             android:label="@string/title_activity_welcome_screen"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme.NoActionBar"></activity>
+            android:theme="@style/MyTheme.NoActionBar" />
         <activity
             android:name=".MenuLateral"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme.NoActionBar"></activity>
+            android:theme="@style/MyTheme.NoActionBar" />
         <activity
             android:name=".Picture"
             android:label="@string/title_activity_picture"
             android:screenOrientation="portrait"
-            android:theme="@style/MyTheme.NoActionBar"></activity>
+            android:theme="@style/MyTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
@@ -66,16 +75,15 @@
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme" />
 
         <!-- talita -->
         <activity android:name=".lista.Lista_inicial">
-
             <intent-filter>
                 <data android:scheme="mgoveaLegal" />
+
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
