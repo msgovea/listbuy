@@ -29,6 +29,10 @@ public class Picture extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Imagens");
     }
 
     public void tirarFoto(){

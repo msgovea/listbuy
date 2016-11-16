@@ -41,6 +41,10 @@ public class SharingScreen extends AppCompatActivity {
             }
 
         });
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Compartilhamento");
     }
 
     private void shareList() {
