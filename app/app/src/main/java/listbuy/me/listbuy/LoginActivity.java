@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,10 +34,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import listbuy.me.listbuy.lista.Lista_inicial;
 import listbuy.me.listbuy.lista.Sincroniza;
 import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements SincronizaLogin.Listener{
 
     private EditText mEmailView, mPasswordView;
     private Button sign_in_register;
@@ -63,7 +65,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, WelcomeScreen.class));
+        finishActivity(0);
     }
 
     @Override
@@ -84,11 +87,8 @@ public class LoginActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.emailLogin|| id == EditorInfo.IME_NULL) {
                     attemptLogin();
-                    SincronizaLogin sinc = new SincronizaLogin();
-                    sinc.execute(mEmailView.getText().toString(),mPasswordView.getText().toString());
-                    return true;
                 }
-                return false;
+                return true;
             }
         });
 
@@ -184,7 +184,9 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        //showProgress(true);
+        showProgress(true);
+        SincronizaLogin sinc = new SincronizaLogin(this);
+        sinc.execute(mEmailView.getText().toString(),mPasswordView.getText().toString());
         //request();
     }
 
@@ -240,60 +242,22 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-/*
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-             mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return false;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
+    @Override
+    public void onLoaded(String string) {
+        if (string == "true") {
             showProgress(false);
+            startActivity(new Intent(this, MenuLateral.class));
+            SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
 
-            if (success) {
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
+            editor.putString("nome", mEmailView.getText().toString());
+            editor.putString("login", mEmailView.getText().toString());
+            editor.putString("senha", mPasswordView.getText().toString());
+            editor.commit();
+            finishActivity(1);
+        } else {
             showProgress(false);
         }
     }
-*/
 }
 
 

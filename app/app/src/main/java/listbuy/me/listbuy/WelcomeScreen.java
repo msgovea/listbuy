@@ -70,8 +70,8 @@ public class WelcomeScreen extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences(NOME_PREFERENCE, MODE_PRIVATE);
         String login= prefs.getString("login", null);
 
-        if (login!= null) {
-            startActivity(new Intent(this, Welcome.class));
+        if (login != null) {
+            startActivity(new Intent(this, MenuLateral.class));
         }
     }
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 /**
  * Created by filip on 10/21/2015.
  */
-public class Welcome extends Activity {
+public class Welcome extends AppCompatActivity {
 
     private Button log_out;
     private Usuario usu;
@@ -20,6 +21,10 @@ public class Welcome extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_activity);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Meu Perfil");
 
         log_out = (Button) findViewById(R.id.button);
         log_out.setOnClickListener(new View.OnClickListener() {

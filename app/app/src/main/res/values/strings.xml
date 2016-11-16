@@ -36,6 +36,13 @@
     <string name="gplus_register">          Sign up with Google+                </string>
     <string name="or">                      OR                                  </string>
 
+
+    <string name="profile">                      Profile                        </string>
+    <string name="lists">                        Listas                         </string>
+    <string name="feed">                         Feed                           </string>
+    <string name="photos">                       Photos                         </string>
+    <string name="action_logoff">                Logoff                         </string>
+
     <!-- talita -->
 
     <string name="title_activity_adicionar_produtos">Add Products</string>

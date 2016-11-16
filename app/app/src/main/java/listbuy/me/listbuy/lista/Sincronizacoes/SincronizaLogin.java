@@ -21,8 +21,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import listbuy.me.listbuy.LoginActivity;
+import listbuy.me.listbuy.R;
 import listbuy.me.listbuy.Welcome;
 import listbuy.me.listbuy.lista.Lista_inicial;
 
@@ -30,9 +32,21 @@ import listbuy.me.listbuy.lista.Lista_inicial;
  * Created by Talitadossantoscastr on 13/11/2016.
  */
 
-public class SincronizaLogin extends AsyncTask<String,String,String> {
+public class SincronizaLogin extends AsyncTask<String, String, String> {
+
+    public interface Listener {
+
+        public void onLoaded(String string);
+    }
+
     private String login;
     private String senha;
+    public String status = "nao";
+    private Listener mListener;
+
+    public SincronizaLogin(Listener mListener) {
+        this.mListener = mListener;
+    }
 
     @Override
     protected String doInBackground(String... n) {
@@ -43,9 +57,7 @@ public class SincronizaLogin extends AsyncTask<String,String,String> {
         HttpURLConnection urlConnection;
         String requestBody;
 
-
-
-        try{
+        try {
             URL url = new URL(api_url);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setDoOutput(true);
@@ -84,21 +96,21 @@ public class SincronizaLogin extends AsyncTask<String,String,String> {
             return response;
 
 
-
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
         return null;
     }
+
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-
+        status = "sim";
         try {
             JSONObject api_result = new JSONObject(result);
 
             String message = api_result.getString("message");
-            if(message.equalsIgnoreCase("success")) {
+            if (message.equalsIgnoreCase("success")) {
                 String dados = api_result.getString("object");
                 JSONObject dados_result = new JSONObject(dados);
                 int id_consumidor = dados_result.getInt("id_consumidor");
@@ -109,32 +121,38 @@ public class SincronizaLogin extends AsyncTask<String,String,String> {
                 String key_acesso = dados_result.getString("key_acesso");
                 //Salvar no Sqlite para nao perder os dados da pessoa logada no  app
 
+                // Implementa o retorno para a classe de Login
+                if (mListener != null) {
+                    mListener.onLoaded("true");
+                }
+                //LoginActivity.context.startActivity(new Intent(LoginActivity.context, Lista_inicial.class));
 
-                Intent i = new Intent();
-                i.setClass(LoginActivity.context, Lista_inicial.class);
-                LoginActivity.context.startActivity(i);
 
-            }else{
+            } else {
                 LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
                 builder.setTitle("Titulo do dialog");
                 builder.setMessage("Login/Senha incorreto");
-                builder.setPositiveButton("Fechar",null);
+                builder.setPositiveButton("Fechar", null);
                 builder.setCancelable(false);
                 builder.show();
-
+                if (mListener != null) {
+                    mListener.onLoaded("false");
+                }
             }
 
-        }catch (JSONException e) {
+        } catch (JSONException e) {
             LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
             LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
             builder.setTitle("Titulo do dialog");
             builder.setMessage("Erro ao Carregar Dados");
-            builder.setPositiveButton("Fechar",null);
+            builder.setPositiveButton("Fechar", null);
             builder.setCancelable(false);
             builder.show();
-
+            if (mListener != null) {
+                mListener.onLoaded("false");
+            }
         }
 
 
