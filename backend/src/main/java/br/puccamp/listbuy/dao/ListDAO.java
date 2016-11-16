@@ -19,12 +19,12 @@ public class ListDAO extends GenericDAO {
         sql.append("values (?,?,?,?,?) ");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString(), new String[]{"ID_CONSUMIDOR"});
-            stmt.setString(1, acesso.getEmail());
-            stmt.setString(2, acesso.getSenha());
+            stmt.setString(1, acesso.getEMAIL());
+            stmt.setString(2, acesso.getSENHA());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            acesso.setId_consumidor(rs.getInt(1));
+            acesso.setID_CONSUMIDOR(rs.getInt(1));
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao cadastrar consumidor!", e);
         }
@@ -42,11 +42,11 @@ public class ListDAO extends GenericDAO {
             Boolean achou = false;
             while (rs.next()) {
                 Listas retorno = new Listas();
-                retorno.setId_lista(rs.getInt(1));
-                retorno.setTipo_lista(rs.getString(2));
-                retorno.setTitulo(rs.getString(3));
-                retorno.setId_consumidor(rs.getInt(4));
-                retorno.setAtiva(rs.getString(5));
+                retorno.setID_LISTA(rs.getInt(1));
+                retorno.setTIPO_LISTA(rs.getString(2));
+                retorno.setTITULO(rs.getString(3));
+                retorno.setID_CONSUMIDOR(rs.getInt(4));
+                retorno.setATIVA(rs.getString(5));
                 lista.add(retorno);
                 achou = true;
             }

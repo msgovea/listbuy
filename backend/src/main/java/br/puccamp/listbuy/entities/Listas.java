@@ -1,50 +1,70 @@
 package br.puccamp.listbuy.entities;
 
+import java.sql.Date;
+
 public class Listas {
 
-    private Integer id_lista;
-    private String tipo_lista;
-    private String titulo;
-    private int id_consumidor;
-    private String ativa;
+    private Integer ID_LISTA;
+    private String TIPO_LISTA;
+    private String TITULO;
+    private Integer ID_CONSUMIDOR;
+    private String ATIVA;
+    private Date DATA_ICS;
+    private Date DATA_ALT;
 
-    public Integer getId_lista() {
-        return id_lista;
+    public Date getDATA_ICS() {
+        return DATA_ICS;
     }
 
-    public void setId_lista(Integer id_lista) {
-        this.id_lista = id_lista;
+    public void setDATA_ICS(Date DATA_ICS) {
+        this.DATA_ICS = DATA_ICS;
     }
 
-    public String getTipo_lista() {
-        return tipo_lista;
+    public Date getDATA_ALT() {
+        return DATA_ALT;
     }
 
-    public void setTipo_lista(String tipo_lista) {
-        this.tipo_lista = tipo_lista;
+    public void setDATA_ALT(Date DATA_ALT) {
+        this.DATA_ALT = DATA_ALT;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public Integer getID_LISTA() {
+        return ID_LISTA;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setID_LISTA(Integer ID_LISTA) {
+        this.ID_LISTA = ID_LISTA;
     }
 
-    public int getId_consumidor() {
-        return id_consumidor;
+    public String getTIPO_LISTA() {
+        return TIPO_LISTA;
     }
 
-    public void setId_consumidor(int id_consumidor) {
-        this.id_consumidor = id_consumidor;
+    public void setTIPO_LISTA(String TIPO_LISTA) {
+        this.TIPO_LISTA = TIPO_LISTA;
     }
 
-    public String getAtiva() {
-        return ativa;
+    public String getTITULO() {
+        return TITULO;
     }
 
-    public void setAtiva(String ativa) {
-        this.ativa = ativa;
+    public void setTITULO(String TITULO) {
+        this.TITULO = TITULO;
+    }
+
+    public Integer getID_CONSUMIDOR() {
+        return ID_CONSUMIDOR;
+    }
+
+    public void setID_CONSUMIDOR(Integer ID_CONSUMIDOR) {
+        this.ID_CONSUMIDOR = ID_CONSUMIDOR;
+    }
+
+    public String getATIVA() {
+        return ATIVA;
+    }
+
+    public void setATIVA(String ATIVA) {
+        this.ATIVA = ATIVA;
     }
 }
