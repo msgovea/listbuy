@@ -7,58 +7,58 @@ import java.sql.Blob;
  */
 public class Ofertas {
 
-    private Integer ID_OFERTA;
-    private String DESCRICAO;
-    private String NOME;
-    private Blob IMAGEM;
-    private Integer ID_CONSUMIDOR;
-    private String ATIVA;
+    private Integer id_oferta;
+    private String descricao;
+    private String nome;
+    private Blob imagem;
+    private Integer id_consumidor;
+    private String ativa;
 
-    public Integer getID_OFERTA() {
-        return ID_OFERTA;
+    public Integer getId_oferta() {
+        return id_oferta;
     }
 
-    public void setID_OFERTA(Integer ID_OFERTA) {
-        this.ID_OFERTA = ID_OFERTA;
+    public void setId_oferta(Integer id_oferta) {
+        this.id_oferta = id_oferta;
     }
 
-    public String getDESCRICAO() {
-        return DESCRICAO;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDESCRICAO(String DESCRICAO) {
-        this.DESCRICAO = DESCRICAO;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getNOME() {
-        return NOME;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNOME(String NOME) {
-        this.NOME = NOME;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public Blob getIMAGEM() {
-        return IMAGEM;
+    public Blob getImagem() {
+        return imagem;
     }
 
-    public void setIMAGEM(Blob IMAGEM) {
-        this.IMAGEM = IMAGEM;
+    public void setImagem(Blob imagem) {
+        this.imagem = imagem;
     }
 
-    public Integer getID_CONSUMIDOR() {
-        return ID_CONSUMIDOR;
+    public Integer getId_consumidor() {
+        return id_consumidor;
     }
 
-    public void setID_CONSUMIDOR(Integer ID_CONSUMIDOR) {
-        this.ID_CONSUMIDOR = ID_CONSUMIDOR;
+    public void setId_consumidor(Integer id_consumidor) {
+        this.id_consumidor = id_consumidor;
     }
 
-    public String getATIVA() {
-        return ATIVA;
+    public String getAtiva() {
+        return ativa;
     }
 
-    public void setATIVA(String ATIVA) {
-        this.ATIVA = ATIVA;
+    public void setAtiva(String ativa) {
+        this.ativa = ativa;
     }
 }

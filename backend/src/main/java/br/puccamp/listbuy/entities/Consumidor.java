@@ -2,58 +2,58 @@ package br.puccamp.listbuy.entities;
 
 public class Consumidor {
 
-    private Integer ID_CONSUMIDOR;
-    private String NOME;
-    private String EMAIL;
-    private String SENHA;
-    private String ID_TIPO_ACESSO;
-    private String KEY_ACESSO;
+    private Integer id_consumidor;
+    private String nome;
+    private String email;
+    private String senha;
+    private String id_tipo_acesso;
+    private String key_acesso;
 
-    public Integer getID_CONSUMIDOR() {
-        return ID_CONSUMIDOR;
+    public Integer getId_consumidor() {
+        return id_consumidor;
     }
 
-    public void setID_CONSUMIDOR(Integer ID_CONSUMIDOR) {
-        this.ID_CONSUMIDOR = ID_CONSUMIDOR;
+    public void setId_consumidor(Integer id_consumidor) {
+        this.id_consumidor = id_consumidor;
     }
 
-    public String getNOME() {
-        return NOME;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNOME(String NOME) {
-        this.NOME = NOME;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEMAIL() {
-        return EMAIL;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEMAIL(String EMAIL) {
-        this.EMAIL = EMAIL;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getSENHA() {
-        return SENHA;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSENHA(String SENHA) {
-        this.SENHA = SENHA;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public String getID_TIPO_ACESSO() {
-        return ID_TIPO_ACESSO;
+    public String getId_tipo_acesso() {
+        return id_tipo_acesso;
     }
 
-    public void setID_TIPO_ACESSO(String ID_TIPO_ACESSO) {
-        this.ID_TIPO_ACESSO = ID_TIPO_ACESSO;
+    public void setId_tipo_acesso(String id_tipo_acesso) {
+        this.id_tipo_acesso = id_tipo_acesso;
     }
 
-    public String getKEY_ACESSO() {
-        return KEY_ACESSO;
+    public String getKey_acesso() {
+        return key_acesso;
     }
 
-    public void setKEY_ACESSO(String KEY_ACESSO) {
-        this.KEY_ACESSO = KEY_ACESSO;
+    public void setKey_acesso(String key_acesso) {
+        this.key_acesso = key_acesso;
     }
 }

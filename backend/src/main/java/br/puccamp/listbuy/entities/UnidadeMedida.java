@@ -5,40 +5,40 @@ package br.puccamp.listbuy.entities;
  */
 
 public class UnidadeMedida {
-    private Integer ID_UNIDADE_MEDIDA;
-    private String DRESCICAO_UNIDADE;
-    private String SIGLA;
-    private String ATIVA;
+    private Integer id_unidade_medida;
+    private String drescicao_unidade;
+    private String sigla;
+    private String ativa;
 
-    public Integer getID_UNIDADE_MEDIDA() {
-        return ID_UNIDADE_MEDIDA;
+    public Integer getId_unidade_medida() {
+        return id_unidade_medida;
     }
 
-    public void setID_UNIDADE_MEDIDA(Integer ID_UNIDADE_MEDIDA) {
-        this.ID_UNIDADE_MEDIDA = ID_UNIDADE_MEDIDA;
+    public void setId_unidade_medida(Integer id_unidade_medida) {
+        this.id_unidade_medida = id_unidade_medida;
     }
 
-    public String getDRESCICAO_UNIDADE() {
-        return DRESCICAO_UNIDADE;
+    public String getDrescicao_unidade() {
+        return drescicao_unidade;
     }
 
-    public void setDRESCICAO_UNIDADE(String DRESCICAO_UNIDADE) {
-        this.DRESCICAO_UNIDADE = DRESCICAO_UNIDADE;
+    public void setDrescicao_unidade(String drescicao_unidade) {
+        this.drescicao_unidade = drescicao_unidade;
     }
 
-    public String getSIGLA() {
-        return SIGLA;
+    public String getSigla() {
+        return sigla;
     }
 
-    public void setSIGLA(String SIGLA) {
-        this.SIGLA = SIGLA;
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
-    public String getATIVA() {
-        return ATIVA;
+    public String getAtiva() {
+        return ativa;
     }
 
-    public void setATIVA(String ATIVA) {
-        this.ATIVA = ATIVA;
+    public void setAtiva(String ativa) {
+        this.ativa = ativa;
     }
 }

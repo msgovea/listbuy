@@ -5,49 +5,49 @@ package br.puccamp.listbuy.entities;
  */
 public class EventosXProdutos {
 
-    private Integer ID_LISTA;
-    private Integer ID_PRODUTO;
-    private Integer ID_CONSUMIDOR_ASSIGN;
-    private Integer QUANTIDADE;
-    private Integer ID_UNIDADE_MEDIDA;
+    private Integer id_lista;
+    private Integer id_produto;
+    private Integer id_consumidor_assign;
+    private Integer quantidade;
+    private Integer id_unidade_medida;
 
-    public Integer getID_LISTA() {
-        return ID_LISTA;
+    public Integer getId_lista() {
+        return id_lista;
     }
 
-    public void setID_LISTA(Integer ID_LISTA) {
-        this.ID_LISTA = ID_LISTA;
+    public void setId_lista(Integer id_lista) {
+        this.id_lista = id_lista;
     }
 
-    public Integer getID_PRODUTO() {
-        return ID_PRODUTO;
+    public Integer getId_produto() {
+        return id_produto;
     }
 
-    public void setID_PRODUTO(Integer ID_PRODUTO) {
-        this.ID_PRODUTO = ID_PRODUTO;
+    public void setId_produto(Integer id_produto) {
+        this.id_produto = id_produto;
     }
 
-    public Integer getID_CONSUMIDOR_ASSIGN() {
-        return ID_CONSUMIDOR_ASSIGN;
+    public Integer getId_consumidor_assign() {
+        return id_consumidor_assign;
     }
 
-    public void setID_CONSUMIDOR_ASSIGN(Integer ID_CONSUMIDOR_ASSIGN) {
-        this.ID_CONSUMIDOR_ASSIGN = ID_CONSUMIDOR_ASSIGN;
+    public void setId_consumidor_assign(Integer id_consumidor_assign) {
+        this.id_consumidor_assign = id_consumidor_assign;
     }
 
-    public Integer getQUANTIDADE() {
-        return QUANTIDADE;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setQUANTIDADE(Integer QUANTIDADE) {
-        this.QUANTIDADE = QUANTIDADE;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public Integer getID_UNIDADE_MEDIDA() {
-        return ID_UNIDADE_MEDIDA;
+    public Integer getId_unidade_medida() {
+        return id_unidade_medida;
     }
 
-    public void setID_UNIDADE_MEDIDA(Integer ID_UNIDADE_MEDIDA) {
-        this.ID_UNIDADE_MEDIDA = ID_UNIDADE_MEDIDA;
+    public void setId_unidade_medida(Integer id_unidade_medida) {
+        this.id_unidade_medida = id_unidade_medida;
     }
 }

@@ -5,49 +5,49 @@ package br.puccamp.listbuy.entities;
  */
 public class Produtos {
 
-    private Integer ID_PRODUTO;
-    private String NOME;
-    private String DESCRICAO;
-    private Integer ID_CATEGORIA;
-    private String ATIVO;
+    private Integer id_produto;
+    private String nome;
+    private String descricao;
+    private Integer id_categoria;
+    private String ativo;
 
-    public Integer getID_PRODUTO() {
-        return ID_PRODUTO;
+    public Integer getId_produto() {
+        return id_produto;
     }
 
-    public void setID_PRODUTO(Integer ID_PRODUTO) {
-        this.ID_PRODUTO = ID_PRODUTO;
+    public void setId_produto(Integer id_produto) {
+        this.id_produto = id_produto;
     }
 
-    public String getNOME() {
-        return NOME;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNOME(String NOME) {
-        this.NOME = NOME;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDESCRICAO() {
-        return DESCRICAO;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDESCRICAO(String DESCRICAO) {
-        this.DESCRICAO = DESCRICAO;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public Integer getID_CATEGORIA() {
-        return ID_CATEGORIA;
+    public Integer getId_categoria() {
+        return id_categoria;
     }
 
-    public void setID_CATEGORIA(Integer ID_CATEGORIA) {
-        this.ID_CATEGORIA = ID_CATEGORIA;
+    public void setId_categoria(Integer id_categoria) {
+        this.id_categoria = id_categoria;
     }
 
-    public String getATIVO() {
-        return ATIVO;
+    public String getAtivo() {
+        return ativo;
     }
 
-    public void setATIVO(String ATIVO) {
-        this.ATIVO = ATIVO;
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
     }
 }

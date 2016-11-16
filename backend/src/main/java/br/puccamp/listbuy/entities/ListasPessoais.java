@@ -5,13 +5,14 @@ package br.puccamp.listbuy.entities;
  */
 public class ListasPessoais extends Listas {
 
-    private String COMPARTILHADA;
+    private String compartilhada;
 
-    public String getCOMPARTILHADA() {
-        return COMPARTILHADA;
+    public String getCompartilhada() {
+        return compartilhada;
     }
 
-    public void setCOMPARTILHADA(String COMPARTILHADA) {
-        this.COMPARTILHADA = COMPARTILHADA;
+    public void setCompartilhada(String compartilhada) {
+        this.compartilhada = compartilhada;
     }
+
 }
