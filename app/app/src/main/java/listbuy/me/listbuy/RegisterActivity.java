@@ -198,7 +198,7 @@ public class RegisterActivity extends AppCompatActivity {
                         editor.putString("senha", mPasswordView.getText().toString());
                         editor.putString("nome", mNameView.getText().toString());
                         editor.commit();
-                        startActivity(new Intent(getApplicationContext(), Welcome.class));
+                        startActivity(new Intent(getApplicationContext(), MenuLateral.class));
                     } else {
                         Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
                         showProgress(false);

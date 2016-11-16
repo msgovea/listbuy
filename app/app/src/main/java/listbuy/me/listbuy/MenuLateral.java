@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import listbuy.me.listbuy.lista.Lista_inicial;
 
@@ -57,6 +58,7 @@ public class MenuLateral extends AppCompatActivity
         }
     }
 
+    //TODO: ESTE METODO COLOCA O MENU X QUE NO CASO EH O LATERAL, USAR EM OUTROS LUGARES
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -73,6 +75,9 @@ public class MenuLateral extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit().clear().commit();
+            //editor.clear().commit();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             return true;
         }
 
@@ -88,17 +93,17 @@ public class MenuLateral extends AppCompatActivity
         if (id == R.id.nav_camera) {
             startActivity(new Intent(this, Picture.class));
         } else if (id == R.id.nav_gallery) {
-            startActivity(new Intent(this, MainActivity.class));
-
-        } else if (id == R.id.nav_slideshow) {
             startActivity(new Intent(this, Lista_inicial.class));
-
+        } else if (id == R.id.nav_slideshow) {
+            Toast.makeText(this, "feed", Toast.LENGTH_LONG);
+            //startActivity(new Intent(this, Feed.class));
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+            startActivity(new Intent(this, SharingScreen.class));
 
         } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(this, Welcome.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
