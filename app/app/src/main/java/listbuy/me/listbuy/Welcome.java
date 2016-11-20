@@ -16,7 +16,7 @@ public class Welcome extends AppCompatActivity {
 
     private Button log_out;
     private Usuario usu;
-
+ //jjjjjjj
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

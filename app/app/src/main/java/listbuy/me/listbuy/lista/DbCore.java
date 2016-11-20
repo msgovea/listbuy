@@ -21,12 +21,14 @@ public class DbCore extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table produtos_lista(id_lista integer,id_produto integer primary key autoincrement,nome_prod text,quantidade int,unidade_medida)");
         db.execSQL("create table listas_criadas(id_lista integer primary key autoincrement, nome_lista text, data_cricao text)");
+        db.execSQL("create table consumidor (id_consumidor integer,nome_consumidor text,email_cosumidor text, senha text,id_tipo_acesso integer,key_acesso integer)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("drop table produtos_lista;");
         db.execSQL("drop table listas_criadas;");
+        db.execSQL("drop table consumidor");
         onCreate(db);
     }
 
