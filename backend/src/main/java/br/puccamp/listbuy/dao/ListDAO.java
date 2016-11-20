@@ -3,6 +3,7 @@ package br.puccamp.listbuy.dao;
 
 import br.puccamp.listbuy.entities.Consumidor;
 import br.puccamp.listbuy.entities.Listas;
+import br.puccamp.listbuy.entities.Produtos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +28,54 @@ public class ListDAO extends GenericDAO {
             acesso.setId_consumidor(rs.getInt(1));
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao cadastrar consumidor!", e);
+        }
+    }
+
+    public Listas listarInformacoesListas (int idLista) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM LISTAS ");
+        sql.append("WHERE ID_LISTA = ?");
+        try (Connection connection = getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(sql.toString());
+            stmt.setInt(1, idLista);
+            ResultSet rs = stmt.executeQuery();
+            Listas retorno = new Listas();
+            if (rs.next()) {
+                retorno.setId_lista(rs.getInt(1));
+                retorno.setTipo_lista(rs.getString(2));
+                retorno.setTitulo(rs.getString(3));
+                retorno.setId_consumidor(rs.getInt(4));
+                retorno.setAtiva(rs.getString(5));
+                retorno.setData_ics(rs.getDate(6));
+                retorno.setData_alt(rs.getDate(7));
+                return retorno;
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("Produto não encontrado!", e);
+        }
+    }
+
+    public ArrayList<Produtos> listarProdutosPorLista(int idLista) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT * FROM LISTAS_X_PRODUTOS ");
+        sql.append("WHERE ID_LISTA = ?");
+        try (Connection connection = getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(sql.toString());
+            stmt.setInt(1, idLista);
+            ResultSet rs = stmt.executeQuery();
+            ArrayList<Produtos> produtos = new ArrayList<>();
+            Boolean achou = false;
+            while (rs.next()) {
+                ProductDAO productDAO = new ProductDAO();
+                Produtos produto = productDAO.listarInformacoesProdutos(rs.getInt(2)); //ID_PRODUTO
+                produtos.add(produto);
+                achou = true;
+            }
+            if (achou) { return produtos; }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException("A lista não tem nenhum produto!", e);
         }
     }
 

@@ -1,12 +1,16 @@
 package br.puccamp.listbuy.entities;
 
+import java.sql.Date;
+
 public class Listas {
 
     private Integer id_lista;
     private String tipo_lista;
     private String titulo;
-    private int id_consumidor;
+    private Integer id_consumidor;
     private String ativa;
+    private Date data_ics;
+    private Date data_alt;
 
     public Integer getId_lista() {
         return id_lista;
@@ -32,11 +36,11 @@ public class Listas {
         this.titulo = titulo;
     }
 
-    public int getId_consumidor() {
+    public Integer getId_consumidor() {
         return id_consumidor;
     }
 
-    public void setId_consumidor(int id_consumidor) {
+    public void setId_consumidor(Integer id_consumidor) {
         this.id_consumidor = id_consumidor;
     }
 
@@ -46,5 +50,21 @@ public class Listas {
 
     public void setAtiva(String ativa) {
         this.ativa = ativa;
+    }
+
+    public Date getData_ics() {
+        return data_ics;
+    }
+
+    public void setData_ics(Date data_ics) {
+        this.data_ics = data_ics;
+    }
+
+    public Date getData_alt() {
+        return data_alt;
+    }
+
+    public void setData_alt(Date data_alt) {
+        this.data_alt = data_alt;
     }
 }
