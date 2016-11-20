@@ -56,5 +56,4 @@ public class Consumidor {
     public void setKey_acesso(String key_acesso) {
         this.key_acesso = key_acesso;
     }
-
 }

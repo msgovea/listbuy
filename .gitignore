@@ -1,8 +1,7 @@
-*.iml
 /app/.gradle
 /app/local.properties
 /app/.idea/workspace.xml
-/app/.idea
+/app/.idea/*
 /app/.idea/libraries
 /app/.DS_Store
 /app/build
@@ -12,3 +11,4 @@
 /backend/target/
 /backend/.idea
 /backend/.idea/
+/backend/.idea/*
