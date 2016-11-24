@@ -1,6 +1,6 @@
 package br.puccamp.listbuy.controller;
 
-import br.puccamp.listbuy.service.*;
+import br.puccamp.listbuy.service.UnitOfMeasurementService;
 import br.puccamp.listbuy.utils.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
