@@ -1,0 +1,10 @@
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.dll.config
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.dll
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.pdb
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.xml
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Release\EnvioEmail.Resources.resources
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Release\EnvioEmail.vbproj.GenerateResource.Cache
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Release\EnvioEmail.dll
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Release\EnvioEmail.xml
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Release\EnvioEmail.pdb
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Release\EnvioEmail.vbprojResolveAssemblyReference.cache

@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+</head>
+<body>
+<div class="SandboxScopeClass ExternalClass" id="mpf0_MsgContainer" style="line-height: 21px; font-size: 15px; font-family: Calibri,sans-serif;">
+  <p style="margin: 0px 0px 1.35em; line-height: 21px;"></p>
+  <table style="border: 1px solid rgb(198, 224, 191); line-height: 21px; background-color: rgb(255, 255, 255);" align="center" border="0" cellpadding="20" cellspacing="5" width="700">
+    <tbody style="line-height: 21px;">
+      <tr style="line-height: 21px;">
+        <td style="line-height: 21px;" align="left"><small> </small>
+          <h1 style="margin: 0px 0px 5px; line-height: 15px; color: rgb(206, 23, 31); font-size: 18px; font-family: Arial,Helvetica,sans-serif; font-weight:bold; font-style: normal; font-variant: normal;">
+            <center><img src="http://fury-pt.com/EnviaEmail/img/logo.png" style="line-height: 30px; width: 648px;"></center>
+          </h1>
+          <div class="ecxline" style="border-bottom: 1px dotted rgb(153, 153, 153); padding: 5px; line-height: 21px; width: 648px;"></div>
+          <br><span style="font-weight: bold;">[assunto]</span><br>
+          <br>[mensagem]<br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin: 0px 0px 1.35em; line-height: 21px;"></p>
+</div>
+<div
+ class="ReadMsgSafetyBar TextSizeSmall t_sbgc t_amtc SafetyBarPri-low" id="mpf0_safetyBar" style="margin: 20px 0px; line-height: 17px; font-size: 12px; color: rgb(0, 0, 0); overflow: hidden; height: auto ! important; background-color: rgb(243, 243, 243); letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px;"> </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\bin\EnvioEmail.dll.config
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\bin\EnvioEmail.dll
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\bin\EnvioEmail.pdb
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\bin\EnvioEmail.xml
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.Resources.resources
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.vbproj.GenerateResource.Cache
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.dll
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.xml
+c:\users\bruno\documents\visual studio 2015\Projects\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.pdb
+C:\Users\Bruno\Documents\Visual Studio 2015\Projects\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.vbprojResolveAssemblyReference.cache
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.dll.config
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.dll
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.pdb
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\bin\EnvioEmail.xml
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.vbprojResolveAssemblyReference.cache
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.Resources.resources
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.vbproj.GenerateResource.Cache
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.dll
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.xml
+E:\3. Projetos\EnvioEmailListBuy\EnvioEmail\EnvioEmail\obj\Debug\EnvioEmail.pdb
