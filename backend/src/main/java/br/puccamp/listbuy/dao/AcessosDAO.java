@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class AcessosDAO extends GenericDAO {
 
@@ -29,7 +28,7 @@ public class AcessosDAO extends GenericDAO {
             acesso.setId_consumidor(rs.getInt(1));
             return acesso;
         } catch (SQLException e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
             throw new RuntimeException("Erro ao cadastrar consumidor!", e);
         }
     }
@@ -45,18 +44,32 @@ public class AcessosDAO extends GenericDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 Consumidor retorno = new Consumidor();
-                retorno.setId_consumidor(rs.getInt(1));
-                retorno.setNome(rs.getString(2));
-                retorno.setEmail(rs.getString(3));
-                //retorno.setSenha(rs.getString(4));
+                retorno.setId_consumidor (rs.getInt   (1));
+                retorno.setNome          (rs.getString(2));
+                retorno.setEmail         (rs.getString(3));
                 retorno.setId_tipo_acesso(rs.getString(5));
-                retorno.setKey_acesso(rs.getString(6));
+                retorno.setKey_acesso    (rs.getString(6));
                 return retorno;
 
             }
             return null;
         } catch (SQLException e) {
             throw new RuntimeException("Usuário ou senha inválido!", e);
+        }
+    }
+
+    public Boolean ativarConta(String keyAcesso) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE CONSUMIDOR ");
+        sql.append("SET ID_TIPO_ACESSO = 'N' ");
+        sql.append("WHERE ID_TIPO_ACESSO = 'A' AND KEY_ACESSO = ?");
+        try (Connection connection = getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(sql.toString());
+            stmt.setString(1, keyAcesso);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println(e);
+            throw new RuntimeException("Erro ao ativar cadastro!", e);
         }
     }
 }
