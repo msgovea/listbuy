@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * Created by filip on 10/21/2015.
- */
+import listbuy.me.listbuy.lista.DbConn;
+
+
 public class Welcome extends AppCompatActivity {
 
     private Button log_out;
     private Usuario usu;
- //jjjjjjj
+    private DbConn dbconn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,8 @@ public class Welcome extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Meu Perfil");
 
+        dbconn = new DbConn(Welcome.this);
+
         log_out = (Button) findViewById(R.id.button);
         log_out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +35,7 @@ public class Welcome extends AppCompatActivity {
                 getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit().clear().commit();
                 //editor.clear().commit();
                 startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                dbconn.deleteConsumidor();
             }
         });
         SharedPreferences prefs = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO",0);

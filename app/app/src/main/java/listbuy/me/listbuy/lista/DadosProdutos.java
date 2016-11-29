@@ -34,7 +34,7 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
         //extUm = (EditText) findViewById(R.id.edtUm);
         smp = (Spinner)findViewById(R.id.spUm);
         txtCategoria= (TextView)findViewById(R.id.textView);
-        txtUnidadeMedida = (TextView)findViewById(R.id.txtunid);
+        //txtUnidadeMedida = (TextView)findViewById(R.id.txtunid);
 
         btnOk = (Button)findViewById(R.id.btnOk);
         btnCancel = (Button)findViewById(R.id.btnCancel);
@@ -50,7 +50,7 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
             }
         }
 
-        nomes_UM = new String[]{"?","Unidades","KG","Litros"};
+        nomes_UM = new String[]{"....","Unidades","KG","Litros"};
         adp = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,nomes_UM);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         smp.setAdapter(adp);

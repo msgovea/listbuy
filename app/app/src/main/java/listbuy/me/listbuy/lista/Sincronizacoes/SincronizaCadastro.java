@@ -1,9 +1,7 @@
 package listbuy.me.listbuy.lista.Sincronizacoes;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -21,42 +19,45 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.List;
 
 import listbuy.me.listbuy.LoginActivity;
-import listbuy.me.listbuy.R;
-import listbuy.me.listbuy.Welcome;
+import listbuy.me.listbuy.RegisterActivity;
 import listbuy.me.listbuy.lista.DbConn;
-import listbuy.me.listbuy.lista.Lista_inicial;
 
 /**
- * Created by Talitadossantoscastr on 13/11/2016.
+ * Created by Talitadossantoscastr on 26/11/2016.
  */
 
-public class SincronizaLogin extends AsyncTask<String, String, String> {
+public class SincronizaCadastro extends AsyncTask<String, String, String> {
 
     public interface Listener {
 
         public void onLoaded(String string);
     }
 
-    private String login;
+    private String id_tipo_status;
     private String senha;
+    private String nome;
+    private String email;
     public String status = "nao";
     private Listener mListener;
+    private Context c;
     private DbConn dbconn;
 
-    public SincronizaLogin(Listener mListener) {
+
+
+    public SincronizaCadastro(Listener mListener) {
+
         this.mListener = mListener;
 
     }
-
     @Override
     protected String doInBackground(String... n) {
-
-        String api_url = "http://servidor.listbuy.me:81/login";
-        login = n[0];
-        senha = n[1];
+        String api_url = "http://servidor.listbuy.me:81/register/";
+        nome = n[0];
+        email = n[1];
+        senha = n[2];
+        id_tipo_status = n[3];
 
         HttpURLConnection urlConnection;
         String requestBody;
@@ -68,8 +69,10 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("Accept-Encoding", "application/json");
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("email", login);
+            jsonObject.accumulate("nome", nome);
+            jsonObject.accumulate("email", email);
             jsonObject.accumulate("senha", senha);
+            jsonObject.accumulate("id_tipo_acesso", id_tipo_status);
             String json = jsonObject.toString();
             OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
@@ -90,12 +93,13 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
             String temp, response = "";
             while ((temp = bufferedReader.readLine()) != null) {
                 response += temp;
-                //Log.i("teste_api", response);
-                //JSONObject resp = new JSONObject(response);
-                //JSONObject object = new JSONObject(resp.getString("object"));
-                //Log.i("nome", object.getString("nome"));
-                //Log.i("email", object.getString("email"));
-                //Log.i("tipo", object.getString("id_tipo_acesso"));
+                Log.i("teste_api", response);
+                JSONObject resp = new JSONObject(response);
+                JSONObject object = new JSONObject(resp.getString("object"));
+                Log.i("nome", object.getString("nome"));
+                Log.i("email", object.getString("email"));
+                Log.i("senha", object.getString("senha"));
+                Log.i("id_tipo_acesso", object.getString("id_tipo_acesso"));
             }
             return response;
 
@@ -108,14 +112,13 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
 
     @Override
     protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-        dbconn = new DbConn(LoginActivity.context);
+        dbconn = new DbConn(RegisterActivity.context);
         status = "sim";
         try {
             JSONObject api_result = new JSONObject(result);
-
             String message = api_result.getString("message");
-            if (message.equalsIgnoreCase("success")) {
+            Log.i("teste",message);
+           if (message.equalsIgnoreCase("success")) {
                 String dados = api_result.getString("object");
                 JSONObject dados_result = new JSONObject(dados);
                 int id_consumidor = dados_result.getInt("id_consumidor");
@@ -124,21 +127,18 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
                 String senha = dados_result.getString("senha");
                 String tipo_acesso = dados_result.getString("id_tipo_acesso");
                 String key_acesso = dados_result.getString("key_acesso");
-                //Salvar no Sqlite para nao perder os dados da pessoa logada no  app
-                dbconn.insertConsumidor(id_consumidor,nome,email,senha,tipo_acesso);
+               dbconn.insertConsumidor(id_consumidor,nome,email,senha,tipo_acesso);
 
-                // Implementa o retorno para a classe de Login
                 if (mListener != null) {
                     mListener.onLoaded("true");
                 }
                 //LoginActivity.context.startActivity(new Intent(LoginActivity.context, Lista_inicial.class));
 
-
             } else {
                 LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
                 builder.setTitle("Titulo do dialog");
-                builder.setMessage("Login/Senha incorreto");
+                builder.setMessage("Erro ao carregar");
                 builder.setPositiveButton("Fechar", null);
                 builder.setCancelable(false);
                 builder.show();
@@ -164,6 +164,5 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
 
 
     }
-
 
 }

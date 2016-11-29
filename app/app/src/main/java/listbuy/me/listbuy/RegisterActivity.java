@@ -3,6 +3,7 @@ package listbuy.me.listbuy;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -33,16 +34,20 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaCadastro;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
+
 /**
  * A login screen that offers login via email/password.
  */
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements SincronizaCadastro.Listener{
 
     private EditText mPasswordView, mEmailView, mNameView, mConfirmPasswordView;
     private View mProgressView;
     private View mRegisterFormView;
     private StringRequest request;
     private RequestQueue requestQueue;
+    public static Context context;
     private static final String URL = "http://www.listbuy.me/api/user_control.php";
 
 
@@ -63,12 +68,15 @@ public class RegisterActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(this, WelcomeScreen.class));
+        finishActivity(0);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        context = this;
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
@@ -161,10 +169,12 @@ public class RegisterActivity extends AppCompatActivity {
             requestFocus(mConfirmPasswordView);
             return;
         }
-
-
         showProgress(true);
-        request();
+        SincronizaCadastro sinc = new SincronizaCadastro(this);
+        sinc.execute(mNameView.getText().toString(),mEmailView.getText().toString(),mPasswordView.getText().toString(),"A");
+
+        //showProgress(true);
+        //request();
     }
 
 
@@ -184,7 +194,7 @@ public class RegisterActivity extends AppCompatActivity {
         return false;
     }
 
-    private void request() {
+   /* private void request() {
         request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -229,7 +239,7 @@ public class RegisterActivity extends AppCompatActivity {
         };
 
         requestQueue.add(request);
-    }
+    }*/
 
     /**
      * Shows the progress UI and hides the login form.
@@ -267,5 +277,21 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onLoaded(String string) {
+        if (string == "true") {
+            showProgress(false);
+            startActivity(new Intent(this, MenuLateral.class));
+            SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
+
+            editor.putString("login", mEmailView.getText().toString());
+            editor.putString("senha", mPasswordView.getText().toString());
+            editor.putString("nome", mNameView.getText().toString());
+            editor.commit();
+            finishActivity(1);
+        } else {
+            showProgress(false);
+        }
+    }
 }
 

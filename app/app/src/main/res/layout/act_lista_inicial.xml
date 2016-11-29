@@ -38,8 +38,21 @@
         app:pressedTranslationZ="12dp"
         app:backgroundTint="@color/colorAccent"
         android:visibility="invisible"
-
         />
+
+   <!-- <TextView
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="@dimen/fab_margin_right"
+        android:layout_marginBottom="100dp"
+        android:text="Botão 1"
+        android:textColor="#000fff"
+        android:layout_toLeftOf="@+id/fb_evento"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        android:visibility="visible"
+        android:id="@+id/txt_titulo1"/>-->
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="56dp"

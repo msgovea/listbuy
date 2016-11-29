@@ -1,0 +1,70 @@
+package listbuy.me.listbuy.entities;
+
+import java.sql.Date;
+
+public class Listas {
+
+    private Integer id_lista;
+    private String tipo_lista;
+    private String titulo;
+    private Integer id_consumidor;
+    private String ativa;
+    private Date data_ics;
+    private Date data_alt;
+
+    public Integer getId_lista() {
+        return id_lista;
+    }
+
+    public void setId_lista(Integer id_lista) {
+        this.id_lista = id_lista;
+    }
+
+    public String getTipo_lista() {
+        return tipo_lista;
+    }
+
+    public void setTipo_lista(String tipo_lista) {
+        this.tipo_lista = tipo_lista;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Integer getId_consumidor() {
+        return id_consumidor;
+    }
+
+    public void setId_consumidor(Integer id_consumidor) {
+        this.id_consumidor = id_consumidor;
+    }
+
+    public String getAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(String ativa) {
+        this.ativa = ativa;
+    }
+
+    public Date getData_ics() {
+        return data_ics;
+    }
+
+    public void setData_ics(Date data_ics) {
+        this.data_ics = data_ics;
+    }
+
+    public Date getData_alt() {
+        return data_alt;
+    }
+
+    public void setData_alt(Date data_alt) {
+        this.data_alt = data_alt;
+    }
+}
