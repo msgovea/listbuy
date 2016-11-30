@@ -56,7 +56,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/produtos"
+            app:srcCompat="@drawable/produtos1"
             android:id="@+id/imagem"
             android:layout_toLeftOf="@+id/txtUnid"
             android:layout_toStartOf="@+id/txtUnid"

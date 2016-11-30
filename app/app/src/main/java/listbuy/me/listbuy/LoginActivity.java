@@ -34,6 +34,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import listbuy.me.listbuy.lista.DbConn;
 import listbuy.me.listbuy.lista.Lista_inicial;
 import listbuy.me.listbuy.lista.Sincroniza;
 import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
@@ -47,6 +48,8 @@ public class LoginActivity extends AppCompatActivity implements SincronizaLogin.
     private StringRequest request;
     public static View mProgressView;
     private View mLoginFormView;
+    private DbConn dbconn;
+
     public static Context context;
 
     @Override
@@ -77,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements SincronizaLogin.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Login ListBuy");
+
 
         mEmailView = (EditText) findViewById(R.id.emailLogin);
         mPasswordView = (EditText) findViewById(R.id.passwordLogin);

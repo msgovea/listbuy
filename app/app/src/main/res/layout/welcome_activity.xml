@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_contentProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".Welcome">
+    android:orientation="vertical">
+<android.support.v7.widget.CardView
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:layout_margin="16dp"
+    android:padding="16dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="false"
+    app:cardPreventCornerOverlap="false"
+    app:cardMaxElevation="3dp"
+    app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <LinearLayout
-            android:id="@+id/layouttopo_luc"
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#69F0AE"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Dados Cadastrados"
+            android:textSize="20sp"
+            android:textColor="#727272"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <LinearLayout
-                android:id="@+id/layout_titulo_programa_luc"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="Meus dados "
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-            </LinearLayout>
-
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome :"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/txtnome"
@@ -54,7 +51,8 @@
             android:paddingTop="5dp"
             android:text="[NOME]"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#69F0AE" />
+            android:textColor="#727272"
+            android:textSize="20sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,7 +60,8 @@
             android:paddingTop="15dp"
             android:text="Email :"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/txtemail"
@@ -71,7 +70,8 @@
             android:paddingTop="5dp"
             android:text="[EMAIL]"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#69F0AE" />
+            android:textColor="#727272"
+            android:textSize="20sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -79,7 +79,8 @@
             android:paddingTop="15dp"
             android:text="Senha :"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textSize="25sp"/>
 
         <TextView
             android:id="@+id/txtsenha"
@@ -88,16 +89,27 @@
             android:paddingTop="5dp"
             android:text="[SENHA]"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#69F0AE" />
+            android:textColor="#727272"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 
+
+</android.support.v7.widget.CardView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="LOGOUT" />
-</RelativeLayout>
+        android:elevation="0dp"
+        android:layout_gravity="bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="LOGOUT"
+        android:layout_alignParentBottom="true"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:background="@color/colorPrimary"/>
+    </RelativeLayout>
+</LinearLayout>

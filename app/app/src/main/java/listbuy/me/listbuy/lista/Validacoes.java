@@ -9,9 +9,9 @@ public class Validacoes {
         return str == null || str.length() == 0;
     }
     public static final boolean isNumeric (String str){
-        return str.matches("[a-zA-Z]+") || str.length() == 0;
+        return str.matches("[a-zA-Z]+") || str.length() == 0 || str.matches("(?:\\d+[a-z]|[a-z]+\\d)[a-z\\d]*");
     }
     public static final boolean isCharacterSpecial(String str){
-        return str == "?";
+        return str == "....";
     }
 }

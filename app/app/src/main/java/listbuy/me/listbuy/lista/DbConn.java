@@ -36,7 +36,15 @@ public class DbConn {
         valor.put("data_cricao",data_criacao);
         db.insert("listas_criadas",null,valor);
     }
-
+    public void insertConsumidor(int idConsumidor, String nome,String email, String senha,String id_tipo_acesso){
+        ContentValues valor = new ContentValues();
+        valor.put("id_consumidor",idConsumidor);
+        valor.put("nome_consumidor",nome);
+        valor.put("email_cosumidor",email);
+        valor.put("senha",senha);
+        valor.put("id_tipo_acesso",id_tipo_acesso);
+        db.insert("consumidor",null,valor);
+    }
     public void deleteListaprod(int id){
        db.delete("produtos_lista","id_lista ="+id,null);
     }
@@ -188,6 +196,9 @@ public class DbConn {
 
         }
         return null;
+    }
+    public void deleteConsumidor(){
+        db.execSQL("drop table consumidor");
     }
 
 }
