@@ -105,7 +105,8 @@
         <activity android:name=".lista.Categorias" />
 
         <!-- talita -->
-
+        <activity android:name=".Feeds" />
+        <activity android:name=".ChamaTabs"></activity>
         <activity android:name=".ListaRecebida"></activity>
     </application>
 
