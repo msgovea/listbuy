@@ -25,7 +25,7 @@ public class AcessosDAO extends GenericDAO {
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            acesso.setId_consumidor(rs.getInt(1));
+            acesso.setId_consumidor(rs.getLong(1));
             return acesso;
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -44,7 +44,7 @@ public class AcessosDAO extends GenericDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 Consumidor retorno = new Consumidor();
-                retorno.setId_consumidor (rs.getInt   (1));
+                retorno.setId_consumidor (rs.getLong   (1));
                 retorno.setNome          (rs.getString(2));
                 retorno.setEmail         (rs.getString(3));
                 retorno.setId_tipo_acesso(rs.getString(5));
@@ -68,7 +68,7 @@ public class AcessosDAO extends GenericDAO {
             stmt.setString(1, keyAcesso);
             return stmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println(e);
+            System.err.println("Erro cadastro: " + e);
             throw new RuntimeException("Erro ao ativar cadastro!", e);
         }
     }

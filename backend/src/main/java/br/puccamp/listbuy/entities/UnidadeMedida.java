@@ -5,16 +5,16 @@ package br.puccamp.listbuy.entities;
  */
 
 public class UnidadeMedida {
-    private Integer id_unidade_medida;
+    private Long id_unidade_medida;
     private String drescicao_unidade;
     private String sigla;
     private String ativa;
 
-    public Integer getId_unidade_medida() {
+    public Long getId_unidade_medida() {
         return id_unidade_medida;
     }
 
-    public void setId_unidade_medida(Integer id_unidade_medida) {
+    public void setId_unidade_medida(Long id_unidade_medida) {
         this.id_unidade_medida = id_unidade_medida;
     }
 

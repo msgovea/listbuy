@@ -25,7 +25,7 @@ public class ListDAO extends GenericDAO {
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            acesso.setId_consumidor(rs.getInt(1));
+            acesso.setId_consumidor(rs.getLong(1));
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao cadastrar consumidor!", e);
         }
@@ -41,10 +41,10 @@ public class ListDAO extends GenericDAO {
             ResultSet rs = stmt.executeQuery();
             Listas retorno = new Listas();
             if (rs.next()) {
-                retorno.setId_lista(rs.getInt(1));
+                retorno.setId_lista(rs.getLong(1));
                 retorno.setTipo_lista(rs.getString(2));
                 retorno.setTitulo(rs.getString(3));
-                retorno.setId_consumidor(rs.getInt(4));
+                retorno.setId_consumidor(rs.getLong(4));
                 retorno.setAtiva(rs.getString(5));
                 retorno.setData_ics(rs.getDate(6));
                 retorno.setData_alt(rs.getDate(7));
@@ -68,7 +68,7 @@ public class ListDAO extends GenericDAO {
             Boolean achou = false;
             while (rs.next()) {
                 ProductDAO productDAO = new ProductDAO();
-                Produtos produto = productDAO.listarInformacoesProdutos(rs.getInt(2)); //ID_PRODUTO
+                Produtos produto = productDAO.listarInformacoesProdutos(rs.getLong(2)); //ID_PRODUTO
                 produtos.add(produto);
                 achou = true;
             }
@@ -91,10 +91,10 @@ public class ListDAO extends GenericDAO {
             Boolean achou = false;
             while (rs.next()) {
                 Listas retorno = new Listas();
-                retorno.setId_lista(rs.getInt(1));
+                retorno.setId_lista(rs.getLong(1));
                 retorno.setTipo_lista(rs.getString(2));
                 retorno.setTitulo(rs.getString(3));
-                retorno.setId_consumidor(rs.getInt(4));
+                retorno.setId_consumidor(rs.getLong(4));
                 retorno.setAtiva(rs.getString(5));
                 lista.add(retorno);
                 achou = true;

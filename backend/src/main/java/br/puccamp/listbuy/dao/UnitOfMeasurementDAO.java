@@ -25,7 +25,7 @@ public class UnitOfMeasurementDAO extends GenericDAO {
             Boolean achou = false;
             while (rs.next()) {
                 UnidadeMedida unidadeMedida = new UnidadeMedida();
-                unidadeMedida.setId_unidade_medida  (rs.getInt   (1));
+                unidadeMedida.setId_unidade_medida  (rs.getLong  (1));
                 unidadeMedida.setDrescicao_unidade  (rs.getString(2));
                 unidadeMedida.setAtiva              (rs.getString(3));
                 unidadeMedida.setSigla              (rs.getString(4));

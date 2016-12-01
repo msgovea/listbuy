@@ -5,17 +5,17 @@ package br.puccamp.listbuy.entities;
  */
 public class Produtos {
 
-    private Integer id_produto;
+    private Long id_produto;
     private String nome;
     private String descricao;
-    private Integer id_categoria;
+    private Long id_categoria;
     private String ativo;
 
-    public Integer getId_produto() {
+    public Long getId_produto() {
         return id_produto;
     }
 
-    public void setId_produto(Integer id_produto) {
+    public void setId_produto(Long id_produto) {
         this.id_produto = id_produto;
     }
 
@@ -35,11 +35,11 @@ public class Produtos {
         this.descricao = descricao;
     }
 
-    public Integer getId_categoria() {
+    public Long getId_categoria() {
         return id_categoria;
     }
 
-    public void setId_categoria(Integer id_categoria) {
+    public void setId_categoria(Long id_categoria) {
         this.id_categoria = id_categoria;
     }
 
