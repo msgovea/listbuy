@@ -1,6 +1,7 @@
 package listbuy.me.listbuy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,7 +42,16 @@ public class SharingList extends AppCompatActivity implements OnConnectionFailed
                                     // Extract deep link from Intent
                                     Intent intent = result.getInvitationIntent();
                                     String deepLink = AppInviteReferral.getDeepLink(intent);
-                                    setContentView(R.layout.sharing_list);
+                                    if (deepLink!= null){
+                                        Intent teste = new Intent(SharingList.this,ListaRecebida.class);
+                                        teste.putExtra("id",deepLink);
+                                        startActivity(teste);
+
+                                    }
+
+
+
+                                    //onNewIntent(getIntent());
 
 
                                     // Handle the deep link. For example, open the linked
@@ -50,7 +60,7 @@ public class SharingList extends AppCompatActivity implements OnConnectionFailed
 
                                     // ...
                                 } else {
-                                    Log.d(TAG, "getInvitation: no deep link found.");
+                                    Log.d(TAG, "Link não encontrado");
                                 }
                             }
                         });
@@ -63,5 +73,15 @@ public class SharingList extends AppCompatActivity implements OnConnectionFailed
         // the failure silently
 
         // ...
+    }
+
+    protected void onNewIntent(Intent intent){
+        String action = intent.getAction();
+        Uri link = intent.getData();
+        if(Intent.ACTION_VIEW.equals(action) && link != null){
+            String IdLista = link.getLastPathSegment();
+            intent.putExtra("id", IdLista);
+            setContentView(R.layout.lista_recebida);
+        }
     }
 }
