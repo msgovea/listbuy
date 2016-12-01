@@ -27,7 +27,12 @@ public class RegisterController {
         try {
             return new ResponseEntity<>(new Response<>("success", registerService.efetuarCadastro(dados)), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(new Response<>("Dados incorretos!"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new Response<>("Dados incorretos!" + e.getMessage()), HttpStatus.UNAUTHORIZED);
         }
+    }
+
+    @RequestMapping("/activate/{keyAcesso}")
+    public ResponseEntity<Boolean> listasPorUsuario(@PathVariable("keyAcesso") String keyAcesso) {
+            return new ResponseEntity<>(registerService.ativarConta(keyAcesso), HttpStatus.OK);
     }
 }
