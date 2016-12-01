@@ -44,7 +44,7 @@ public class AcessosDAO extends GenericDAO {
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 Consumidor retorno = new Consumidor();
-                retorno.setId_consumidor (rs.getLong   (1));
+                retorno.setId_consumidor (rs.getLong  (1));
                 retorno.setNome          (rs.getString(2));
                 retorno.setEmail         (rs.getString(3));
                 retorno.setId_tipo_acesso(rs.getString(5));

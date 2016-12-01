@@ -2,6 +2,7 @@ package br.puccamp.listbuy.service;
 
 import br.puccamp.listbuy.dao.ListDAO;
 import br.puccamp.listbuy.dao.OffersDAO;
+import br.puccamp.listbuy.entities.Consumidor;
 import br.puccamp.listbuy.entities.Listas;
 import br.puccamp.listbuy.entities.Ofertas;
 
@@ -15,6 +16,14 @@ public class OffersService {
         List<Ofertas> ofertas = offersDAO.listarOfertas();
         if (ofertas == null) {
             throw new RuntimeException("Nenhuma oferta!");
+        }
+        return ofertas;
+    }
+
+    public Ofertas inserirOfertas(Ofertas oferta) {
+        Ofertas ofertas = offersDAO.inserirOferta(oferta);
+        if (ofertas == null) {
+            throw new RuntimeException("Email ou senha inválido!");
         }
         return ofertas;
     }

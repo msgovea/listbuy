@@ -15,21 +15,26 @@ import java.util.List;
 
 public class OffersDAO extends GenericDAO {
 
-    public void inserirLista(Consumidor acesso) {
+    public Ofertas inserirOferta(Ofertas oferta) {
         StringBuilder sql = new StringBuilder();
-        sql.append("insert into consumidor ");
-        sql.append("(NOME, EMAIL, SENHA, ID_TIPO_ACESSO, KEY_ACESSO) ");
+        sql.append("INSERT INTO OFERTAS ");
+        sql.append("(DESCRICAO, NOME, IMAGEM, ID_CONSUMIDOR, ATIVA) ");
         sql.append("values (?,?,?,?,?) ");
         try (Connection connection = getConnection()) {
-            PreparedStatement stmt = connection.prepareStatement(sql.toString(), new String[]{"ID_CONSUMIDOR"});
-            stmt.setString(1, acesso.getEmail());
-            stmt.setString(2, acesso.getSenha());
+            PreparedStatement stmt = connection.prepareStatement(sql.toString(), new String[]{"ID_OFERTA"});
+            stmt.setString(1, oferta.getDescricao());
+            stmt.setString(2, oferta.getNome());
+            stmt.setBlob  (3, oferta.getImagem());
+            stmt.setLong  (4, oferta.getId_consumidor());
+            stmt.setString(5, oferta.getAtiva());
             stmt.execute();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
-            acesso.setId_consumidor(rs.getLong(1));
+            oferta.setId_consumidor(rs.getLong(1));
+            return oferta;
         } catch (SQLException e) {
-            throw new RuntimeException("Erro ao cadastrar consumidor!", e);
+            System.err.println(e.getMessage());
+            throw new RuntimeException("Erro ao cadastrar oferta!", e);
         }
     }
 
