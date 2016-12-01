@@ -38,11 +38,17 @@
             android:screenOrientation="portrait" />
         <activity android:name=".SharingList">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:host="g65q8.app.goo.gl/eNh4" android:scheme="http" />
-                <data android:host="g65q8.app.goo.gl/eNh4" android:scheme="https"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="g65q8.app.goo.gl/eNh4"
+                    android:scheme="http" />
+                <data
+                    android:host="g65q8.app.goo.gl/eNh4"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -99,6 +105,8 @@
 
         <!-- talita -->
 
+        <activity android:name=".Feeds" />
+        <activity android:name=".ChamaTabs"></activity>
     </application>
 
 </manifest>

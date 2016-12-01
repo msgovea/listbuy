@@ -22,9 +22,9 @@ public class TabLayoutAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                //return new "classe";
+                return new TabListasCompartilhadas();
             case 1:
-                //return new classe;
+                return new TabListasMinhas();
             default:
                 return null;
         }
