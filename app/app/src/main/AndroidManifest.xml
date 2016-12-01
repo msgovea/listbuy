@@ -39,16 +39,17 @@
         <activity android:name=".SharingList">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="g65q8.app.goo.gl/eNh4"
-                    android:scheme="http" />
+                    android:host="g65q8.app.goo.gl"
+                    android:scheme="http"
+                    android:pathPrefix="/idLista"/>
                 <data
-                    android:host="g65q8.app.goo.gl/eNh4"
-                    android:scheme="https" />
+                    android:host="g65q8.app.goo.gl"
+                    android:scheme="https"
+                    android:pathPrefix="/idLista"/>
             </intent-filter>
         </activity>
         <activity
@@ -105,8 +106,7 @@
 
         <!-- talita -->
 
-        <activity android:name=".Feeds" />
-        <activity android:name=".ChamaTabs"></activity>
+        <activity android:name=".ListaRecebida"></activity>
     </application>
 
 </manifest>
