@@ -28,6 +28,7 @@ public class Categorias extends AppCompatActivity {
                 R.drawable.frios, R.drawable.higiene,
                 R.drawable.frutas, R.drawable.legumes,
                 R.drawable.limpeza,R.drawable.padaria,R.drawable.definir};
+
         nomes_categorias = new String[]{"Bebidas","Carnes",
                                         "Frios","Higiene",
                                          "Frutas","Legumes",

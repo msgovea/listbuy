@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
 import listbuy.me.listbuy.lista.Lista_inicial;
 
 public class MenuLateral extends AppCompatActivity
@@ -97,6 +98,7 @@ public class MenuLateral extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             Toast.makeText(this, "feed", Toast.LENGTH_LONG);
             //startActivity(new Intent(this, Feed.class));
+            startActivity(new Intent(this, Feeds.class));
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

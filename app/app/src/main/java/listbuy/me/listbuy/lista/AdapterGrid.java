@@ -17,22 +17,22 @@ import listbuy.me.listbuy.R;
 
 public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHolder> {
 
-    public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHolder> {
+
         public static class ContactViewHolder extends RecyclerView.ViewHolder {
-            protected TextView vTitulo;
-            protected ImageView imagem;
+            private TextView vTitulo;
+            private ImageView imagem;
 
             public ContactViewHolder(View v) {
                 super(v);
-                vTitulo = (TextView) v.findViewById(R.id.textView7);
-                imagem = (ImageView) v.findViewById(R.id.imageView3);
+                vTitulo = (TextView)v.findViewById(R.id.textView7);
+                imagem = (ImageView)v.findViewById(R.id.imageView3);
             }
         }
 
-        private List<Feeds> contactList;
+        private List<DadosFeeds> contactList;
         private View v;
 
-        public AdapterGrid(List<Feeds> contactList) {
+        public AdapterGrid(List<DadosFeeds> contactList) {
             this.contactList = contactList;
         }
 
@@ -45,9 +45,9 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
 
         @Override
         public void onBindViewHolder(ContactViewHolder contactViewHolder, int position) {
-            Feeds ci = contactList.get(position);
+            DadosFeeds ci = contactList.get(position);
             contactViewHolder.vTitulo.setText(ci.getNome());
-            //contactViewHolder.imagem.setInt(ci.getImagem());
+            contactViewHolder.imagem.setImageResource(ci.getImagem());
         }
 
         @Override
@@ -55,21 +55,18 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
             return contactList.size();
         }
 
-        public  class FeedsViewHolder extends RecyclerView.ViewHolder {
+        public static class FeedViewHolder extends RecyclerView.ViewHolder {
             private ImageView imagem;
             private TextView txtSuper;
 
-            public FeedsViewHolder(View v) {
+            public FeedViewHolder(View v) {
 
                 super(v);
-                txtSuper = (TextView) v.findViewById(R.id.textView7);
-                imagem = (ImageView) v.findViewById(R.id.imageView3);
+                txtSuper = (TextView)v.findViewById(R.id.textView7);
+                imagem = (ImageView)v.findViewById(R.id.imageView3);
             }
         }
 
-
-    }
-
-    public class ContactViewHolder {
-    }
 }
+
+

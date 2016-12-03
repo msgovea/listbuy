@@ -1,17 +1,15 @@
 package listbuy.me.listbuy.lista;
 
 /**
- * Created by Talitadossantoscastr on 30/11/2016.
+ * Created by Talitadossantoscastr on 03/12/2016.
  */
 
-public class Feeds {
+public class DadosFeeds {
+
     private int imagem;
     private String nome;
 
-    public Feeds(String nome){
-        this.nome = nome;
-    }
-    public Feeds(int imagem, String nome){
+    public DadosFeeds(int imagem, String nome){
         this.imagem = imagem;
         this.nome = nome;
     }
