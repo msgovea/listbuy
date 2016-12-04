@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -118,5 +119,23 @@ public class AdicionarProdutos extends AppCompatActivity implements View.OnClick
         ListaAdapter listProd = new ListaAdapter(AdicionarProdutos.this, AdicionarProdutos.this, produtos);
         lista.setAdapter(listProd);
         lista.deferNotifyDataSetChanged();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, Lista_inicial.class));
+        finishActivity(0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:break;
+        }
+        return true;
     }
 }

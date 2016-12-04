@@ -36,7 +36,7 @@ public class AcessosDAO extends GenericDAO {
     public Consumidor efetuarLogin(Consumidor login) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM CONSUMIDOR ");
-        sql.append("WHERE EMAIL = ? AND SENHA = ?");
+        sql.append("WHERE EMAIL = ? AND SENHA = ? AND TIPO_ACESSO <> 'B'");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString());
             stmt.setString(1, login.getEmail());

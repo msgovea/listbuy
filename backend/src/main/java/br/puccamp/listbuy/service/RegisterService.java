@@ -43,8 +43,12 @@ public class RegisterService {
         return acessos;
     }
 
-    public Boolean ativarConta(String keyAcesso) {
-        return acessosDAO.ativarConta(keyAcesso);
+    public String ativarConta(String keyAcesso) {
+        if (acessosDAO.ativarConta(keyAcesso)) {
+            return "Conta ativada com sucesso!";
+        } else {
+            return "Não é necessário ativação";
+        }
     }
 
 }

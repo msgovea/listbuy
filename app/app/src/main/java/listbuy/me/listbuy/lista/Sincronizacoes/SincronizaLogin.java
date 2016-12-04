@@ -121,6 +121,7 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
                 String senha = dados_result.getString("senha");
                 String tipo_acesso = dados_result.getString("id_tipo_acesso");
                 String key_acesso = dados_result.getString("key_acesso");
+
                 //Salvar no Sqlite para nao perder os dados da pessoa logada no  app
                 dbconn.insertConsumidor(id_consumidor,nome,email,senha,tipo_acesso);
 
@@ -131,6 +132,17 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
                 //LoginActivity.context.startActivity(new Intent(LoginActivity.context, Lista_inicial.class));
 
 
+            } else if (message.equalsIgnoreCase("ativacao")) {
+                LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
+                builder.setTitle("Ative sua conta");
+                builder.setMessage("É necessário ativar sua conta com o link enviado em seu e-mail");
+                builder.setPositiveButton("Fechar", null);
+                builder.setCancelable(false);
+                builder.show();
+                if (mListener != null) {
+                    mListener.onLoaded("false");
+                }
             } else {
                 LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
