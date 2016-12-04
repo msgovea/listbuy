@@ -11,15 +11,19 @@ import listbuy.me.listbuy.lista.CategoriasProdutos;
 import listbuy.me.listbuy.lista.DadosFeeds;
 
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import listbuy.me.listbuy.lista.AdapterGrid;
+import listbuy.me.listbuy.lista.DetalhesOfertas;
 
-public class Feeds extends AppCompatActivity {
+public class Feeds extends AppCompatActivity{
     private RecyclerView rec;
+    private ImageView imagem;
     private String[] nomes_categorias;
     private ArrayList<DadosFeeds> teste = new ArrayList<DadosFeeds>();
     private int cont;
@@ -30,6 +34,7 @@ public class Feeds extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_feeds);
         rec = (RecyclerView)findViewById(R.id.recycle);
+        imagem=(ImageView)findViewById(R.id.imageView3);
         getSupportActionBar().setTitle("TELA DE FEEDS");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
@@ -61,24 +66,25 @@ public class Feeds extends AppCompatActivity {
         }
 
         rec.setAdapter(new AdapterGrid(teste));
+
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(this, MenuLateral.class));
-        finishActivity(0);
     }
-
+        finishActivity(0);
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
-                onBackPressed();
-                break;
             default:break;
-        }
+                onBackPressed();
+    public boolean onOptionsItemSelected(MenuItem item) {
+                break;
         return true;
+        }
     }
 }
