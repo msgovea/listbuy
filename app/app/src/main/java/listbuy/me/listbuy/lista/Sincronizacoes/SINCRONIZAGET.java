@@ -16,19 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import listbuy.me.listbuy.entities.Listas;
-import listbuy.me.listbuy.entities.Produtos;
 
-public class SincronizaListarProdutos extends AsyncTask<String,String,String> {
+public class SINCRONIZAGET extends AsyncTask<String,String,String> {
 
     public interface Listener {
 
-        public void onLoadedProdutos(List<Produtos> produtos);
+        public void onLoaded(List<Listas> listas);
     }
 
     private Listener mListener;
 
 
-    public SincronizaListarProdutos(SincronizaListarProdutos.Listener mListener) {
+    public SINCRONIZAGET(SINCRONIZAGET.Listener mListener) {
         this.mListener = mListener;
     }
 
@@ -37,7 +36,7 @@ public class SincronizaListarProdutos extends AsyncTask<String,String,String> {
     @Override
     protected String doInBackground(String... n) {
 
-        String api_url = "http://servidor.listbuy.me:81/list/productsByList/" + n[0] + "/";
+        String api_url = "http://servidor.listbuy.me:81/list/user/" + 1 + "/";
 
         String response = "";
 
@@ -84,38 +83,36 @@ public class SincronizaListarProdutos extends AsyncTask<String,String,String> {
             String message = api_result.getString("message");
             if (message.equalsIgnoreCase("success")) {
                 JSONArray dados = api_result.getJSONArray("object");
-                ArrayList<Produtos> produtos = new ArrayList<>();
+                ArrayList<Listas> listas = new ArrayList<>();
                 for (int i = 0; i < dados.length(); ++i) {
                     JSONObject dados_result = dados.getJSONObject(i);
-                    Produtos produto = new Produtos();
-                    produto.setDescricao(dados_result.getString("descricao"));
-                    produto.setId_lista(dados_result.getLong("id_lista"));
-                    produto.setAtivo(dados_result.getString("ativo"));
-                    produto.setData_cadastro(dados_result.getString("data_ics"));
-                    produto.setId_categoria(dados_result.getLong("id_categoria"));
-                    produto.setId_produto(dados_result.getLong("id_produto"));
-                    produto.setId_unidade_medida(dados_result.getLong("id_unidade_medida"));
-                    produto.setNome(dados_result.getString("nome"));
-                    produto.setQuantidade(dados_result.getLong("quantidade"));
+                    Listas lista = new Listas();
 
-                    produtos.add(produto);
+                    lista.setId_lista(dados_result.getLong("id_lista"));
+                    lista.setTipo_lista(dados_result.getString("tipo_lista"));
+                    lista.setTitulo(dados_result.getString("titulo"));
+                    lista.setId_consumidor(dados_result.getLong("id_consumidor"));
+                    lista.setAtiva(dados_result.getString("ativa"));
+                    lista.setData_ics("2016-11-08"/*dados_result.getString("data_ics")*/);
+                    lista.setData_alt("2016-11-08"/*dados_result.getString("data_alt")*/);
+                    listas.add(lista);
                 }
 
                 // Implementa o retorno para a classe de Login
                 if (mListener != null) {
-                    mListener.onLoadedProdutos(produtos);
+                    mListener.onLoaded(listas);
                 }
 
             } else {
                 if (mListener != null) {
-                    mListener.onLoadedProdutos(null);
+                    mListener.onLoaded(null);
                 }
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
             if (mListener != null) {
-                mListener.onLoadedProdutos(null);
+                mListener.onLoaded(null);
             }
         }
 

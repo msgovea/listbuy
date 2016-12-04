@@ -9,8 +9,7 @@
     app:cardElevation="1dp"
     app:cardUseCompatPadding="true"
     app:cardPreventCornerOverlap="false"
-    app:cardMaxElevation="3dp"
-    app:cardCornerRadius="10dp">
+    app:cardMaxElevation="3dp">
 
     <RelativeLayout
         android:layout_width="match_parent"

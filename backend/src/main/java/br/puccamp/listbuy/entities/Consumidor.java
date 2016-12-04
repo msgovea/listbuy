@@ -2,18 +2,18 @@ package br.puccamp.listbuy.entities;
 
 public class Consumidor {
 
-    private Integer id_consumidor;
+    private Long id_consumidor;
     private String nome;
     private String email;
     private String senha;
     private String id_tipo_acesso;
     private String key_acesso;
 
-    public Integer getId_consumidor() {
+    public Long getId_consumidor() {
         return id_consumidor;
     }
 
-    public void setId_consumidor(Integer id_consumidor) {
+    public void setId_consumidor(Long id_consumidor) {
         this.id_consumidor = id_consumidor;
     }
 
