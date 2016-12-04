@@ -18,7 +18,7 @@ public class Feeds {
     public void setImagem(int imagem){
         this.imagem = imagem;
     }
-    public int getImagem(){
+    public int getImage(){
         return this.imagem;
     }
     public void setNome(String nome){

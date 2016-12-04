@@ -24,7 +24,7 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
 
             public ContactViewHolder(View v) {
                 super(v);
-                vTitulo = (TextView)v.findViewById(R.id.textView7);
+                vTitulo = (TextView)v.findViewById(R.id.txtNoticia);
                 imagem = (ImageView)v.findViewById(R.id.imageView3);
             }
         }
@@ -62,7 +62,7 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
             public FeedViewHolder(View v) {
 
                 super(v);
-                txtSuper = (TextView)v.findViewById(R.id.textView7);
+                txtSuper = (TextView)v.findViewById(R.id.txtNoticia);
                 imagem = (ImageView)v.findViewById(R.id.imageView3);
             }
         }

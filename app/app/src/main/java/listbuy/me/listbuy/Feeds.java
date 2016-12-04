@@ -39,10 +39,10 @@ public class Feeds extends AppCompatActivity {
         rec.setLayoutManager(llm);
         //aplicar ao recycleview
 
-        id_imagem = new int[]{R.drawable.bebidas, R.drawable.carnes,
-                R.drawable.frios, R.drawable.higiene,
-                R.drawable.frutas, R.drawable.legumes,
-                R.drawable.limpeza,R.drawable.padaria,R.drawable.definir};
+        id_imagem = new int[]{R.drawable.carrefor, R.drawable.covabra,
+                R.drawable.arena, R.drawable.walmart,
+                R.drawable.covabra, R.drawable.dia,
+                R.drawable.oferta,R.drawable.padaria,R.drawable.definir};
 
         nomes_categorias = new String[]{"Bebidas","Carnes",
                 "Frios","Higiene",

@@ -9,6 +9,9 @@ public class DadosFeeds {
     private int imagem;
     private String nome;
 
+    public DadosFeeds( String nome){
+        this.nome = nome;
+    }
     public DadosFeeds(int imagem, String nome){
         this.imagem = imagem;
         this.nome = nome;
