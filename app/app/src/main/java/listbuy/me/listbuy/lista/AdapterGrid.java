@@ -26,31 +26,31 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
             private TextView vTitulo;
             private ImageView imagem;
             private View view;
-            private Activity activity;
-            private Context context;
 
-            public ContactViewHolder(View v, Context c, Activity act) {
+
+            public ContactViewHolder(View v) {
                 super(v);
                 vTitulo = (TextView)v.findViewById(R.id.txtNoticia);
                 imagem = (ImageView)v.findViewById(R.id.imageView3);
                 view = v;
-                this.activity = act;
-                this.context = c;
+
             }
         }
 
         private List<DadosFeeds> contactList;
         private View v;
+        private Activity act;
 
-        public AdapterGrid(List<DadosFeeds> contactList) {
+        public AdapterGrid(List<DadosFeeds> contactList, Activity act) {
             this.contactList = contactList;
+            this.act = act;
         }
 
         @Override
         public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_feeds, parent, false);
             v = itemView;
-            return new ContactViewHolder(itemView,context,act);
+            return new ContactViewHolder(itemView);
         }
 
         @Override
@@ -62,8 +62,10 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
                 @Override
                 public void onClick(View v){
                     Intent intent = new Intent();
+                    intent.setClass(act,DetalhesOfertas.class);
                     act.startActivity(intent);
-                    startActivity(new Intent(this, DetalhesOfertas.class));
+
+                  //v.startActivity(new Intent(this, DetalhesOfertas.class));
                 }
             });
 

@@ -65,7 +65,7 @@ public class Feeds extends AppCompatActivity {
             cont++;
         }
 
-        rec.setAdapter(new AdapterGrid(teste));
+        rec.setAdapter(new AdapterGrid(teste,this));
 
     }
 
