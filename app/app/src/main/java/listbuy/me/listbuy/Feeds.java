@@ -73,18 +73,18 @@ public class Feeds extends AppCompatActivity{
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(this, MenuLateral.class));
-    }
         finishActivity(0);
+    }
+
 
     @Override
-
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-            default:break;
                 onBackPressed();
-    public boolean onOptionsItemSelected(MenuItem item) {
                 break;
-        return true;
+            default:break;
         }
+        return true;
     }
 }
