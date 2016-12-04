@@ -7,18 +7,18 @@ import java.sql.Blob;
  */
 public class Ofertas {
 
-    private Integer id_oferta;
+    private Long id_oferta;
     private String descricao;
     private String nome;
     private Blob imagem;
-    private Integer id_consumidor;
+    private Long id_consumidor;
     private String ativa;
 
-    public Integer getId_oferta() {
+    public Long getId_oferta() {
         return id_oferta;
     }
 
-    public void setId_oferta(Integer id_oferta) {
+    public void setId_oferta(Long id_oferta) {
         this.id_oferta = id_oferta;
     }
 
@@ -46,11 +46,11 @@ public class Ofertas {
         this.imagem = imagem;
     }
 
-    public Integer getId_consumidor() {
+    public Long getId_consumidor() {
         return id_consumidor;
     }
 
-    public void setId_consumidor(Integer id_consumidor) {
+    public void setId_consumidor(Long id_consumidor) {
         this.id_consumidor = id_consumidor;
     }
 

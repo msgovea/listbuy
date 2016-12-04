@@ -5,40 +5,40 @@ package br.puccamp.listbuy.entities;
  */
 public class ListasXProdutos {
 
-    private Integer id_lista;
-    private Integer id_produto;
-    private Integer quantidade;
-    private Integer id_unidade_medida;
+    private Long id_lista;
+    private Long id_produto;
+    private Long quantidade;
+    private Long id_unidade_medida;
 
-    public Integer getId_lista() {
+    public Long getId_lista() {
         return id_lista;
     }
 
-    public void setId_lista(Integer id_lista) {
+    public void setId_lista(Long id_lista) {
         this.id_lista = id_lista;
     }
 
-    public Integer getId_produto() {
+    public Long getId_produto() {
         return id_produto;
     }
 
-    public void setId_produto(Integer id_produto) {
+    public void setId_produto(Long id_produto) {
         this.id_produto = id_produto;
     }
 
-    public Integer getQuantidade() {
+    public Long getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(Integer quantidade) {
+    public void setQuantidade(Long quantidade) {
         this.quantidade = quantidade;
     }
 
-    public Integer getId_unidade_medida() {
+    public Long getId_unidade_medida() {
         return id_unidade_medida;
     }
 
-    public void setId_unidade_medida(Integer id_unidade_medida) {
+    public void setId_unidade_medida(Long id_unidade_medida) {
         this.id_unidade_medida = id_unidade_medida;
     }
 }

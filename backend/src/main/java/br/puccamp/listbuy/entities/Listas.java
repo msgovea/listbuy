@@ -4,19 +4,19 @@ import java.sql.Date;
 
 public class Listas {
 
-    private Integer id_lista;
+    private Long id_lista;
     private String tipo_lista;
     private String titulo;
-    private Integer id_consumidor;
+    private Long id_consumidor;
     private String ativa;
     private Date data_ics;
     private Date data_alt;
 
-    public Integer getId_lista() {
+    public Long getId_lista() {
         return id_lista;
     }
 
-    public void setId_lista(Integer id_lista) {
+    public void setId_lista(Long id_lista) {
         this.id_lista = id_lista;
     }
 
@@ -36,11 +36,11 @@ public class Listas {
         this.titulo = titulo;
     }
 
-    public Integer getId_consumidor() {
+    public Long getId_consumidor() {
         return id_consumidor;
     }
 
-    public void setId_consumidor(Integer id_consumidor) {
+    public void setId_consumidor(Long id_consumidor) {
         this.id_consumidor = id_consumidor;
     }
 

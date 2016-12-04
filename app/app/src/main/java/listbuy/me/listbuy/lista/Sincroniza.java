@@ -1,10 +1,8 @@
 package listbuy.me.listbuy.lista;
 
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,17 +16,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.sql.Connection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import listbuy.me.listbuy.R;
-
-/**
- * Created by Talitadossantoscastr on 12/11/2016.
- */
 
 public class Sincroniza extends AsyncTask<String,String,String> {
     private String login;
@@ -41,8 +28,6 @@ public class Sincroniza extends AsyncTask<String,String,String> {
 
         HttpURLConnection urlConnection;
         String requestBody;
-
-
 
        try{
            URL url = new URL(api_url);
