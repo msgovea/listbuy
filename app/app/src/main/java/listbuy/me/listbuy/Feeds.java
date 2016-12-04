@@ -10,7 +10,10 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import listbuy.me.listbuy.lista.CategoriasProdutos;
 import listbuy.me.listbuy.lista.DadosFeeds;
 
+<<<<<<< Updated upstream
 import android.view.MenuItem;
+=======
+>>>>>>> Stashed changes
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -67,6 +70,7 @@ public class Feeds extends AppCompatActivity{
 
         rec.setAdapter(new AdapterGrid(teste));
 
+<<<<<<< Updated upstream
     }
 
     @Override
@@ -86,5 +90,8 @@ public class Feeds extends AppCompatActivity{
                 break;
         return true;
         }
+=======
+>>>>>>> Stashed changes
     }
+
 }
