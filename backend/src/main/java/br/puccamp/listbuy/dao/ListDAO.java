@@ -5,10 +5,7 @@ import br.puccamp.listbuy.entities.Consumidor;
 import br.puccamp.listbuy.entities.Listas;
 import br.puccamp.listbuy.entities.Produtos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class ListDAO extends GenericDAO {
@@ -34,7 +31,7 @@ public class ListDAO extends GenericDAO {
     public Listas listarInformacoesListas (int idLista) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM LISTAS ");
-        sql.append("WHERE ID_LISTA = ?");
+        sql.append("WHERE ID_LISTA = ? AND ATIVA <> 'N'");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString());
             stmt.setInt(1, idLista);
@@ -59,7 +56,7 @@ public class ListDAO extends GenericDAO {
     public ArrayList<Produtos> listarProdutosPorLista(int idLista) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM LISTAS_X_PRODUTOS ");
-        sql.append("WHERE ID_LISTA = ?");
+        sql.append("WHERE ID_LISTA = ? AND ATIVA <> 'N'");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString());
             stmt.setInt(1, idLista);
@@ -78,11 +75,11 @@ public class ListDAO extends GenericDAO {
             throw new RuntimeException("A lista não tem nenhum produto!", e);
         }
     }
-
+    //TODO: OK
     public ArrayList<Listas> listarListasPorUsuario(int idUsuario) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM LISTAS ");
-        sql.append("WHERE ID_CONSUMIDOR = ?");
+        sql.append("WHERE ID_CONSUMIDOR = ? AND ATIVA <> 'N'");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString());
             stmt.setInt(1, idUsuario);
@@ -96,6 +93,8 @@ public class ListDAO extends GenericDAO {
                 retorno.setTitulo(rs.getString(3));
                 retorno.setId_consumidor(rs.getLong(4));
                 retorno.setAtiva(rs.getString(5));
+                retorno.setData_ics(rs.getDate(6));
+                retorno.setData_alt(rs.getDate(7));
                 lista.add(retorno);
                 achou = true;
             }
@@ -103,6 +102,24 @@ public class ListDAO extends GenericDAO {
             return null;
         } catch (SQLException e) {
             throw new RuntimeException("Usuário ou senha inválido!", e);
+        }
+    }
+
+    public Listas atualizarLista(Listas dados) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("UPDATE LISTAS ");
+        sql.append("SET TITULO = ?, DATA_ALT = SYSDATE ");
+        sql.append("WHERE ID_LISTA = ?");
+        try (Connection connection = getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(sql.toString());
+            stmt.setString(1, dados.getTitulo());
+            stmt.setLong  (2, dados.getId_lista());
+            //stmt.executeUpdate();
+            stmt.executeUpdate();
+            connection.commit();
+            return dados;
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao atualizar lista!", e);
         }
     }
 }

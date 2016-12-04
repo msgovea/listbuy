@@ -17,4 +17,11 @@ public class ListService {
         return listas;
     }
 
+    public Listas atualizarLista(Listas dados) {
+        Listas lista = listDAO.atualizarLista(dados);
+        if (lista == null) {
+            throw new RuntimeException("Erro ao atualizar informações da lista!");
+        }
+        return lista;
+    }
 }
