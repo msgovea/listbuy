@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.entities.Produtos;
 
 public class DadosProdutos extends AppCompatActivity implements View.OnClickListener {
 
@@ -72,7 +73,7 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
                 //Toast.makeText(this,categoria, Toast.LENGTH_SHORT).show();
             Intent it = new Intent();
             int qtd_convert= Integer.parseInt(extQtd.getText().toString());
-            AdicionarProdutos.produtos.add(new Produtos(extDescricao.getText().toString(),qtd_convert,smp.getSelectedItem().toString()));
+            AdicionarProdutos.produtos.add(new Produtos());
             it.setClass(this,AdicionarProdutos.class);
             it.putExtra("CATEGORIA",categoria);
             startActivity(it);

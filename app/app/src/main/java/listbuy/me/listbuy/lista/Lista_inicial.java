@@ -1,5 +1,6 @@
 package listbuy.me.listbuy.lista;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -35,10 +36,12 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
     private boolean flagAber = false;
     public static ArrayList<ListasCriadas> listaCriada = new ArrayList<ListasCriadas>();
     private DbConn dbconn;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.act_lista_inicial);
 
         //TODO: ESTE COMANDO ADICIONA O MENU SUPERIOR COM O BOTAO VOLTAR E O TITULO 'X' EH NECESSARIO AppCompatActivity COMO EXTEND
@@ -62,17 +65,6 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
 
         SincronizaListarListas sinc = new SincronizaListarListas(this);
         sinc.execute();
-
-        /*Intent it = getIntent();
-        String nome_del = "";
-        if(it.getStringExtra("NOME_DEL")!= null) {
-            nome_del = it.getStringExtra("NOME_DEL");
-            if (nome_del != "") {
-
-                dbconn.deleteListaprodIdLista(dbconn.selectIdLista(nome_del));
-                dbconn.deleteListaId(dbconn.selectIdLista(nome_del));
-            }
-        }*/
 
 
     }
@@ -98,16 +90,20 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
             flagAber = true;
         }
 
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(this, AdicionarProdutos.class);
+
         if (v.getId() == R.id.fb_evento) {
-            startActivity(new Intent(this, AdicionarProdutos.class));
-            Toast.makeText(getApplicationContext(), "lista evento", Toast.LENGTH_SHORT).show();
-            tpLista = 1;
+            bundle.putString("tipoLista", "E");
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
         if (v.getId() == R.id.fb_simples) {
-            startActivity(new Intent(this, AdicionarProdutos.class));
-            Toast.makeText(getApplicationContext(), "lista simples", Toast.LENGTH_SHORT).show();
-            tpLista = 2;
+            bundle.putString("tipoLista", "P");
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
+
 
     }
 

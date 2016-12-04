@@ -13,10 +13,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.entities.Produtos;
 
-/**
- * Created by Talitadossantoscastr on 02/10/2016.
- */
 
 public class ListaAdapter extends BaseAdapter{
     private DbConn dbconn;
@@ -26,7 +24,7 @@ public class ListaAdapter extends BaseAdapter{
     LayoutInflater inflater;
 
 
-    public ListaAdapter(Activity act, Context c, List<Produtos>produtos){
+    public ListaAdapter(Activity act, Context c, List<Produtos> produtos){
         this.act = act;
         this.c = c;
         this.produtos = produtos;
@@ -69,8 +67,8 @@ public class ListaAdapter extends BaseAdapter{
         }
         Produtos prod = produtos.get(i);
         holder.nome_prod.setText(prod.getDescricao());
-        holder.qtd.setText(prod.getQtd()+"");
-        holder.un_med.setText(prod.getUnMed());
+        holder.qtd.setText("teste");
+        holder.un_med.setText("UnidademEDIDA");
 
         holder.btn_excl.setOnClickListener(new View.OnClickListener(){
             @Override

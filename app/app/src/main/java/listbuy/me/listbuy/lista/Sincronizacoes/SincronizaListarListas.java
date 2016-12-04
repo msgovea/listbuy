@@ -26,8 +26,11 @@ import java.util.List;
 
 import listbuy.me.listbuy.LoginActivity;
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.entities.Consumidor;
 import listbuy.me.listbuy.entities.Listas;
+import listbuy.me.listbuy.lista.AdicionarProdutos;
 import listbuy.me.listbuy.lista.DbConn;
+import listbuy.me.listbuy.lista.Lista_inicial;
 
 public class SincronizaListarListas extends AsyncTask<String,String,String> {
 
@@ -37,6 +40,7 @@ public class SincronizaListarListas extends AsyncTask<String,String,String> {
     }
 
     private Listener mListener;
+    private DbConn dbconn = new DbConn(Lista_inicial.context);
 
 
     public SincronizaListarListas(SincronizaListarListas.Listener mListener) {
@@ -48,7 +52,9 @@ public class SincronizaListarListas extends AsyncTask<String,String,String> {
     @Override
     protected String doInBackground(String... n) {
 
-        String api_url = "http://servidor.listbuy.me:81/list/user/" + 1 + "/";
+        Consumidor consumidor = dbconn.selectConsumidor();
+
+        String api_url = "http://servidor.listbuy.me:81/list/user/" + consumidor.getId_consumidor() + "/";
 
         String response = "";
 

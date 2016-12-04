@@ -1,9 +1,7 @@
 package listbuy.me.listbuy.lista.Sincronizacoes;
 
 
-import android.app.AlertDialog;
 import android.os.AsyncTask;
-import android.view.View;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,34 +17,36 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import listbuy.me.listbuy.LoginActivity;
+import listbuy.me.listbuy.entities.Listas;
 import listbuy.me.listbuy.lista.DbConn;
 
 
-public class SINCRONIZAPOST extends AsyncTask<String, String, String> {
+public class SincronizaCriarLista extends AsyncTask<Object, String, String> {
 
     public interface Listener {
 
-        public void onLoaded(String string);
+        public void onLoaded(Listas lista);
     }
 
-    private String login;
-    private String senha;
-    public String status = "nao";
+    private String tipo_lista;
+    private String titulo;
+    private Long id_consumidor;
+    private String ativa;
     private Listener mListener;
-    private DbConn dbconn;
 
-    public SINCRONIZAPOST(Listener mListener) {
+    public SincronizaCriarLista(Listener mListener) {
         this.mListener = mListener;
 
     }
 
     @Override
-    protected String doInBackground(String... n) {
+    protected String doInBackground(Object... n) {
 
-        String api_url = "http://servidor.listbuy.me:81/login";
-        login = n[0];
-        senha = n[1];
+        String api_url = "http://servidor.listbuy.me:81/list/insert/";
+        tipo_lista = (String) n[0];
+        titulo = (String) n[1];
+        id_consumidor = (Long)n[2];
+        ativa = (String) n[3];
 
         HttpURLConnection urlConnection;
         String requestBody;
@@ -58,8 +58,10 @@ public class SINCRONIZAPOST extends AsyncTask<String, String, String> {
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("Accept-Encoding", "application/json");
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("email", login);
-            jsonObject.accumulate("senha", senha);
+            jsonObject.accumulate("tipo_lista", tipo_lista);
+            jsonObject.accumulate("titulo", titulo);
+            jsonObject.accumulate("id_consumidor", id_consumidor);
+            jsonObject.accumulate("ativa", ativa);
             String json = jsonObject.toString();
             OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
@@ -80,12 +82,6 @@ public class SINCRONIZAPOST extends AsyncTask<String, String, String> {
             String temp, response = "";
             while ((temp = bufferedReader.readLine()) != null) {
                 response += temp;
-                //Log.i("teste_api", response);
-                //JSONObject resp = new JSONObject(response);
-                //JSONObject object = new JSONObject(resp.getString("object"));
-                //Log.i("nome", object.getString("nome"));
-                //Log.i("email", object.getString("email"));
-                //Log.i("tipo", object.getString("id_tipo_acesso"));
             }
             return response;
 
@@ -99,8 +95,6 @@ public class SINCRONIZAPOST extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        dbconn = new DbConn(LoginActivity.context);
-        status = "sim";
         try {
             JSONObject api_result = new JSONObject(result);
 
@@ -108,47 +102,34 @@ public class SINCRONIZAPOST extends AsyncTask<String, String, String> {
             if (message.equalsIgnoreCase("success")) {
                 String dados = api_result.getString("object");
                 JSONObject dados_result = new JSONObject(dados);
-                Long id_consumidor = dados_result.getLong("id_consumidor");
-                String nome = dados_result.getString("nome");
-                String email = dados_result.getString("email");
-                String senha = dados_result.getString("senha");
-                String tipo_acesso = dados_result.getString("id_tipo_acesso");
-                String key_acesso = dados_result.getString("key_acesso");
-                //Salvar no Sqlite para nao perder os dados da pessoa logada no  app
-                dbconn.insertConsumidor(id_consumidor,nome,email,senha,tipo_acesso);
+
+                Listas lista = new Listas();
+
+                lista.setId_lista(dados_result.getLong("id_lista"));
+                lista.setTipo_lista(dados_result.getString("tipo_lista"));
+                lista.setTitulo(dados_result.getString("titulo"));
+                lista.setId_consumidor(dados_result.getLong("id_consumidor"));
+                lista.setAtiva(dados_result.getString("ativa"));
+                lista.setData_ics(dados_result.getString("data_ics"));
+                lista.setData_alt(dados_result.getString("data_alt"));
 
                 // Implementa o retorno para a classe de Login
                 if (mListener != null) {
-                    mListener.onLoaded("true");
+                    mListener.onLoaded(lista);
                 }
-                //LoginActivity.context.startActivity(new Intent(LoginActivity.context, Lista_inicial.class));
 
 
             } else {
-                LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
-                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-                builder.setTitle("Titulo do dialog");
-                builder.setMessage("Login/Senha incorreto");
-                builder.setPositiveButton("Fechar", null);
-                builder.setCancelable(false);
-                builder.show();
+
                 if (mListener != null) {
-                    mListener.onLoaded("false");
+                    mListener.onLoaded(null);
                 }
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
-            LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
-            LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
-            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-            builder.setTitle("Titulo do dialog");
-            builder.setMessage("Erro ao Carregar Dados");
-            builder.setPositiveButton("Fechar", null);
-            builder.setCancelable(false);
-            builder.show();
             if (mListener != null) {
-                mListener.onLoaded("false");
+                mListener.onLoaded(null);
             }
         }
 

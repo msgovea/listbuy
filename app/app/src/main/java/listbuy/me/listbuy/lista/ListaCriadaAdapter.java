@@ -33,7 +33,11 @@ public class ListaCriadaAdapter extends BaseAdapter  {
     }
     @Override
     public int getCount() {
-        return listas.size();
+        try {
+            return listas.size();
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     @Override
@@ -71,24 +75,19 @@ public class ListaCriadaAdapter extends BaseAdapter  {
         holder.btn_exluir.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String nomeRemov;
-                nomeRemov = listas.get(i).getTitulo();
-                Intent intent = new Intent();
-                intent.setClass(c,Lista_inicial.class);
-                intent.putExtra("NOME_DEL",nomeRemov);
-                act.startActivity(intent);
+                //TODO: CHAMAR API MANDANDO CODIGO DA LISTA A SER DELETADA listas.get(i).getId_lista();
+                act.startActivity(new Intent(c, Lista_inicial.class));
             }
         });
         holder.btn_alt.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                String nome;
-                nome = listas.get(i).getTitulo();
+                Long id_lista = listas.get(i).getId_lista();
                 //Toast.makeText(act,nome, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(c,AdicionarProdutos.class);
-                intent.putExtra("NOME_ENVIADO",nome);
+                intent.putExtra("ID_LISTA",id_lista);
                 act.startActivity(intent);
             }
         });

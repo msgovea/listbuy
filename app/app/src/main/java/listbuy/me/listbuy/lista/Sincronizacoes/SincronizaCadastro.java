@@ -121,7 +121,7 @@ public class SincronizaCadastro extends AsyncTask<String, String, String> {
            if (message.equalsIgnoreCase("success")) {
                 String dados = api_result.getString("object");
                 JSONObject dados_result = new JSONObject(dados);
-                int id_consumidor = dados_result.getInt("id_consumidor");
+                Long id_consumidor = dados_result.getLong("id_consumidor");
                 String nome = dados_result.getString("nome");
                 String email = dados_result.getString("email");
                 String senha = dados_result.getString("senha");

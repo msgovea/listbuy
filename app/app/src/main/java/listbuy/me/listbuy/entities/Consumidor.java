@@ -2,18 +2,26 @@ package listbuy.me.listbuy.entities;
 
 public class Consumidor {
 
-    private Integer id_consumidor;
+    private Long id_consumidor;
     private String nome;
     private String email;
     private String senha;
     private String id_tipo_acesso;
     private String key_acesso;
 
-    public Integer getId_consumidor() {
+    public Consumidor(Long id_consumidor, String nome, String email, String senha, String id_tipo_acesso) {
+        this.id_consumidor = id_consumidor;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.id_tipo_acesso = id_tipo_acesso;
+    }
+
+    public Long getId_consumidor() {
         return id_consumidor;
     }
 
-    public void setId_consumidor(Integer id_consumidor) {
+    public void setId_consumidor(Long id_consumidor) {
         this.id_consumidor = id_consumidor;
     }
 
