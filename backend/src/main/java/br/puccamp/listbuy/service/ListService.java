@@ -24,4 +24,17 @@ public class ListService {
         }
         return lista;
     }
+
+    public Listas inserirLista(Listas dados) {
+        Listas lista = listDAO.inserirLista(dados);
+        if (lista == null) {
+            throw new RuntimeException("Erro ao inserir Lista");
+        }
+        if (dados.getTipo_lista().compareTo("P") == 0) {
+            listDAO.inserirListaPessoal(lista);
+        } else {
+            listDAO.inserirListaEvento(lista);
+        }
+        return lista;
+    }
 }

@@ -30,9 +30,23 @@ public class ListController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity<Response<Listas>> efetuarLogin(@RequestBody Listas dados) {
+    public ResponseEntity<Response<Listas>> atualizarLista(@RequestBody Listas dados) {
         try {
             return new ResponseEntity<>(new Response<>("success", listService.atualizarLista(dados)), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new Response<>("Dados incorretos!" + e), HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/list/insert/",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public ResponseEntity<Response<Listas>> inserirLista(@RequestBody Listas dados) {
+        try {
+            return new ResponseEntity<>(new Response<>("success", listService.inserirLista(dados)), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(new Response<>("Dados incorretos!" + e), HttpStatus.UNAUTHORIZED);
         }

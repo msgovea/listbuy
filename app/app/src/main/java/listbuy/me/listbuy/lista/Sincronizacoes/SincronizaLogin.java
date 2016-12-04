@@ -29,9 +29,6 @@ import listbuy.me.listbuy.Welcome;
 import listbuy.me.listbuy.lista.DbConn;
 import listbuy.me.listbuy.lista.Lista_inicial;
 
-/**
- * Created by Talitadossantoscastr on 13/11/2016.
- */
 
 public class SincronizaLogin extends AsyncTask<String, String, String> {
 

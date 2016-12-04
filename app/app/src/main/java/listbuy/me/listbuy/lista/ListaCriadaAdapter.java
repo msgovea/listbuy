@@ -14,33 +14,31 @@ import android.widget.TextView;
 import java.util.List;
 
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.entities.Listas;
 
-/**
- * Created by Talitadossantoscastr on 02/10/2016.
- */
 
 public class ListaCriadaAdapter extends BaseAdapter  {
     Activity act;
     Context c;
-    List<ListasCriadas> listasCriadas;
+    List<Listas> listas;
     LayoutInflater inflater;
     public static final int CONSTANTE_TELA_1 = 1;
     private DbConn dbconn;
 
-    public ListaCriadaAdapter(Activity act, Context c, List<ListasCriadas>listasCriadas){
+    public ListaCriadaAdapter(Activity act, Context c, List<Listas> listas){
         this.act = act;
         this.c = c;
-        this.listasCriadas = listasCriadas;
+        this.listas = listas;
         this.inflater  = LayoutInflater.from(c);
     }
     @Override
     public int getCount() {
-        return listasCriadas.size();
+        return listas.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return listasCriadas.get(i);
+        return listas.get(i);
     }
 
     @Override
@@ -66,15 +64,15 @@ public class ListaCriadaAdapter extends BaseAdapter  {
             holder = (ListaCriadaAdapter.ViewHolder) view.getTag();
         }
 
-        final ListasCriadas listacriada = listasCriadas.get(i);
-        holder.nome_lista.setText(listacriada.getNomeLista());
-        holder.data_lista.setText(listacriada.getDataCriacao());
+        final Listas lista = listas.get(i);
+        holder.nome_lista.setText(lista.getTitulo());
+        holder.data_lista.setText(lista.getData_alt());
 
         holder.btn_exluir.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 String nomeRemov;
-                nomeRemov = listasCriadas.get(i).getNomeLista();
+                nomeRemov = listas.get(i).getTitulo();
                 Intent intent = new Intent();
                 intent.setClass(c,Lista_inicial.class);
                 intent.putExtra("NOME_DEL",nomeRemov);
@@ -86,7 +84,7 @@ public class ListaCriadaAdapter extends BaseAdapter  {
             @Override
             public void onClick(View v) {
                 String nome;
-                nome = listasCriadas.get(i).getNomeLista();
+                nome = listas.get(i).getTitulo();
                 //Toast.makeText(act,nome, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(c,AdicionarProdutos.class);
@@ -96,7 +94,7 @@ public class ListaCriadaAdapter extends BaseAdapter  {
         });
         return view;
     }
-    public void onActivityResult(int codTela,int resultado,Intent intent){
+    public void onActivityResult(int codTela, int resultado, Intent intent){
         if(codTela == CONSTANTE_TELA_1){
             Bundle params = intent.getExtras();
             if(params != null){
