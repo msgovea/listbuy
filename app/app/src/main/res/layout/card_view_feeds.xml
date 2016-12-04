@@ -38,11 +38,7 @@
         android:id="@+id/txtNoticia"
         android:paddingLeft="16dp"
         android:paddingTop="8dp"
-<<<<<<< Updated upstream
         android:textSize="20sp"
-=======
-        android:textSize="15sp"
->>>>>>> Stashed changes
         android:background="#F21E1E"
         android:textColor="#FFFF"
         android:layout_alignParentBottom="true"
