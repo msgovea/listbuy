@@ -21,7 +21,7 @@ import java.util.List;
 import listbuy.me.listbuy.lista.AdapterGrid;
 import listbuy.me.listbuy.lista.DetalhesOfertas;
 
-public class Feeds extends AppCompatActivity{
+public class Feeds extends AppCompatActivity {
     private RecyclerView rec;
     private ImageView imagem;
     private String[] nomes_categorias;
@@ -33,8 +33,8 @@ public class Feeds extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_feeds);
-        rec = (RecyclerView)findViewById(R.id.recycle);
-        imagem=(ImageView)findViewById(R.id.imageView3);
+        rec = (RecyclerView) findViewById(R.id.recycle);
+        imagem = (ImageView) findViewById(R.id.imageView3);
         getSupportActionBar().setTitle("TELA DE FEEDS");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
@@ -53,15 +53,15 @@ public class Feeds extends AppCompatActivity{
         id_imagem = new int[]{R.drawable.carrefor, R.drawable.covabra,
                 R.drawable.arena, R.drawable.walmart,
                 R.drawable.covabra, R.drawable.dia,
-                R.drawable.oferta,R.drawable.padaria,R.drawable.definir};
+                R.drawable.oferta, R.drawable.padaria, R.drawable.definir};
 
-        nomes_categorias = new String[]{"Bebidas","Carnes",
-                "Frios","Higiene",
-                "Frutas","Legumes",
-                "Limpeza","Padaria","Outros"};
+        nomes_categorias = new String[]{"Bebidas", "Carnes",
+                "Frios", "Higiene",
+                "Frutas", "Legumes",
+                "Limpeza", "Padaria", "Outros"};
         cont = 0;
-        for(String nome:nomes_categorias){
-            teste.add(new DadosFeeds(id_imagem[cont],nomes_categorias[cont]));
+        for (String nome : nomes_categorias) {
+            teste.add(new DadosFeeds(id_imagem[cont], nomes_categorias[cont]));
             cont++;
         }
 

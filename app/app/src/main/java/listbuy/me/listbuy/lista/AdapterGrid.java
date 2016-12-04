@@ -27,15 +27,15 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
             private ImageView imagem;
             private View view;
             private Activity activity;
-            private Context c;
+            private Context context;
 
             public ContactViewHolder(View v, Context c, Activity act) {
                 super(v);
                 vTitulo = (TextView)v.findViewById(R.id.txtNoticia);
                 imagem = (ImageView)v.findViewById(R.id.imageView3);
                 view = v;
-                activity = act;
-                c = c;
+                this.activity = act;
+                this.context = c;
             }
         }
 
@@ -50,7 +50,7 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
         public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_feeds, parent, false);
             v = itemView;
-            return new ContactViewHolder(itemView,c,act);
+            return new ContactViewHolder(itemView,context,act);
         }
 
         @Override
