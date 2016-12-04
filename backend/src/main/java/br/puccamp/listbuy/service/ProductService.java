@@ -11,13 +11,9 @@ public class ProductService {
 
     ProductDAO productDAO = new ProductDAO();
 
-    public List<Produtos> listarProdutosPorLista(int idLista) {
+    public List<Produtos> listarProdutosPorLista(Long idLista) {
 
-        Listas lista = productDAO.listarInformacoesListas(idLista);
-        List<Produtos> produtos = listDAO.listarProdutosPorLista(idLista);
-        if (produtos == null) {
-            throw new RuntimeException("Email ou senha inválido!");
-        }
+        List<Produtos> produtos = productDAO.listarInformacoesLista(idLista);
         return produtos;
     }
 

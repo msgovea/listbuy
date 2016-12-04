@@ -13,11 +13,11 @@ public class ProductsController {
     ProductService productService = new ProductService();
 
     @RequestMapping("/list/productsByList/{codigoLista}/")
-    public ResponseEntity<Response> listasPorUsuario(@PathVariable("codigoLista") int idLista) {
+    public ResponseEntity<Response> listasPorUsuario(@PathVariable("codigoLista") Long idLista) {
         try {
             return new ResponseEntity<>(new Response<>("success", productService.listarProdutosPorLista(idLista)), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(new Response<>("A lista não tem nenhum produto"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new Response<>("A lista não tem nenhum produto" + e), HttpStatus.UNAUTHORIZED);
         }
     }
 }

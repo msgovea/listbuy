@@ -60,30 +60,30 @@ public class ListDAO extends GenericDAO {
         }
     }
 
-    public ArrayList<Produtos> listarProdutosPorLista(int idLista) {
-        StringBuilder sql = new StringBuilder();
-        sql.append("SELECT * FROM LISTAS_X_PRODUTOS ");
-        sql.append("WHERE ID_LISTA = ? AND ATIVA <> 'N'");
-        try (Connection connection = getConnection()) {
-            PreparedStatement stmt = connection.prepareStatement(sql.toString());
-            stmt.setInt(1, idLista);
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Produtos> produtos = new ArrayList<>();
-            Boolean achou = false;
-            while (rs.next()) {
-                ProductDAO productDAO = new ProductDAO();
-                Produtos produto = productDAO.listarInformacoesProdutos(rs.getLong(2)); //ID_PRODUTO
-                produtos.add(produto);
-                achou = true;
-            }
-            if (achou) {
-                return produtos;
-            }
-            return null;
-        } catch (SQLException e) {
-            throw new RuntimeException("A lista não tem nenhum produto!", e);
-        }
-    }
+//    public ArrayList<Produtos> listarProdutosPorLista(int idLista) {
+//        StringBuilder sql = new StringBuilder();
+//        sql.append("SELECT * FROM LISTAS_X_PRODUTOS ");
+//        sql.append("WHERE ID_LISTA = ? AND ATIVA <> 'N'");
+//        try (Connection connection = getConnection()) {
+//            PreparedStatement stmt = connection.prepareStatement(sql.toString());
+//            stmt.setInt(1, idLista);
+//            ResultSet rs = stmt.executeQuery();
+//            ArrayList<Produtos> produtos = new ArrayList<>();
+//            Boolean achou = false;
+//            while (rs.next()) {
+//                ProductDAO productDAO = new ProductDAO();
+//                Produtos produto = productDAO.listarInformacoesProdutos(rs.getLong(2)); //ID_PRODUTO
+//                produtos.add(produto);
+//                achou = true;
+//            }
+//            if (achou) {
+//                return produtos;
+//            }
+//            return null;
+//        } catch (SQLException e) {
+//            throw new RuntimeException("A lista não tem nenhum produto!", e);
+//        }
+//    }
 
     //TODO: OK
     public ArrayList<Listas> listarListasPorUsuario(int idUsuario) {

@@ -146,7 +146,7 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
             } else {
                 LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-                builder.setTitle("Titulo do dialog");
+                builder.setTitle("");
                 builder.setMessage("Login/Senha incorreto");
                 builder.setPositiveButton("Fechar", null);
                 builder.setCancelable(false);
@@ -161,7 +161,7 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
             LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
             LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-            builder.setTitle("Titulo do dialog");
+            builder.setTitle("Erro");
             builder.setMessage("Erro ao Carregar Dados");
             builder.setPositiveButton("Fechar", null);
             builder.setCancelable(false);
