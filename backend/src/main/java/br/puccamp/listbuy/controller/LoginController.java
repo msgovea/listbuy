@@ -25,7 +25,7 @@ public class LoginController {
         try {
             return new ResponseEntity<>(new Response<>("success", loginService.efetuarLogin(dados)), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(new Response<>("Dados incorretos!"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new Response<>(e.getMessage()), HttpStatus.UNAUTHORIZED);
         }
     }
 }

@@ -3,6 +3,7 @@ package listbuy.me.listbuy.lista;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -29,6 +30,11 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Produtos");
+
         setContentView(R.layout.act_dados_produtos);
         extDescricao = (EditText) findViewById(R.id.extProduto);
         extQtd = (EditText) findViewById(R.id.edtQtd);
@@ -80,4 +86,24 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, Categorias.class));
+        finishActivity(0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:break;
+        }
+        return true;
+    }
+
+
 }

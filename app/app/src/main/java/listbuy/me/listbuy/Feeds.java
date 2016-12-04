@@ -1,5 +1,6 @@
 package listbuy.me.listbuy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import listbuy.me.listbuy.lista.CategoriasProdutos;
 import listbuy.me.listbuy.lista.DadosFeeds;
 
+import android.view.MenuItem;
 import android.widget.Button;
 
 import java.util.ArrayList;
@@ -29,6 +31,10 @@ public class Feeds extends AppCompatActivity {
         setContentView(R.layout.act_feeds);
         rec = (RecyclerView)findViewById(R.id.recycle);
         getSupportActionBar().setTitle("TELA DE FEEDS");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Meu Feed");
 
 
         rec.setHasFixedSize(true);
@@ -55,5 +61,24 @@ public class Feeds extends AppCompatActivity {
         }
 
         rec.setAdapter(new AdapterGrid(teste));
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MenuLateral.class));
+        finishActivity(0);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:break;
+        }
+        return true;
     }
 }
