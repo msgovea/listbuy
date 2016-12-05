@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import listbuy.me.listbuy.entities.Consumidor;
+import listbuy.me.listbuy.lista.DbConn;
+
 public class WelcomeScreen extends AppCompatActivity {
 
     /**
@@ -26,8 +29,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    public static final String NOME_PREFERENCE = "INFORMACOES_LOGIN_AUTOMATICO";
-
+    private DbConn dbconn;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -37,6 +39,13 @@ public class WelcomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dbconn = new DbConn(this);
+        Consumidor consumidor = dbconn.selectConsumidor();
+        if (consumidor.getId_consumidor() != null) {
+            startActivity(new Intent(getApplicationContext(),MenuLateral.class));
+        }
+
         setContentView(R.layout.welcome);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,18 +57,6 @@ public class WelcomeScreen extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        SharedPreferences prefs = getSharedPreferences(NOME_PREFERENCE, MODE_PRIVATE);
-        String login= prefs.getString("login", null);
-
-        if (login != null) {
-            startActivity(new Intent(this, MenuLateral.class));
-        }
     }
 
     @Override
