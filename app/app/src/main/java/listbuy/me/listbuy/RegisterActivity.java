@@ -45,7 +45,7 @@ import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
 public class RegisterActivity extends AppCompatActivity implements SincronizaCadastro.Listener {
 
     private EditText mPasswordView, mEmailView, mNameView, mConfirmPasswordView;
-    private View mProgressView;
+    public static View mProgressView;
     private View mRegisterFormView;
     private StringRequest request;
     private RequestQueue requestQueue;

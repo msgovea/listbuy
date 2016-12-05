@@ -15,7 +15,17 @@ public class Produtos {
     private Long quantidade;
     private Long id_unidade_medida;
 
-    public Produtos(Long id_produto, String nome, String descricao, Long id_categoria, String ativo, String data_cadastro, Long id_lista, Long quantidade, Long id_unidade_medida) {
+    public Long getId_consumidor() {
+        return id_consumidor;
+    }
+
+    public void setId_consumidor(Long id_consumidor) {
+        this.id_consumidor = id_consumidor;
+    }
+
+    private Long id_consumidor;
+
+    public Produtos(Long id_produto, String nome, String descricao, Long id_categoria, String ativo, String data_cadastro, Long id_lista, Long quantidade, Long id_unidade_medida, Long id_consumidor) {
         this.id_produto = id_produto;
         this.nome = nome;
         this.descricao = descricao;
@@ -25,6 +35,7 @@ public class Produtos {
         this.id_lista = id_lista;
         this.quantidade = quantidade;
         this.id_unidade_medida = id_unidade_medida;
+        this.id_consumidor = id_consumidor;
     }
 
     public Produtos() {

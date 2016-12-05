@@ -147,13 +147,12 @@ public class SincronizaCadastro extends AsyncTask<String, String, String> {
                 }
             }
 
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
-            LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
-            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-            builder.setTitle("Titulo do dialog");
-            builder.setMessage("Erro ao Carregar Dados");
+            RegisterActivity.mProgressView.setVisibility(View.INVISIBLE);
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.context);
+            builder.setTitle("");
+            builder.setMessage("E-mail já esta cadastrado");
             builder.setPositiveButton("Fechar", null);
             builder.setCancelable(false);
             builder.show();
