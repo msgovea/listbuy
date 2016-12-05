@@ -55,15 +55,27 @@ public class Feeds extends AppCompatActivity {
                 R.drawable.covabra, R.drawable.dia,
                 R.drawable.oferta, R.drawable.padaria, R.drawable.definir};
 
-        nomes_categorias = new String[]{"Bebidas", "Carnes",
-                "Frios", "Higiene",
-                "Frutas", "Legumes",
-                "Limpeza", "Padaria", "Outros"};
+        nomes_categorias = new String[]{"Carrefour", "Covabra",
+                "Arena", "Good Bom",
+                "Pague Menos", "Walmart",
+                "BIG", "Poupar", "Dia"};
         cont = 0;
-        for (String nome : nomes_categorias) {
+        /*for (String nome : nomes_categorias) {
             teste.add(new DadosFeeds(id_imagem[cont], nomes_categorias[cont]));
             cont++;
-        }
+        }*/
+
+        teste.add(new DadosFeeds(R.drawable.carrefor, "Carrefour"));
+        teste.add(new DadosFeeds(R.drawable.covabra, "Covabra"));
+        teste.add(new DadosFeeds(R.drawable.arena, "Arena"));
+        teste.add(new DadosFeeds(R.drawable.walmart, "Walmart"));
+        teste.add(new DadosFeeds(R.drawable.covabra, "Pague Menos"));
+        teste.add(new DadosFeeds(R.drawable.dia, "Dia"));
+        teste.add(new DadosFeeds(R.drawable.big, "BIG"));
+        teste.add(new DadosFeeds(R.drawable.arena, "Poupar"));
+        teste.add(new DadosFeeds(R.drawable.good, "Good Bom"));
+
+        rec.setAdapter(new AdapterGrid(teste,this));
 
         rec.setAdapter(new AdapterGrid(teste,this));
 

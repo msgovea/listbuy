@@ -1,6 +1,5 @@
 package listbuy.me.listbuy.lista.Sincronizacoes;
 
-
 import android.os.AsyncTask;
 
 import org.json.JSONException;
@@ -18,23 +17,33 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import listbuy.me.listbuy.entities.Listas;
-import listbuy.me.listbuy.lista.DbConn;
+import listbuy.me.listbuy.entities.ProdutoCadastrado;
+import listbuy.me.listbuy.entities.Produtos;
 
+/**
+ * Created by Talitadossantoscastr on 05/12/2016.
+ */
 
-public class SincronizaCriarLista extends AsyncTask<Object, String, String> {
+public class SincronizaCriarProdutos extends AsyncTask<Object, String, String> {
 
     public interface Listener {
 
-        public void onLoaded(Listas lista);
+        public void onLoaded(Produtos p);
     }
 
-    private String tipo_lista;
-    private String titulo;
-    private Long id_consumidor;
-    private String ativa;
+    private Long id_produto;
+    private String nome;
+    private String descricao;
+    private Long id_categoria;
+    private String ativo;
+    private String data_cadastro;
+    private Long id_lista;
+    private Long quantidade;
+    private Long id_unidade_medida;
+    private Long id_consumidor; // iserir no construtr depois
     private Listener mListener;
 
-    public SincronizaCriarLista(Listener mListener) {
+    public SincronizaCriarProdutos(Listener mListener) {
         this.mListener = mListener;
 
     }
@@ -42,11 +51,15 @@ public class SincronizaCriarLista extends AsyncTask<Object, String, String> {
     @Override
     protected String doInBackground(Object... n) {
 
-        String api_url = "http://servidor.listbuy.me:81/list/insert/";
-        tipo_lista = (String) n[0];
-        titulo = (String) n[1];
-        id_consumidor = (Long)n[2];
-        ativa = (String) n[3];
+        String api_url = "http://servidor.listbuy.me:81/product/insert/";
+        nome = (String) n[0];
+        descricao = (String) n[1];
+        id_categoria = (Long) n[2];
+        ativo = (String) n[3];
+        id_lista = (Long) n[4];
+        quantidade = (Long) n[5];
+        id_unidade_medida = (Long) n[6];
+        id_consumidor = (Long) n[7];
 
         HttpURLConnection urlConnection;
         String requestBody;
@@ -58,10 +71,15 @@ public class SincronizaCriarLista extends AsyncTask<Object, String, String> {
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("Accept-Encoding", "application/json");
             JSONObject jsonObject = new JSONObject();
-            jsonObject.accumulate("tipo_lista", tipo_lista);
-            jsonObject.accumulate("titulo", titulo);
+            jsonObject.accumulate("nome", nome);
+            jsonObject.accumulate("descricao", descricao);
+            jsonObject.accumulate("id_categoria", id_categoria);
+            jsonObject.accumulate("ativo", ativo);
+            jsonObject.accumulate("id_lista", id_lista);
+            jsonObject.accumulate("quantidade", quantidade);
+            jsonObject.accumulate("id_unidade_medida", id_unidade_medida);
             jsonObject.accumulate("id_consumidor", id_consumidor);
-            jsonObject.accumulate("ativa", ativa);
+
             String json = jsonObject.toString();
             OutputStream outputStream = new BufferedOutputStream(urlConnection.getOutputStream());
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
@@ -103,19 +121,20 @@ public class SincronizaCriarLista extends AsyncTask<Object, String, String> {
                 String dados = api_result.getString("object");
                 JSONObject dados_result = new JSONObject(dados);
 
-                Listas lista = new Listas();
+                Produtos pd = new Produtos();
 
-                lista.setId_lista(dados_result.getLong("id_lista"));
-                lista.setTipo_lista(dados_result.getString("tipo_lista"));
-                lista.setTitulo(dados_result.getString("titulo"));
-                lista.setId_consumidor(dados_result.getLong("id_consumidor"));
-                lista.setAtiva(dados_result.getString("ativa"));
-                lista.setData_ics(dados_result.getString("data_ics"));
-                lista.setData_alt(dados_result.getString("data_alt"));
+                pd.setNome(dados_result.getString("nome"));
+                pd.setDescricao(dados_result.getString("descricao"));
+                pd.setId_categoria(dados_result.getLong("id_categoria"));
+                pd.setId_lista(dados_result.getLong("id_lista"));
+                pd.setAtivo(dados_result.getString("ativo"));
+                pd.setQuantidade(dados_result.getLong("quantidade"));
+                pd.setId_unidade_medida(dados_result.getLong("id_unidade_medida")); // entender pq unidad de medida é 1
+                //lista.setData_alt(dados_result.getString("id_consumidor"));
 
 
                 if (mListener != null) {
-                    mListener.onLoaded(lista);
+                    mListener.onLoaded(pd);
                 }
 
 
@@ -135,6 +154,4 @@ public class SincronizaCriarLista extends AsyncTask<Object, String, String> {
 
 
     }
-
-
 }

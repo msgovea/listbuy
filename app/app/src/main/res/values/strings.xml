@@ -72,4 +72,6 @@
     <string name="txtSlectUn" />
     <string name="txtSupermercado" />
     <string name="txtNoticia" />
+    <string name="txtDetalhe1" />
+    <string name="data" />
 </resources>

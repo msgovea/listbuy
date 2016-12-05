@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 import listbuy.me.listbuy.R;
@@ -56,20 +58,27 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
         }
 
         @Override
-        public void onBindViewHolder(ContactViewHolder contactViewHolder, int position) {
+        public void onBindViewHolder(final ContactViewHolder contactViewHolder, int position) {
             final DadosFeeds ci = contactList.get(position);
             contactViewHolder.vTitulo.setText(ci.getNome());
-            contactViewHolder.imagem.setImageResource(ci.getImagem());
+            contactViewHolder.imagem.setBackgroundResource(ci.getImagem());
+            //contactViewHolder.imagem.setImageResource(ci.getImagem());
+
+
+
             contactViewHolder.view.setOnClickListener( new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
-
+                    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                    contactViewHolder.imagem.buildDrawingCache();
+                    Bitmap bmap = contactViewHolder.imagem.getDrawingCache();
+                    bmap.compress(Bitmap.CompressFormat.PNG, 50, bs);
                     Intent intent = new Intent();
                     intent.setClass(act,DetalhesOfertas.class);
-                    intent.putExtra("IMAGEM",ci.getImagem());
-                    //intent.putExtra("IMAGEM",ci.getNome());
+                    intent.putExtra("nome",ci.getNome());
+                    intent.putExtra("img", bs.toByteArray());
                     act.startActivity(intent);
-                    Toast.makeText(act,ci.getImagem(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(act,ci.getImagem(), Toast.LENGTH_SHORT).show();
 
                   //v.startActivity(new Intent(this, DetalhesOfertas.class));
                 }
