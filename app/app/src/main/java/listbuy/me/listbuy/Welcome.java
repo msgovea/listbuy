@@ -50,18 +50,7 @@ public class Welcome extends AppCompatActivity {
 
         nome.setText(consumidor.getNome());
         email.setText(consumidor.getEmail());
-        senha.setText(consumidor.getSenha());
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences prefs = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE);
-        String login= prefs.getString("login", null);
-
-        if (login== null) {
-            startActivity(new Intent(this, MainActivity.class));
-        }
+        senha.setText("*********");
     }
 
     @Override

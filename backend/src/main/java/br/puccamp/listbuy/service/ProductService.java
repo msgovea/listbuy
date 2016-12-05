@@ -17,4 +17,19 @@ public class ProductService {
         return produtos;
     }
 
+    public Produtos atualizarProdutos(Produtos dados) {
+        Produtos produto = productDAO.atualizarProdutos(dados);
+        if (produto == null) {
+            throw new RuntimeException("Erro ao atualizar informações da lista!");
+        }
+        return produto;
+    }
+
+    public Produtos registrarProduto(Produtos produto) {
+        Produtos produtos = productDAO.registrarProdutos(produto);
+        if (produto == null) {
+            throw new RuntimeException("Erro ao cadastrar produto");
+        }
+        return produto;
+    }
 }
