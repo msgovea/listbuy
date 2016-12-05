@@ -3,12 +3,14 @@ package listbuy.me.listbuy.lista;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -61,9 +63,13 @@ public class AdapterGrid extends RecyclerView.Adapter<AdapterGrid.ContactViewHol
             contactViewHolder.view.setOnClickListener( new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
+
                     Intent intent = new Intent();
                     intent.setClass(act,DetalhesOfertas.class);
+                    intent.putExtra("IMAGEM",ci.getImagem());
+                    //intent.putExtra("IMAGEM",ci.getNome());
                     act.startActivity(intent);
+                    Toast.makeText(act,ci.getImagem(), Toast.LENGTH_SHORT).show();
 
                   //v.startActivity(new Intent(this, DetalhesOfertas.class));
                 }
