@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LIST_PESSOAS_LIST_FKv1" directorySegmentName="seg_0" id="9294AB3E-BDC0-EF8D-DACA-01E794B2C695">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>663F5A9F-F9C0-4698-8E57-B6AB58B733C0</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>F77B6A82-014E-49A5-1252-D2F66907DED2</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>20932A38-70FE-35F5-57F4-9047435136DE</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>47787DA9-31CF-B212-97A2-84933BFEBF49</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

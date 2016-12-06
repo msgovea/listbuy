@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LISTAS_X_PROD_UNID_MEDIDA_FK" directorySegmentName="seg_0" id="1B3877DA-5174-BE75-F2BA-AA0216A93B08">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>30267374-4D5D-D5C7-641C-38EA10EEC1DF</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>8DD15E89-DEE1-B612-1F24-5B09870DE519</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>11D4CF18-4918-C592-1C12-3321B8D0447C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>681A77F9-CF7A-DFF7-7CB9-9A177D3BEDBC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

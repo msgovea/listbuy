@@ -1,0 +1,111 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7DC268C2-317D-3DE1-61BF-E9357A1C76EC" name="EVENTOS X PRODUTOS">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>98852BFE-B574-E0C3-E6DE-C925C4C50230</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID LISTA" id="1DCC3152-8FEB-F262-A8CB-ACC68AEC8A48">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>BB9BBEBB-C80B-A0F5-2E3D-926597CF8270</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>D05A1E3C-F4D6-AF4E-C871-2C8F4BE6E28D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID PRODUTO" id="4537FF14-AA47-3D3E-DF6D-4E2A34460957">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>9227EF61-3BE3-1C65-D9C5-1314D3456771</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>4A743703-F9A7-DB39-97C7-FFA5A3E9EB74</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID CONSUMIDOR ASSIGN" id="E6C16B31-2A06-E1F6-F6F2-5AAC26467D54">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>163B74FC-F184-5336-84EA-B0CFD21F4F21</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>B03204B8-2B5A-785B-B613-2BADB78D3ABA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="QUANTIDADE" id="CCE77147-4069-AF3A-4281-F47504BEBA09">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>AA9E476C-371D-CC62-443E-1F73705300B3</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID UNIDADE MEDIDA" id="F5FFA429-C5D6-185F-2575-A2D2A39BBFEF">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>822BB651-76EB-C825-2517-9D182DEB1699</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>062E8457-AC43-98F8-4819-F723269FED88</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="47A91D6B-F1C1-9E47-8D6E-A4BA51EB9105" name="EVENTOS X PRODUTOS PK">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>8441647A-E2F1-8B4B-3F03-69C6E2A7B200</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1DCC3152-8FEB-F262-A8CB-ACC68AEC8A48</attributeRef>
+<attributeRef>4537FF14-AA47-3D3E-DF6D-4E2A34460957</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

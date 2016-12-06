@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="20932A38-70FE-35F5-57F4-9047435136DE" name="LISTAS">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>C832D4B9-6409-DC04-BD88-792CAEFE9DA3</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID LISTA" id="15111E6A-6928-9F06-C6E5-199F67B39B2F">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>B5828875-9664-2AF8-54AE-01DAFBB46BCC</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TIPO LISTA" id="1D24A9D5-278C-09AD-07AD-5062D09FC361">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>349F8C49-9C84-D0DA-AE8D-2D2CA2EECB3D</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TITULO" id="E0CCA1E9-95F9-4C93-C0B2-D3B2D3266ED9">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>8AC7E0D5-3FBE-9C76-918D-38BF114E6319</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID CONSUMIDOR" id="CF6AEFCD-7F66-7290-78CD-5590A37942BE">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>C72E35C9-8584-0996-5664-40960EB54573</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>B03204B8-2B5A-785B-B613-2BADB78D3ABA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ATIVA" id="FBE2FA2C-930A-6FA6-5979-11854CB7106D">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>822F9685-4BEF-607D-33AC-92EF19F8DBBA</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATA ICS" id="818C61C2-367F-964F-D136-29E3E6FC20CF">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>7310AC3F-E27A-1FE3-CDA9-ADDD01B23A9D</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATA ALT" id="F37F9F3C-1868-8109-BEAB-CE093EC579AC">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>39FBCE03-4B2B-473F-292F-827D48D66979</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F77B6A82-014E-49A5-1252-D2F66907DED2" name="LISTAS PK">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>B5664412-BD0C-1BBB-C857-19A6014015AB</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>15111E6A-6928-9F06-C6E5-199F67B39B2F</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

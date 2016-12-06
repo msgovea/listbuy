@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="37006FA3-A31A-7373-580A-CEFE67C659E7" name="PRODUTO CADASTRADO">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>1B2DFF27-72AA-60EA-0AFD-0B4B068ABA54</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID CONSUMIDOR" id="46DD0F44-9639-7EAB-434D-39C67E21AE0A">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>7A416DAA-2F5B-44BF-8B8D-19E5C42885D7</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>B03204B8-2B5A-785B-B613-2BADB78D3ABA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID PRODUTO" id="CB8AAD1E-348C-1273-AE49-1A1272284357">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>28745A4B-7611-FE69-312A-2986C99CCB60</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<referedAttribute>4A743703-F9A7-DB39-97C7-FFA5A3E9EB74</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATA CADASTRO" id="DBCE5E64-3EDC-19C8-C6D7-02A1E1AA37C4">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>95ECA5E3-F705-C280-635D-F11611F23A4B</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9A05D0D8-0127-1A85-3F7D-7377CA84E57D" name="PRODUTO CADASTRADO PK">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>062C89A4-22E4-EC84-59FB-E121619AE416</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>46DD0F44-9639-7EAB-434D-39C67E21AE0A</attributeRef>
+<attributeRef>CB8AAD1E-348C-1273-AE49-1A1272284357</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

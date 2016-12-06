@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LISTAS_X_PROD_LISTAS_PES_FK" directorySegmentName="seg_0" id="8C1DC72B-56D5-6EBD-B83B-38C6576C540C">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>BF8ADA04-9C3A-D972-BFD8-DE51F951CFAC</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>61DABA4D-F936-632C-7EE2-83EEB675D221</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7D5EE47F-A8A7-51A5-8144-951A69251594</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>681A77F9-CF7A-DFF7-7CB9-9A177D3BEDBC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

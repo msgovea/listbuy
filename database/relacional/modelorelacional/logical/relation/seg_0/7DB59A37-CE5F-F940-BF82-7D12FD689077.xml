@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PRODUTOS_CATEGORIA_FK" directorySegmentName="seg_0" id="7DB59A37-CE5F-F940-BF82-7D12FD689077">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>30268489-12FE-8F18-0859-B38BC83F83A7</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>7E9A66AC-0242-23BB-1D6A-F5C9BEE40C5A</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5D41B2CB-A667-8802-1C1C-1BB2D112369C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>6BCEB162-4F9E-3D6F-8C38-A1E5D8AED65F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
