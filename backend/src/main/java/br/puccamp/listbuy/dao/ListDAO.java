@@ -86,13 +86,13 @@ public class ListDAO extends GenericDAO {
 //    }
 
     //TODO: OK
-    public ArrayList<Listas> listarListasPorUsuario(int idUsuario) {
+    public ArrayList<Listas> listarListasPorUsuario(Long idUsuario) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM LISTAS ");
         sql.append("WHERE ID_CONSUMIDOR = ? AND ATIVA <> 'N'");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString());
-            stmt.setInt(1, idUsuario);
+            stmt.setLong(1, idUsuario);
             ResultSet rs = stmt.executeQuery();
             ArrayList<Listas> lista = new ArrayList<>();
             Boolean achou = false;
@@ -166,4 +166,15 @@ public class ListDAO extends GenericDAO {
         }
     }
 
+    public void deleteList(Long idLista) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("{CALL PRC_EXCLUIR_LISTA(?) }");
+        try (Connection connection = getConnection()) {
+            CallableStatement stmt = connection.prepareCall(sql.toString());
+            stmt.setLong(1, idLista);
+            stmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao excluir lista!!", e);
+        }
+    }
 }

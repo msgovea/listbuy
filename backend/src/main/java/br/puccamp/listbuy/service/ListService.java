@@ -9,12 +9,16 @@ public class ListService {
 
     ListDAO listDAO = new ListDAO();
 
-    public List<Listas> listarListasPorUsuario(int idUsuario) {
+    public List<Listas> listarListasPorUsuario(Long idUsuario) {
         List<Listas> listas = listDAO.listarListasPorUsuario(idUsuario);
         if (listas == null) {
             throw new RuntimeException("Email ou senha inválido!");
         }
         return listas;
+    }
+
+    public void deletarLista(Long idLista) {
+        listDAO.deleteList(idLista);
     }
 
     public Listas atualizarLista(Listas dados) {

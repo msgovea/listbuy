@@ -119,4 +119,17 @@ public class ProductDAO extends GenericDAO {
         return dados;
     }
 
+    public void deleteProduct(Long idProduct, Long idList) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("{CALL deleta_produto(?,?) }");
+        try (Connection connection = getConnection()) {
+            CallableStatement stmt = connection.prepareCall(sql.toString());
+            stmt.setLong(1, idList);
+            stmt.setLong(2, idProduct);
+            stmt.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao excluir produto!!", e);
+        }
+    }
+
 }

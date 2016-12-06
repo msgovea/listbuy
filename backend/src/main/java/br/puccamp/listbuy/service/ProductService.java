@@ -30,4 +30,8 @@ public class ProductService {
         }
         return produto;
     }
+
+    public void deletarProduto(Long idProduct, Long idList) {
+        productDAO.deleteProduct(idProduct, idList);
+    }
 }

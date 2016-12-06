@@ -49,4 +49,14 @@ public class ProductsController {
             return new ResponseEntity<>(new Response<>("Dados incorretos!" + e), HttpStatus.UNAUTHORIZED);
         }
     }
+
+    @RequestMapping("/product/delete/{idList}/{idProduct}/")
+    public ResponseEntity<Response> deletarLista(@PathVariable("idProduct") Long idProduct, @PathVariable("idList") Long idList) {
+        try {
+            productService.deletarProduto(idProduct, idList);
+            return new ResponseEntity<>(new Response<>("success"), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new Response<>(e.getMessage()), HttpStatus.UNAUTHORIZED);
+        }
+    }
 }
