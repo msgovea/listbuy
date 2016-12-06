@@ -1,8 +1,6 @@
 package br.puccamp.listbuy.service;
 
-import br.puccamp.listbuy.dao.ListDAO;
 import br.puccamp.listbuy.dao.ProductDAO;
-import br.puccamp.listbuy.entities.Listas;
 import br.puccamp.listbuy.entities.Produtos;
 
 import java.util.List;

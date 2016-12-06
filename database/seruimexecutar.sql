@@ -38,6 +38,9 @@ WHERE
     AND S.PADDR = P.ADDR
     AND S.SQL_ADDRESS = SQ.ADDRESS;
     
+
+select * from dba
+    
     
     alter system kill session '109,6033';
     alter system kill session '15,3933';
