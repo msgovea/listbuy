@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="PROD_CAD_PRODUTOS_FK" directorySegmentName="seg_0" id="28745A4B-7611-FE69-312A-2986C99CCB60">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>DB142284-8392-C012-C67E-AC49498B7018</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>12DB39C1-E306-3927-1B6E-6B9BC16DC31E</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6BCEB162-4F9E-3D6F-8C38-A1E5D8AED65F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>37006FA3-A31A-7373-580A-CEFE67C659E7</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

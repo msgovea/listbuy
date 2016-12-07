@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CONSUM_TIP_ACESSO_FK" directorySegmentName="seg_0" id="7D4586F0-762B-B377-DAED-F98CF839D36B">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>A67CD4FD-9840-4830-4977-67DFEFF33643</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>E3116513-2B43-C0EF-424E-337D4CBD4337</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A0C1B231-3C21-74D7-6845-04D21A676AED</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>EF305B29-BAF1-2CBD-316E-0A73E5DD6CF6</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

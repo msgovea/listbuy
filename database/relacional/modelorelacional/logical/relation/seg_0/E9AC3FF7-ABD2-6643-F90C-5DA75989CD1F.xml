@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="LISTAS_EVENTOS_LISTAS_FK" directorySegmentName="seg_0" id="E9AC3FF7-ABD2-6643-F90C-5DA75989CD1F">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>1BE59C69-6FD7-E016-E7F3-50FEF875BC3B</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>F77B6A82-014E-49A5-1252-D2F66907DED2</sourcePk>
+<dominantRole>20932A38-70FE-35F5-57F4-9047435136DE</dominantRole>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>20932A38-70FE-35F5-57F4-9047435136DE</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>0DA99265-51BF-91AE-646B-7E273420F180</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

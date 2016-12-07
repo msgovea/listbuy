@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="OFERTAS_CONSUMIDOR_FK" directorySegmentName="seg_0" id="17AE0735-B1D4-3001-A0D0-B18AED04C441">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>54E02046-DEB8-F599-8AD1-724DA2787495</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>2735950B-47E5-FF20-F880-B7239665E964</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>EF305B29-BAF1-2CBD-316E-0A73E5DD6CF6</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>C4A05686-7496-FEB9-43F9-C95E634B1C3B</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

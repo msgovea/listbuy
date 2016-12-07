@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="EVENT_X_PROD_UNID_MED_FK" directorySegmentName="seg_0" id="822BB651-76EB-C825-2517-9D182DEB1699">
+<createdBy>Aline</createdBy>
+<createdTime>2016-12-06 16:21:29 UTC</createdTime>
+<generatorID>27AFECD0-42B3-EBD1-DC55-1F71C8AD86C5</generatorID>
+<ownerDesignName>modelorelacional</ownerDesignName>
+<engineerTo>
+<item key="DC583EF3-7AA9-5186-3A40-CC99EE2D6F96" value="true"/>
+</engineerTo>
+<sourcePk>8DD15E89-DEE1-B612-1F24-5B09870DE519</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>11D4CF18-4918-C592-1C12-3321B8D0447C</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7DC268C2-317D-3DE1-61BF-E9357A1C76EC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
