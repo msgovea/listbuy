@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="listbuy.me.listbuy">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        // Design Responsivo
+        <supports-screens
+            android:anyDensity="true"
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:resizeable="true"
+            android:screenOrientation="portrait"
+            android:smallScreens="true"
+            android:xlargeScreens="true" />
+        //Define a activity SplashScreen como a tela que será chamada primeiro
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        //Tela de compartilhamento
+        <activity
+            android:name=".SharingScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SharingOffer"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SharingList">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="g65q8.app.goo.gl"
+                    android:pathPrefix="/idLista"
+                    android:scheme="http" />
+                <data
+                    android:host="g65q8.app.goo.gl"
+                    android:pathPrefix="/idLista"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WelcomeScreen"
+            android:label="@string/title_activity_welcome_screen"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme.NoActionBar" />
+        <activity
+            android:name=".MenuLateral"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme.NoActionBar" />
+        <activity
+            android:name=".Picture"
+            android:label="@string/title_activity_picture"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Welcome"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" />
+
+        <!-- talita -->
+        <activity android:name=".lista.Lista_inicial">
+            <intent-filter>
+                <data android:scheme="mgoveaLegal" />
+
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lista.AdicionarProdutos"
+            android:label="@string/title_activity_adicionar_produtos"
+            android:theme="@style/MyTheme.NoActionBar" />
+        <activity android:name=".lista.DadosProdutos" />
+        <activity android:name=".lista.Categorias" />
+
+        <!-- talita -->
+        <activity android:name=".Feeds" />
+        <activity android:name=".ChamaTabs" />
+        <activity android:name=".ListaRecebida" />
+        <activity android:name=".lista.DetalhesOfertas" />
+        <activity android:name=".lista.Sincronizacoes.ListaProdutos"></activity>
+    </application>
+
+</manifest>

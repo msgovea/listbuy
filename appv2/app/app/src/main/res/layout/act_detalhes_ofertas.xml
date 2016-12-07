@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/act_detalhes_ofertas"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="listbuy.me.listbuy.lista.DetalhesOfertas">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/carrefor"
+            android:scaleType="fitCenter"
+            android:id="@+id/imageView4"
+            android:layout_above="@+id/txtDetalhe1" />
+
+        <TextView
+            android:text="@string/txtDetalhe1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:textColor="#F21E1E"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/txtDetalhe1"
+            android:layout_above="@+id/data"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Data de Vencimento:  14/12/2016"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/data"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+</RelativeLayout>
