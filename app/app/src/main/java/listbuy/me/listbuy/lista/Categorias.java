@@ -1,7 +1,9 @@
 package listbuy.me.listbuy.lista;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -22,12 +24,19 @@ public class Categorias extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Categorias");
+
+
         setContentView(R.layout.act_categorias);
         lista = (ListView) findViewById(R.id.lstCategorias);
         id_imagem = new int[]{R.drawable.bebidas, R.drawable.carnes,
                 R.drawable.frios, R.drawable.higiene,
                 R.drawable.frutas, R.drawable.legumes,
                 R.drawable.limpeza,R.drawable.padaria,R.drawable.definir};
+
         nomes_categorias = new String[]{"Bebidas","Carnes",
                                         "Frios","Higiene",
                                          "Frutas","Legumes",
@@ -46,5 +55,24 @@ public class Categorias extends AppCompatActivity {
                 Toast.makeText(Categorias.this,item_selcionado, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, AdicionarProdutos.class));
+        finishActivity(0);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:break;
+        }
+        return true;
     }
 }

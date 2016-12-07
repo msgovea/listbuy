@@ -3,7 +3,9 @@ package listbuy.me.listbuy;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -40,10 +42,10 @@ import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
 /**
  * A login screen that offers login via email/password.
  */
-public class RegisterActivity extends AppCompatActivity implements SincronizaCadastro.Listener{
+public class RegisterActivity extends AppCompatActivity implements SincronizaCadastro.Listener {
 
     private EditText mPasswordView, mEmailView, mNameView, mConfirmPasswordView;
-    private View mProgressView;
+    public static View mProgressView;
     private View mRegisterFormView;
     private StringRequest request;
     private RequestQueue requestQueue;
@@ -59,7 +61,8 @@ public class RegisterActivity extends AppCompatActivity implements SincronizaCad
                 finishAffinity();  //Método para matar a activity e não deixa-lá indexada na pilhagem*/
                 onBackPressed();
                 break;
-            default:break;
+            default:
+                break;
         }
         return true;
     }
@@ -171,20 +174,28 @@ public class RegisterActivity extends AppCompatActivity implements SincronizaCad
         }
         showProgress(true);
         SincronizaCadastro sinc = new SincronizaCadastro(this);
-        sinc.execute(mNameView.getText().toString(),mEmailView.getText().toString(),mPasswordView.getText().toString(),"A");
+        sinc.execute(mNameView.getText().toString(), mEmailView.getText().toString(), mPasswordView.getText().toString(), "A");
 
         //showProgress(true);
         //request();
     }
 
 
-    private void requestFocus(View focusView) { focusView.requestFocus(); }
+    private void requestFocus(View focusView) {
+        focusView.requestFocus();
+    }
 
-    private boolean isNameValid(String name) { return name.length() > 5; }
+    private boolean isNameValid(String name) {
+        return name.length() > 5;
+    }
 
-    private boolean isPasswordValid(String password) { return password.length() > 4; }
+    private boolean isPasswordValid(String password) {
+        return password.length() > 4;
+    }
 
-    private boolean isConfirmPassword(String password, String confirmPassword) { return password.equals(confirmPassword); }
+    private boolean isConfirmPassword(String password, String confirmPassword) {
+        return password.equals(confirmPassword);
+    }
 
     private boolean isEmailValid(String email) {
         if (email.contains("@")) {
@@ -193,53 +204,6 @@ public class RegisterActivity extends AppCompatActivity implements SincronizaCad
         }
         return false;
     }
-
-   /* private void request() {
-        request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.names().get(0).equals("success")) {
-                        Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
-                        SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
-
-                        editor.putString("login", mEmailView.getText().toString());
-                        editor.putString("senha", mPasswordView.getText().toString());
-                        editor.putString("nome", mNameView.getText().toString());
-                        editor.commit();
-                        startActivity(new Intent(getApplicationContext(), MenuLateral.class));
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
-                        showProgress(false);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> hashMap = new HashMap<String, String>();
-                hashMap.put("name", mNameView.getText().toString());
-                hashMap.put("email", mEmailView.getText().toString());
-                hashMap.put("password", mPasswordView.getText().toString());
-                hashMap.put("type", "register");
-
-                return hashMap;
-            }
-        };
-
-        requestQueue.add(request);
-    }*/
 
     /**
      * Shows the progress UI and hides the login form.
@@ -281,14 +245,18 @@ public class RegisterActivity extends AppCompatActivity implements SincronizaCad
     public void onLoaded(String string) {
         if (string == "true") {
             showProgress(false);
-            startActivity(new Intent(this, MenuLateral.class));
-            SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
-
-            editor.putString("login", mEmailView.getText().toString());
-            editor.putString("senha", mPasswordView.getText().toString());
-            editor.putString("nome", mNameView.getText().toString());
-            editor.commit();
-            finishActivity(1);
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.context);
+            builder.setTitle("Conta registrada");
+            builder.setMessage("Cadastro realizado, confirme o acesso via e-mail");
+            builder.setPositiveButton("Fechar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                    finishActivity(1);
+                }
+            });
+            builder.setCancelable(false);
+            builder.show();
         } else {
             showProgress(false);
         }

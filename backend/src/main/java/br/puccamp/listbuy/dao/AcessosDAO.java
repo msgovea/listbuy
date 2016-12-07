@@ -36,7 +36,7 @@ public class AcessosDAO extends GenericDAO {
     public Consumidor efetuarLogin(Consumidor login) {
         StringBuilder sql = new StringBuilder();
         sql.append("SELECT * FROM CONSUMIDOR ");
-        sql.append("WHERE EMAIL = ? AND SENHA = ?");
+        sql.append("WHERE EMAIL = ? AND SENHA = ? AND ID_TIPO_ACESSO IN ('A','N')");
         try (Connection connection = getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(sql.toString());
             stmt.setString(1, login.getEmail());
@@ -50,7 +50,6 @@ public class AcessosDAO extends GenericDAO {
                 retorno.setId_tipo_acesso(rs.getString(5));
                 retorno.setKey_acesso    (rs.getString(6));
                 return retorno;
-
             }
             return null;
         } catch (SQLException e) {

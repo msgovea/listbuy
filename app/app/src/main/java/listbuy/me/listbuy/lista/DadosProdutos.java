@@ -3,6 +3,7 @@ package listbuy.me.listbuy.lista;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.entities.Produtos;
 
 public class DadosProdutos extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,6 +30,11 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Produtos");
+
         setContentView(R.layout.act_dados_produtos);
         extDescricao = (EditText) findViewById(R.id.extProduto);
         extQtd = (EditText) findViewById(R.id.edtQtd);
@@ -72,11 +79,31 @@ public class DadosProdutos extends AppCompatActivity implements View.OnClickList
                 //Toast.makeText(this,categoria, Toast.LENGTH_SHORT).show();
             Intent it = new Intent();
             int qtd_convert= Integer.parseInt(extQtd.getText().toString());
-            AdicionarProdutos.produtos.add(new Produtos(extDescricao.getText().toString(),qtd_convert,smp.getSelectedItem().toString()));
+            AdicionarProdutos.produtos.add(new Produtos());
             it.setClass(this,AdicionarProdutos.class);
             it.putExtra("CATEGORIA",categoria);
             startActivity(it);
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, Categorias.class));
+        finishActivity(0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:break;
+        }
+        return true;
+    }
+
+
 }

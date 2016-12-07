@@ -32,7 +32,7 @@ public class RegisterController {
     }
 
     @RequestMapping("/activate/{keyAcesso}")
-    public ResponseEntity<Boolean> listasPorUsuario(@PathVariable("keyAcesso") String keyAcesso) {
+    public ResponseEntity<String> listasPorUsuario(@PathVariable("keyAcesso") String keyAcesso) {
             return new ResponseEntity<>(registerService.ativarConta(keyAcesso), HttpStatus.OK);
     }
 }

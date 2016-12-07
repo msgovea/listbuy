@@ -53,11 +53,9 @@ public class LoginActivity extends AppCompatActivity implements SincronizaLogin.
     public static Context context;
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { //Botão adicional na ToolBar
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:  //ID do seu botão (gerado automaticamente pelo android, usando como está, deve funcionar
-                /*startActivity(new Intent(this, SuaActivity.class));  //O efeito ao ser pressionado do botão (no caso abre a activity)
-                finishAffinity();  //Método para matar a activity e não deixa-lá indexada na pilhagem*/
+            case android.R.id.home:
                 onBackPressed();
                 break;
             default:break;
@@ -109,52 +107,6 @@ public class LoginActivity extends AppCompatActivity implements SincronizaLogin.
         mProgressView = findViewById(R.id.login_progress);
     }
 
-  /*  private void request() {
-        request = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.names().get(0).equals("success")) {
-                        Toast.makeText(getApplicationContext(), "SUCCESS " + jsonObject.getString("success"), Toast.LENGTH_SHORT).show();
-
-                        SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
-
-                        editor.putString("nome", mEmailView.getText().toString());
-                        editor.putString("login", mEmailView.getText().toString());
-                        editor.putString("senha", mPasswordView.getText().toString());
-                        editor.commit();
-                        startActivity(new Intent(getApplicationContext(), Welcome.class));
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Error" + jsonObject.getString("error"), Toast.LENGTH_SHORT).show();
-                        showProgress(false);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> hashMap = new HashMap<String, String>();
-                hashMap.put("email", mEmailView.getText().toString());
-                hashMap.put("password", mPasswordView.getText().toString());
-                hashMap.put("type", "login");
-
-                return hashMap;
-            }
-        };
-
-        requestQueue.add(request);
-    }*/
 
     private void attemptLogin() {
 

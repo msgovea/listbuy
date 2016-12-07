@@ -17,11 +17,14 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+
+import listbuy.me.listbuy.lista.DbConn;
 import listbuy.me.listbuy.lista.Lista_inicial;
 
 public class MenuLateral extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private DbConn dbconn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +79,8 @@ public class MenuLateral extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit().clear().commit();
+            dbconn = new DbConn(MenuLateral.this);
+            dbconn.deleteConsumidor();
             //editor.clear().commit();
             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             return true;
@@ -97,6 +102,7 @@ public class MenuLateral extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             Toast.makeText(this, "feed", Toast.LENGTH_LONG);
             //startActivity(new Intent(this, Feed.class));
+            startActivity(new Intent(this, Feeds.class));
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

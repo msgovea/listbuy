@@ -1,9 +1,12 @@
 package listbuy.me.listbuy.lista;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -11,11 +14,16 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import listbuy.me.listbuy.MenuLateral;
 import listbuy.me.listbuy.R;
+import listbuy.me.listbuy.entities.Listas;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaListarListas;
 import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaListarProdutos;
+import listbuy.me.listbuy.lista.Sincronizacoes.SincronizaLogin;
 
-public class Lista_inicial extends AppCompatActivity implements View.OnClickListener {
+public class Lista_inicial extends AppCompatActivity implements View.OnClickListener, SincronizaListarListas.Listener {
     private FloatingActionButton fab;
     private FloatingActionButton fabSimples;
     private FloatingActionButton fabEvento;
@@ -29,10 +37,12 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
     private boolean flagAber = false;
     public static ArrayList<ListasCriadas> listaCriada = new ArrayList<ListasCriadas>();
     private DbConn dbconn;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.act_lista_inicial);
 
         //TODO: ESTE COMANDO ADICIONA O MENU SUPERIOR COM O BOTAO VOLTAR E O TITULO 'X' EH NECESSARIO AppCompatActivity COMO EXTEND
@@ -40,43 +50,30 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Minhas Listas");
 
-        fab = (FloatingActionButton)findViewById(R.id.fb_plus2);
-        fabSimples = (FloatingActionButton)findViewById(R.id.fb_simples);
-        fabEvento = (FloatingActionButton)findViewById(R.id.fb_evento);
+        fab = (FloatingActionButton) findViewById(R.id.fb_plus2);
+        fabSimples = (FloatingActionButton) findViewById(R.id.fb_simples);
+        fabEvento = (FloatingActionButton) findViewById(R.id.fb_evento);
         abrir = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
         fechar = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fb_close);
         gEsq = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
         gDir = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_ant);
-        listas = (ListView)findViewById(R.id.lscListas);
+        listas = (ListView) findViewById(R.id.lscListas);
         fab.setOnClickListener(this);
         fabSimples.setOnClickListener(this);
         fabEvento.setOnClickListener(this);
 
         dbconn = new DbConn(Lista_inicial.this);
 
-        Sincroniza sync = new Sincroniza();
-        sync.execute("mateus.sauer@gmail.com","mateus");
+        SincronizaListarListas sinc = new SincronizaListarListas(this);
+        sinc.execute();
 
-        Intent it = getIntent();
-        String nome_del = "";
-        if(it.getStringExtra("NOME_DEL")!= null) {
-            nome_del = it.getStringExtra("NOME_DEL");
-            if (nome_del != "") {
-
-                dbconn.deleteListaprodIdLista(dbconn.selectIdLista(nome_del));
-                dbconn.deleteListaId(dbconn.selectIdLista(nome_del));
-            }
-        }
-        ListaCriadaAdapter listCriad = new ListaCriadaAdapter(Lista_inicial.this,Lista_inicial.this,dbconn.selectListasCriadas());
-        listas.setAdapter(listCriad);
-        listas.deferNotifyDataSetChanged();
 
     }
 
-    public void onClick(View v){
+    public void onClick(View v) {
 
         // valida se o botão + foi clicado
-        if(flagAber){
+        if (flagAber) {
             fabSimples.startAnimation(fechar);
             fabEvento.startAnimation(fechar);
             fab.startAnimation(gDir);
@@ -84,8 +81,7 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
             fabEvento.setClickable(false);
             flagAber = false;
 
-        }
-        else{
+        } else {
 
             fabSimples.startAnimation(abrir);
             fabEvento.startAnimation(abrir);
@@ -95,16 +91,55 @@ public class Lista_inicial extends AppCompatActivity implements View.OnClickList
             flagAber = true;
         }
 
-        if (v.getId() == R.id.fb_evento){
-            startActivity(new Intent(this,AdicionarProdutos.class));
-            Toast.makeText(getApplicationContext(), "lista evento", Toast.LENGTH_SHORT).show();
-            tpLista = 1;
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(this, AdicionarProdutos.class);
+
+        if (v.getId() == R.id.fb_evento) {
+            bundle.putString("tipoLista", "E");
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
-        if(v.getId() == R.id.fb_simples){
-            startActivity(new Intent(this,AdicionarProdutos.class));
-            Toast.makeText(getApplicationContext(), "lista simples", Toast.LENGTH_SHORT).show();
-            tpLista = 2;
+        if (v.getId() == R.id.fb_simples) {
+            bundle.putString("tipoLista", "P");
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
+
+    }
+
+    @Override
+    public void onLoaded(List<Listas> listas) {
+
+
+        ListaCriadaAdapter listCriad = new ListaCriadaAdapter(Lista_inicial.this, Lista_inicial.this, listas);
+        this.listas.setAdapter(listCriad);
+        this.listas.deferNotifyDataSetChanged();
+
+        /*startActivity(new Intent(this, MenuLateral.class));
+        SharedPreferences.Editor editor = getSharedPreferences("INFORMACOES_LOGIN_AUTOMATICO", MODE_PRIVATE).edit();
+
+        editor.putString("nome", "teste");
+        editor.commit();
+        finishActivity(1);-*/
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MenuLateral.class));
+        finishActivity(0);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            default:break;
+        }
+        return true;
     }
 }

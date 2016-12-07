@@ -29,9 +29,6 @@ import listbuy.me.listbuy.Welcome;
 import listbuy.me.listbuy.lista.DbConn;
 import listbuy.me.listbuy.lista.Lista_inicial;
 
-/**
- * Created by Talitadossantoscastr on 13/11/2016.
- */
 
 public class SincronizaLogin extends AsyncTask<String, String, String> {
 
@@ -118,12 +115,13 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
             if (message.equalsIgnoreCase("success")) {
                 String dados = api_result.getString("object");
                 JSONObject dados_result = new JSONObject(dados);
-                int id_consumidor = dados_result.getInt("id_consumidor");
+                Long id_consumidor = dados_result.getLong("id_consumidor");
                 String nome = dados_result.getString("nome");
                 String email = dados_result.getString("email");
                 String senha = dados_result.getString("senha");
                 String tipo_acesso = dados_result.getString("id_tipo_acesso");
                 String key_acesso = dados_result.getString("key_acesso");
+
                 //Salvar no Sqlite para nao perder os dados da pessoa logada no  app
                 dbconn.insertConsumidor(id_consumidor,nome,email,senha,tipo_acesso);
 
@@ -134,10 +132,21 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
                 //LoginActivity.context.startActivity(new Intent(LoginActivity.context, Lista_inicial.class));
 
 
+            } else if (message.equalsIgnoreCase("ativacao")) {
+                LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
+                builder.setTitle("Ative sua conta");
+                builder.setMessage("É necessário ativar sua conta com o link enviado em seu e-mail");
+                builder.setPositiveButton("Fechar", null);
+                builder.setCancelable(false);
+                builder.show();
+                if (mListener != null) {
+                    mListener.onLoaded("false");
+                }
             } else {
                 LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-                builder.setTitle("Titulo do dialog");
+                builder.setTitle("");
                 builder.setMessage("Login/Senha incorreto");
                 builder.setPositiveButton("Fechar", null);
                 builder.setCancelable(false);
@@ -152,7 +161,7 @@ public class SincronizaLogin extends AsyncTask<String, String, String> {
             LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
             LoginActivity.mProgressView.setVisibility(View.INVISIBLE);
             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.context);
-            builder.setTitle("Titulo do dialog");
+            builder.setTitle("Erro");
             builder.setMessage("Erro ao Carregar Dados");
             builder.setPositiveButton("Fechar", null);
             builder.setCancelable(false);

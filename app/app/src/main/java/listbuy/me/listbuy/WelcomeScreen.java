@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import listbuy.me.listbuy.entities.Consumidor;
+import listbuy.me.listbuy.lista.DbConn;
+
 public class WelcomeScreen extends AppCompatActivity {
 
     /**
@@ -26,8 +29,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    public static final String NOME_PREFERENCE = "INFORMACOES_LOGIN_AUTOMATICO";
-
+    private DbConn dbconn;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -37,6 +39,13 @@ public class WelcomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        dbconn = new DbConn(this);
+        Consumidor consumidor = dbconn.selectConsumidor();
+        if (consumidor.getId_consumidor() != null) {
+            startActivity(new Intent(getApplicationContext(),MenuLateral.class));
+        }
+
         setContentView(R.layout.welcome);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -48,31 +57,6 @@ public class WelcomeScreen extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Chama a tela de Compartilhamento
-//                Intent intent = new Intent(WelcomeScreen.this,SharingScreen.class);
-//                startActivity(intent);
-//            }
-//        });
-
-    }
-
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        SharedPreferences prefs = getSharedPreferences(NOME_PREFERENCE, MODE_PRIVATE);
-        String login= prefs.getString("login", null);
-
-        if (login != null) {
-            startActivity(new Intent(this, MenuLateral.class));
-        }
     }
 
     @Override
@@ -80,30 +64,6 @@ public class WelcomeScreen extends AppCompatActivity {
         super.onBackPressed();
         finishActivity(1);
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_welcome_screen, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            startActivity(new Intent(this, MenuLateral.class));
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
 
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
